@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Alet/Kazma/KazmaSimge.png" type="Texture" id=1]
+[ext_resource path="res://Alet/Kazma/KazmaEfek.png" type="Texture" id=2]
+[ext_resource path="res://Alet/Alet.gd" type="Script" id=3]
+
+[node name="Kazma" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Simge" type="Sprite" parent="."]
+rotation = 0.785398
+texture = ExtResource( 1 )
+offset = Vector2( 5.5, -5.5 )
+
+[node name="Efek" type="Sprite" parent="Simge"]
+visible = false
+position = Vector2( 0, -11.5 )
+texture = ExtResource( 2 )
+
+[node name="TimerEfek" type="Timer" parent="."]
+wait_time = 0.08
+one_shot = true
+
+[connection signal="timeout" from="TimerEfek" to="." method="_on_TimerEfek_timeout"]
