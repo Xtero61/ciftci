@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Duvar.png-407b0979af6560a4104919199ed9134f.stex"
+path="res://.import/Kapı.png-c93cbc0b605c8b5e99f498fb4cb7fc90.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Duvar.png"
-dest_files=[ "res://.import/Duvar.png-407b0979af6560a4104919199ed9134f.stex" ]
+source_file="res://Blok/Kapı/Kapı.png"
+dest_files=[ "res://.import/Kapı.png-c93cbc0b605c8b5e99f498fb4cb7fc90.stex" ]
 
 [params]
 

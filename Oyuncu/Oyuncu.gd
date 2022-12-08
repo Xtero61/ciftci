@@ -38,7 +38,7 @@ func _physics_process(delta):
 		vektor = vektor.move_toward(Vector2.ZERO , 500 * delta)
 
 	else :
-
+		Genel._CatiAltindaMi(global_position)
 		animationPlayer.play("Yurume")
 		vektor = vektor.move_toward(Yon.normalized() * Hiz , 500 * delta)
 
@@ -89,12 +89,12 @@ func _input(event):
 		El_Esya_Yer.add_child(Cekic)
 	elif event.is_action_pressed("Yuva8"):
 		EldekiEsyayiSil()
-		var Sahne = load("res://Duvar.tscn")
+		var Sahne = load("res://Blok/Duvar/Duvar.tscn")
 		var Duvar = Sahne.instance()
 		El_Esya_Yer.add_child(Duvar)
 	elif event.is_action_pressed("Yuva9"):
 		EldekiEsyayiSil()
-		var Sahne = load("res://CamliDuvar.tscn")
+		var Sahne = load("res://Blok/Kapı/Kapi.tscn")
 		var CamliDuvar = Sahne.instance()
 		El_Esya_Yer.add_child(CamliDuvar)
 

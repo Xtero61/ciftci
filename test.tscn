@@ -1,16 +1,19 @@
-[gd_scene load_steps=107 format=2]
+[gd_scene load_steps=111 format=2]
 
 [ext_resource path="res://yeryuzu/Dünya.tres" type="Texture" id=1]
 [ext_resource path="res://Oyuncu/Oyuncu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://yeryuzu/Deniz.tres" type="Texture" id=3]
 [ext_resource path="res://yeryuzu/Toprak_Tarla.png" type="Texture" id=4]
 [ext_resource path="res://yeryuzu/Surulmus_Tarla_1.png" type="Texture" id=5]
-[ext_resource path="res://Duvar.png" type="Texture" id=6]
+[ext_resource path="res://Blok/Duvar/Duvar.png" type="Texture" id=6]
 [ext_resource path="res://yeryuzu/autotile.gd" type="Script" id=7]
 [ext_resource path="res://yeryuzu/Surulmus_Tarla_2.png" type="Texture" id=8]
 [ext_resource path="res://yeryuzu/Sulanmis_Tarla.png" type="Texture" id=9]
 [ext_resource path="res://yeryuzu/autotile2.gd" type="Script" id=10]
-[ext_resource path="res://CamlıDuvar.png" type="Texture" id=11]
+[ext_resource path="res://Blok/Camlı Duvar/CamlıDuvar.png" type="Texture" id=11]
+[ext_resource path="res://Çatı.png" type="Texture" id=12]
+[ext_resource path="res://Blok/Kapı/DunyaKapi.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Blok/Kapı/Kapı.png" type="Texture" id=14]
 
 [sub_resource type="TileSet" id=1]
 1/name = "Deniz.tres 1"
@@ -1056,7 +1059,46 @@ points = PoolVector2Array( 16, 32, 0, 32, 0, 16, 16, 16 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 1/z_index = 0
+2/name = "Kapı.png 2"
+2/texture = ExtResource( 14 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 0, 0, 16, 32 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
+2/shapes = [  ]
+2/z_index = 0
 script = ExtResource( 7 )
+
+[sub_resource type="TileSet" id=96]
+0/name = "Çatı.png 0"
+0/texture = ExtResource( 12 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 176, 80 )
+0/tile_mode = 1
+0/autotile/bitmask_mode = 1
+0/autotile/bitmask_flags = [ Vector2( 0, 0 ), 16, Vector2( 0, 1 ), 144, Vector2( 0, 2 ), 146, Vector2( 0, 3 ), 18, Vector2( 1, 0 ), 48, Vector2( 1, 1 ), 432, Vector2( 1, 2 ), 438, Vector2( 1, 3 ), 54, Vector2( 2, 0 ), 56, Vector2( 2, 1 ), 504, Vector2( 2, 2 ), 511, Vector2( 2, 3 ), 63, Vector2( 3, 0 ), 24, Vector2( 3, 1 ), 216, Vector2( 3, 2 ), 219, Vector2( 3, 3 ), 27, Vector2( 4, 0 ), 176, Vector2( 4, 1 ), 182, Vector2( 4, 2 ), 434, Vector2( 4, 3 ), 50, Vector2( 4, 4 ), 178, Vector2( 5, 0 ), 248, Vector2( 5, 1 ), 255, Vector2( 5, 2 ), 507, Vector2( 5, 3 ), 59, Vector2( 5, 4 ), 251, Vector2( 6, 0 ), 440, Vector2( 6, 1 ), 447, Vector2( 6, 2 ), 510, Vector2( 6, 3 ), 62, Vector2( 6, 4 ), 446, Vector2( 7, 0 ), 152, Vector2( 7, 1 ), 155, Vector2( 7, 2 ), 218, Vector2( 7, 3 ), 26, Vector2( 7, 4 ), 154, Vector2( 8, 0 ), 184, Vector2( 8, 1 ), 191, Vector2( 8, 2 ), 506, Vector2( 8, 3 ), 58, Vector2( 8, 4 ), 186, Vector2( 9, 1 ), 254, Vector2( 9, 2 ), 442, Vector2( 9, 3 ), 190, Vector2( 10, 1 ), 443, Vector2( 10, 2 ), 250, Vector2( 10, 3 ), 187 ]
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 16, 16 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
 
 [node name="Dunya" type="Node2D"]
 
@@ -1074,7 +1116,7 @@ cell_size = Vector2( 16, 16 )
 cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
 format = 1
 
-[node name="Duvar" type="TileMap" parent="."]
+[node name="Yapi" type="TileMap" parent="."]
 tile_set = SubResource( 3 )
 cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 32
@@ -1084,5 +1126,17 @@ cell_y_sort = true
 format = 1
 tile_data = PoolIntArray( 458754, 0, 4, 458755, 0, 196610, 458756, 1, 196610, 458757, 0, 196610, 458758, 0, 196610, 458759, 1, 196610, 458760, 0, 196610, 458761, 0, 196610, 458762, 1, 196610, 458763, 0, 196610, 458764, 0, 7, 524290, 0, 65536, 524300, 0, 65536, 589826, 0, 65536, 589836, 0, 65536, 655362, 0, 65536, 655372, 0, 65536, 720898, 0, 196612, 720899, 1, 196610, 720900, 0, 7, 720906, 0, 4, 720907, 1, 196610, 720908, 0, 196615, 786436, 0, 196612, 786437, 1, 196610, 786438, 0, 196611, 786440, 0, 196609, 786441, 1, 196610, 786442, 0, 196615 )
 
-[node name="Oyuncu" parent="Duvar" instance=ExtResource( 2 )]
+[node name="Oyuncu" parent="Yapi" instance=ExtResource( 2 )]
 position = Vector2( 328, 189 )
+
+[node name="Kapi" parent="Yapi" instance=ExtResource( 13 )]
+position = Vector2( 120, 216 )
+
+[node name="Cati" type="TileMap" parent="."]
+tile_set = SubResource( 96 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 32
+cell_custom_transform = Transform2D( 16, 0, 0, 32, 0, 0 )
+cell_tile_origin = 1
+format = 1
+tile_data = PoolIntArray( 393218, 0, 65537, 393219, 0, 65538, 393220, 0, 65538, 393221, 0, 65538, 393222, 0, 65538, 393223, 0, 65538, 393224, 0, 65538, 393225, 0, 65538, 393226, 0, 65538, 393227, 0, 65538, 393228, 0, 65539, 458754, 0, 131073, 458755, 0, 131074, 458756, 0, 131074, 458757, 0, 131074, 458758, 0, 131074, 458759, 0, 131074, 458760, 0, 131074, 458761, 0, 131074, 458762, 0, 131074, 458763, 0, 131074, 458764, 0, 131075, 524290, 0, 131073, 524291, 0, 131074, 524292, 0, 131074, 524293, 0, 131074, 524294, 0, 131074, 524295, 0, 131074, 524296, 0, 131074, 524297, 0, 131074, 524298, 0, 131074, 524299, 0, 131074, 524300, 0, 131075, 589826, 0, 131073, 589827, 0, 131074, 589828, 0, 131074, 589829, 0, 131074, 589830, 0, 131074, 589831, 0, 131074, 589832, 0, 131074, 589833, 0, 131074, 589834, 0, 131074, 589835, 0, 131074, 589836, 0, 131075, 655362, 0, 131073, 655363, 0, 131074, 655364, 0, 131074, 655365, 0, 131074, 655366, 0, 131074, 655367, 0, 131074, 655368, 0, 131074, 655369, 0, 131074, 655370, 0, 131074, 655371, 0, 131074, 655372, 0, 131075, 720898, 0, 196609, 720899, 0, 196610, 720900, 0, 65542, 720901, 0, 131074, 720902, 0, 131074, 720903, 0, 131074, 720904, 0, 131074, 720905, 0, 131074, 720906, 0, 65541, 720907, 0, 196610, 720908, 0, 196611, 786436, 0, 196609, 786437, 0, 196610, 786438, 0, 196610, 786439, 0, 196610, 786440, 0, 196610, 786441, 0, 196610, 786442, 0, 196611 )

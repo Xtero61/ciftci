@@ -2,7 +2,8 @@ extends Node2D
 
 const YERYUZU_TILEMAP : String = "/root/Dunya/Yeryuzu"
 const TARLA_TILEMAP : String = "/root/Dunya/Tarla"
-const YAPI_TILEMAP : String = "/root/Dunya/Duvar"
+const YAPI_TILEMAP : String = "/root/Dunya/Yapi"
+const CATI_TILEMAP : String = "/root/Dunya/Cati"
 
 #Yeryüzü döşeme sayıları
 const yeryuzu_kara : int = 3
@@ -18,7 +19,10 @@ const tarla_sulu_toprak : int = 3
 #Yapı döşeme sayıları
 const yapi_duvar : int = 0
 const yapi_duvar_camli : int = 1
+const yapi_kapi : int = 2
 const bos : int = -1
+
+var Kapisahne = load("res://Blok/Kapı/DunyaKapi.tscn")
 
 func _TarlaYapma(Koy_Sil_Sula,Fare_yer): 
 
@@ -56,12 +60,17 @@ func _TarlaYapma(Koy_Sil_Sula,Fare_yer):
 
 func _YapiYapma(Koy_Sil,YapilanYapi,Fare_yer):
 	#aldığı kordinatı tilemap kordinatına çevirir
-	var tile = get_node(TARLA_TILEMAP).world_to_map(Fare_yer)
+	var tile = get_node(YAPI_TILEMAP).world_to_map(Fare_yer)
 	
 	if Koy_Sil == "Koy":
 		#Yapının haritanın sulu yerine yapılmaması için olan if
 		if get_node(YERYUZU_TILEMAP).get_cell(tile.x,tile.y) == yeryuzu_kara :
-			if get_node(YAPI_TILEMAP).get_cell(tile.x,tile.y-1) == bos :
+			if YapilanYapi == yapi_kapi :
+				var Kapi = Kapisahne.instance()
+				get_node(YAPI_TILEMAP).add_child(Kapi)
+				Kapi.global_position = Fare_yer
+
+			elif get_node(YAPI_TILEMAP).get_cell(tile.x,tile.y-1) == bos :
 				get_node(YAPI_TILEMAP).set_cell(tile.x,tile.y-1,YapilanYapi)
 				get_node(YAPI_TILEMAP).update_bitmask_region(tile,tile)
 
@@ -69,4 +78,9 @@ func _YapiYapma(Koy_Sil,YapilanYapi,Fare_yer):
 		get_node(YAPI_TILEMAP).set_cell(tile.x,tile.y-1,-1)
 		get_node(YAPI_TILEMAP).update_bitmask_region(tile,tile)
 
-		
+func _CatiAltindaMi(Oyuncu_Yer):
+	var tile = get_node(CATI_TILEMAP).world_to_map(Oyuncu_Yer)
+	if get_node(CATI_TILEMAP).get_cell(tile.x,tile.y) != bos :
+		get_node(CATI_TILEMAP).modulate = Color("b4ffffff")
+	else :
+		get_node(CATI_TILEMAP).modulate = Color("ffffffff")

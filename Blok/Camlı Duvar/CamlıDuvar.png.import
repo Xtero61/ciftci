@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/CamlıDuvar.png-706284b576c8f28a0e0af86614308b2a.stex"
+path="res://.import/CamlıDuvar.png-f5e3c55d29e93fefad709c5a6ed5c602.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://CamlıDuvar.png"
-dest_files=[ "res://.import/CamlıDuvar.png-706284b576c8f28a0e0af86614308b2a.stex" ]
+source_file="res://Blok/Camlı Duvar/CamlıDuvar.png"
+dest_files=[ "res://.import/CamlıDuvar.png-f5e3c55d29e93fefad709c5a6ed5c602.stex" ]
 
 [params]
 
