@@ -6,7 +6,7 @@
 [node name="Kapi" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="Kapı" type="Sprite" parent="."]
+[node name="Kapi" type="Sprite" parent="."]
 position = Vector2( 10.5, 5 )
 rotation = 1.5708
 texture = ExtResource( 1 )

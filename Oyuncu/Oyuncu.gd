@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+onready var YurumeEfek = $YurumeEfek
 onready var imlec = $imlec
 onready var Cevir = $Cevir
 onready var Sol_el = $Cevir/SolEl
@@ -33,12 +34,13 @@ func _physics_process(delta):
 
 	#oyuncunun vektörünün sıfıra eşit veya olmadığı yerlerde yapılması gereken kodlar
 	if Yon == Vector2.ZERO :
-
+		YurumeEfek.emitting = false
 		animationPlayer.play("Durus")
 		vektor = vektor.move_toward(Vector2.ZERO , 500 * delta)
 
 	else :
 		Genel._CatiAltindaMi(global_position)
+		YurumeEfek.emitting = true
 		animationPlayer.play("Yurume")
 		vektor = vektor.move_toward(Yon.normalized() * Hiz , 500 * delta)
 
@@ -94,7 +96,7 @@ func _input(event):
 		El_Esya_Yer.add_child(Duvar)
 	elif event.is_action_pressed("Yuva9"):
 		EldekiEsyayiSil()
-		var Sahne = load("res://Blok/Kapı/Kapi.tscn")
+		var Sahne = load("res://Blok/Çatı/Cati.tscn")
 		var CamliDuvar = Sahne.instance()
 		El_Esya_Yer.add_child(CamliDuvar)
 

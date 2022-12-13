@@ -8,6 +8,9 @@ func Islev_Oynat(Yapilcak_Yer):
 
 	Efek.visible = true
 	TimerEfek.start()
+	if ismim != "SulamaKabi" and ismim != "Capa":
+		var VurmaAlan = $VurmaAlan
+		VurmaAlan.disabled = false
 
 	if ismim == "Capa":
 		Capalama(Yapilcak_Yer)
@@ -35,3 +38,6 @@ func Yik(Yapilcak_Yer):
 
 func _on_TimerEfek_timeout():
 	Efek.visible = false
+	if ismim != "SulamaKabi" and ismim != "Capa":
+		var VurmaAlan = $VurmaAlan
+		VurmaAlan.disabled = true

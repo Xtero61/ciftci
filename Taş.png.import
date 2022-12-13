@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Çatı.png-7d389f837e4cf835a26d7e17af23bc13.stex"
+path="res://.import/Taş.png-602b8f3d55e85c0504f9d586838cc2aa.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Çatı.png"
-dest_files=[ "res://.import/Çatı.png-7d389f837e4cf835a26d7e17af23bc13.stex" ]
+source_file="res://Taş.png"
+dest_files=[ "res://.import/Taş.png-602b8f3d55e85c0504f9d586838cc2aa.stex" ]
 
 [params]
 

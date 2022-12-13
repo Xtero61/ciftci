@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Alet/Kürek/KürekSimge.png" type="Texture" id=1]
 [ext_resource path="res://Alet/Kürek/KürekEfekt.png" type="Texture" id=2]
 [ext_resource path="res://Alet/Alet.gd" type="Script" id=3]
 
-[node name="Kurek" type="Node2D"]
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 3, 3 )
+
+[node name="Kurek" type="Area2D"]
 script = ExtResource( 3 )
 
 [node name="Simge" type="Sprite" parent="."]
@@ -16,6 +19,12 @@ offset = Vector2( 5.5, -5.5 )
 visible = false
 position = Vector2( 0.5, -12.5 )
 texture = ExtResource( 2 )
+
+[node name="VurmaAlan" type="CollisionShape2D" parent="."]
+position = Vector2( 14, 2.4869e-14 )
+rotation = 1.5708
+shape = SubResource( 1 )
+disabled = true
 
 [node name="TimerEfek" type="Timer" parent="."]
 wait_time = 0.06

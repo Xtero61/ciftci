@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Alet/Balta/BaltaSimge.png" type="Texture" id=1]
 [ext_resource path="res://Alet/Balta/BaltaEfek.png" type="Texture" id=2]
 [ext_resource path="res://Alet/Alet.gd" type="Script" id=3]
 
-[node name="Balta" type="Node2D"]
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 3.375, 2.5 )
+
+[node name="Balta" type="Area2D"]
 script = ExtResource( 3 )
 
 [node name="Simge" type="Sprite" parent="."]
@@ -17,6 +20,11 @@ offset = Vector2( 6.50466, -4.99192 )
 visible = false
 position = Vector2( 1, -11.5 )
 texture = ExtResource( 2 )
+
+[node name="VurmaAlan" type="CollisionShape2D" parent="."]
+position = Vector2( 12.7, 3 )
+shape = SubResource( 1 )
+disabled = true
 
 [node name="TimerEfek" type="Timer" parent="."]
 wait_time = 0.08
