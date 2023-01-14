@@ -102,6 +102,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("Gölge:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0.5 ) ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "Vurulma"
@@ -130,6 +142,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 7, 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Gölge:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2 ),
+"transitions": PoolRealArray( 1, 2, 1, -2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0.5 ), Vector2( 2, 0.5 ), Vector2( 0, 0.5 ), Vector2( -2, 0.5 ), Vector2( 0, 0.5 ) ]
 }
 
 [node name="Tas" type="Node2D"]

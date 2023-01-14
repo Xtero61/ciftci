@@ -2,7 +2,10 @@ extends Node
 
 onready var ismim = $".".name
 onready var TimerEfek = $TimerEfek
+onready var Simge = $Simge
 onready var Efek = $Simge/Efek
+
+var sulama_hak = 0 
 
 func Islev_Oynat(Yapilcak_Yer):
 
@@ -18,8 +21,16 @@ func Islev_Oynat(Yapilcak_Yer):
 	elif ismim == "Kurek":
 		Kurekleme(Yapilcak_Yer)
 
-	elif ismim == "SulamaKabi":
-		Sulama(Yapilcak_Yer)
+	elif ismim == "SulamaKabi" :
+		if sulama_hak > 0 and Genel._TarlaYapma("Kontrol",Yapilcak_Yer) :
+			Sulama(Yapilcak_Yer)
+			sulama_hak -= 1
+		elif Genel._TarlaYapma("Su_doldur",Yapilcak_Yer) :
+			sulama_hak = 20
+		if sulama_hak == 0 :
+			Simge.frame = 0
+		else :
+			Simge.frame = 1
 
 	elif ismim == "Cekic" :
 		Yik(Yapilcak_Yer)

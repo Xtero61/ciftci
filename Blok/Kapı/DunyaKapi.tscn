@@ -1,13 +1,16 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Blok/Kapı/KapıAnimasyon.png" type="Texture" id=1]
 [ext_resource path="res://Blok/Kapı/DunyaKapi.gd" type="Script" id=2]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8, 3 )
-
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8, 10 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 8, 3 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 3 )
 
 [sub_resource type="Animation" id=3]
 resource_name = "Açılma"
@@ -67,53 +70,35 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=5]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("KapiAnimasyon:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("StaticBody2D/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ false ]
-}
 
 [node name="Kapi" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="KapiAnimasyon" type="Sprite" parent="."]
+position = Vector2( 0, -7 )
 texture = ExtResource( 1 )
 hframes = 5
+
+[node name="KapiAcilmaArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KapiAcilmaArea"]
+shape = SubResource( 2 )
+
+[node name="KapiKirilma" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KapiKirilma"]
+shape = SubResource( 6 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource( 1 )
 
-[node name="Kapi" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Kapi"]
-position = Vector2( 0, 3 )
-shape = SubResource( 2 )
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 "anims/Açılma" = SubResource( 3 )
 anims/Kapanma = SubResource( 4 )
 anims/RESET = SubResource( 5 )
 
-[connection signal="body_entered" from="Kapi" to="." method="_on_Kapi_body_entered"]
-[connection signal="body_exited" from="Kapi" to="." method="_on_Kapi_body_exited"]
+[connection signal="body_entered" from="KapiAcilmaArea" to="." method="_on_Kapi_body_entered"]
+[connection signal="body_exited" from="KapiAcilmaArea" to="." method="_on_Kapi_body_exited"]
+[connection signal="area_entered" from="KapiKirilma" to="." method="_on_KapiKirilma_area_entered"]

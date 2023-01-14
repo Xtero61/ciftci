@@ -302,7 +302,7 @@ scale_amount_curve = SubResource( 12 )
 color_ramp = SubResource( 10 )
 
 [node name="imlec" type="Sprite" parent="."]
-z_index = 1
+z_index = 5
 texture = ExtResource( 2 )
 
 [node name="Cevir" type="Node2D" parent="."]
@@ -377,7 +377,7 @@ anims/RESET = SubResource( 8 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
-zoom = Vector2( 0.35, 0.35 )
+zoom = Vector2( 0.7, 0.7 )
 smoothing_enabled = true
 
 [node name="TimerVurma" type="Timer" parent="."]

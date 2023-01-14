@@ -11,7 +11,6 @@ rotation = 0.785398
 texture = ExtResource( 2 )
 offset = Vector2( 4.63, -5.075 )
 hframes = 2
-frame = 1
 
 [node name="Efek" type="Sprite" parent="Simge"]
 

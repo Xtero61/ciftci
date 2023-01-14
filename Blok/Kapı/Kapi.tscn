@@ -7,6 +7,6 @@
 script = ExtResource( 2 )
 
 [node name="Kapi" type="Sprite" parent="."]
-position = Vector2( 10.5, 5 )
+position = Vector2( 13, 5 )
 rotation = 1.5708
 texture = ExtResource( 1 )

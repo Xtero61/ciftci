@@ -26,15 +26,15 @@ const bos : int = -1
 
 var Kapisahne = load("res://Blok/Kapı/DunyaKapi.tscn")
 
-func _TarlaYapma(Koy_Sil_Sula,Fare_yer): 
+func _TarlaYapma(Koy_Sil_Sula_Kontrol,Fare_yer): 
 
 	#aldığı kordinatı tilemap kordinatına çevirir
 	var tile = get_node(TARLA_TILEMAP).world_to_map(Fare_yer)
 	
-	if Koy_Sil_Sula == "Koy" :
+	if Koy_Sil_Sula_Kontrol == "Koy" :
 		#tarlayı haritanın sulu yerine yapılmaması için olan if
 		if get_node(YERYUZU_TILEMAP).get_cell(tile.x,tile.y) == yeryuzu_kara :
-			if get_node(YAPI_TILEMAP).get_cell(tile.x,tile.y-1) == bos :
+			if get_node(YAPI_TILEMAP).get_cell(tile.x,tile.y) == bos :
 
 				#verilen kordinata tarla_toprak koyar
 				if get_node(TARLA_TILEMAP).get_cell(tile.x,tile.y) == bos :
@@ -51,15 +51,26 @@ func _TarlaYapma(Koy_Sil_Sula,Fare_yer):
 					get_node(TARLA_TILEMAP).set_cell(tile.x,tile.y,tarla_suru_toprak_1)
 					get_node(TARLA_TILEMAP).update_bitmask_region(tile,tile)
 
-	elif Koy_Sil_Sula == "Sula" :
+	elif Koy_Sil_Sula_Kontrol == "Sula" :
 		if get_node(TARLA_TILEMAP).get_cell(tile.x,tile.y) == tarla_suru_toprak_1 :
 			get_node(TARLA_TILEMAP).set_cell(tile.x,tile.y,tarla_sulu_toprak)
 			get_node(TARLA_TILEMAP).update_bitmask_region(tile,tile)
 
-	elif Koy_Sil_Sula == "Sil" :
+	elif Koy_Sil_Sula_Kontrol == "Sil" :
 		get_node(TARLA_TILEMAP).set_cell(tile.x,tile.y,bos)
 		get_node(TARLA_TILEMAP).update_bitmask_region(tile,tile)
 
+	elif Koy_Sil_Sula_Kontrol == "Kontrol":
+		if get_node(TARLA_TILEMAP).get_cell(tile.x,tile.y) == tarla_suru_toprak_1 :
+			return true
+		else :
+			return false
+	elif Koy_Sil_Sula_Kontrol == "Su_doldur" :
+		if get_node(YERYUZU_TILEMAP).get_cell(tile.x,tile.y) == yeryuzu_kenar_kara or get_node(YERYUZU_TILEMAP).get_cell(tile.x,tile.y) == yeryuzu_deniz :
+			return true
+		else :
+			return false
+	
 func _YapiYapma(Koy_Sil_Cati,YapilanYapi,Fare_yer):
 	#aldığı kordinatı tilemap kordinatına çevirir
 	var tile = get_node(YAPI_TILEMAP).world_to_map(Fare_yer)
@@ -70,10 +81,10 @@ func _YapiYapma(Koy_Sil_Cati,YapilanYapi,Fare_yer):
 			if YapilanYapi == yapi_kapi :
 				var Kapi = Kapisahne.instance()
 				get_node(YAPI_TILEMAP).add_child(Kapi)
-				Kapi.global_position = Fare_yer
+				Kapi.global_position = Vector2(Fare_yer.x,Fare_yer.y)
 
-			elif get_node(YAPI_TILEMAP).get_cell(tile.x,tile.y-1) == bos :
-				get_node(YAPI_TILEMAP).set_cell(tile.x,tile.y-1,YapilanYapi)
+			elif get_node(YAPI_TILEMAP).get_cell(tile.x,tile.y) == bos :
+				get_node(YAPI_TILEMAP).set_cell(tile.x,tile.y,YapilanYapi)
 				get_node(YAPI_TILEMAP).update_bitmask_region(tile,tile)
 
 	elif Koy_Sil_Cati == "Cati":
@@ -85,7 +96,7 @@ func _YapiYapma(Koy_Sil_Cati,YapilanYapi,Fare_yer):
 			get_node(CATI_TILEMAP).set_cell(tile.x,tile.y,bos)
 			get_node(CATI_TILEMAP).update_bitmask_region(tile,tile)
 		else:
-			get_node(YAPI_TILEMAP).set_cell(tile.x,tile.y-1,bos)
+			get_node(YAPI_TILEMAP).set_cell(tile.x,tile.y,bos)
 			get_node(YAPI_TILEMAP).update_bitmask_region(tile,tile)
 
 

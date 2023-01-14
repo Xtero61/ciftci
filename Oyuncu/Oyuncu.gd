@@ -96,7 +96,7 @@ func _input(event):
 		El_Esya_Yer.add_child(Duvar)
 	elif event.is_action_pressed("Yuva9"):
 		EldekiEsyayiSil()
-		var Sahne = load("res://Blok/Çatı/Cati.tscn")
+		var Sahne = load("res://Blok/Kapı/Kapi.tscn")
 		var CamliDuvar = Sahne.instance()
 		El_Esya_Yer.add_child(CamliDuvar)
 
