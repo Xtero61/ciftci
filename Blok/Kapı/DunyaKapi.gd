@@ -2,7 +2,7 @@ extends Node2D
 
 onready var animasyonPlayer = $AnimationPlayer 
 
-var VurulmaSayi : int
+var VurulmaSayi : int = 0
 var KirilmaSayi : int = 3
 
 func _on_Kapi_body_entered(body):

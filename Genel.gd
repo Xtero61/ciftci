@@ -23,7 +23,7 @@ const yapi_kapi : int = 2
 const yapi_cati : int = 0
 const bos : int = -1
 
-
+var SulamaEfekSahne = load("res://SulamaEfek.tscn")
 var Kapisahne = load("res://Blok/Kapı/DunyaKapi.tscn")
 
 func _TarlaYapma(Koy_Sil_Sula_Kontrol,Fare_yer): 
@@ -55,6 +55,9 @@ func _TarlaYapma(Koy_Sil_Sula_Kontrol,Fare_yer):
 		if get_node(TARLA_TILEMAP).get_cell(tile.x,tile.y) == tarla_suru_toprak_1 :
 			get_node(TARLA_TILEMAP).set_cell(tile.x,tile.y,tarla_sulu_toprak)
 			get_node(TARLA_TILEMAP).update_bitmask_region(tile,tile)
+			var SulamaEfek = SulamaEfekSahne.instance()
+			get_node(YAPI_TILEMAP).add_child(SulamaEfek)
+			SulamaEfek.global_position = Fare_yer
 
 	elif Koy_Sil_Sula_Kontrol == "Sil" :
 		get_node(TARLA_TILEMAP).set_cell(tile.x,tile.y,bos)
@@ -81,7 +84,7 @@ func _YapiYapma(Koy_Sil_Cati,YapilanYapi,Fare_yer):
 			if YapilanYapi == yapi_kapi :
 				var Kapi = Kapisahne.instance()
 				get_node(YAPI_TILEMAP).add_child(Kapi)
-				Kapi.global_position = Vector2(Fare_yer.x,Fare_yer.y)
+				Kapi.global_position = Fare_yer
 
 			elif get_node(YAPI_TILEMAP).get_cell(tile.x,tile.y) == bos :
 				get_node(YAPI_TILEMAP).set_cell(tile.x,tile.y,YapilanYapi)

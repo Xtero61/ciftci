@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Oyuncu/Oyuncu.gd" type="Script" id=1]
 [ext_resource path="res://İmleç.png" type="Texture" id=2]
@@ -6,14 +6,33 @@
 [ext_resource path="res://Oyuncu/KGövdeDYK.png" type="Texture" id=4]
 [ext_resource path="res://Oyuncu/kKafaDYK.png" type="Texture" id=5]
 [ext_resource path="res://Gölge.png" type="Texture" id=6]
-[ext_resource path="res://Efek.png" type="Texture" id=7]
 
-[sub_resource type="Curve" id=12]
-_data = [ Vector2( 0.00765306, 0.976994 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.167178 ), -0.762847, 0.0, 0, 0 ]
+[sub_resource type="Gradient" id=13]
+offsets = PoolRealArray( 0, 0.984127, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 0.730469, 0.627747, 0.627747, 0.313726, 1, 1, 1, 0 )
 
-[sub_resource type="Gradient" id=10]
-offsets = PoolRealArray( 0.0123457, 1 )
-colors = PoolColorArray( 1, 1, 1, 1, 0.294118, 0.305882, 0.294118, 0 )
+[sub_resource type="GradientTexture" id=14]
+gradient = SubResource( 13 )
+
+[sub_resource type="Curve" id=15]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.209375, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.46319 ), 0.0320521, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=16]
+curve = SubResource( 15 )
+
+[sub_resource type="ParticlesMaterial" id=17]
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+angular_velocity = 100.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 45.0
+angle_random = 1.0
+scale = 4.0
+scale_random = 0.5
+scale_curve = SubResource( 16 )
+color_ramp = SubResource( 14 )
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 4.0
@@ -284,22 +303,13 @@ tracks/0/keys = {
 [node name="Oyuncu" type="KinematicBody2D"]
 script = ExtResource( 1 )
 
-[node name="YurumeEfek" type="CPUParticles2D" parent="."]
+[node name="YurumeEfek" type="Particles2D" parent="."]
 position = Vector2( 0, 2 )
 emitting = false
 amount = 4
 fixed_fps = 60
 local_coords = false
-texture = ExtResource( 7 )
-gravity = Vector2( 0, 0 )
-angular_velocity = 100.0
-angular_velocity_random = 1.0
-angle = 45.0
-angle_random = 1.0
-scale_amount = 0.5
-scale_amount_random = 0.25
-scale_amount_curve = SubResource( 12 )
-color_ramp = SubResource( 10 )
+process_material = SubResource( 17 )
 
 [node name="imlec" type="Sprite" parent="."]
 z_index = 5

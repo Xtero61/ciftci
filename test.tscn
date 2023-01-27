@@ -1,21 +1,21 @@
 [gd_scene load_steps=114 format=2]
 
-[ext_resource path="res://Yeryuzu.tres" type="TileSet" id=1]
+[ext_resource path="res://Yeryuzu/Yeryuzu.tres" type="TileSet" id=1]
 [ext_resource path="res://Oyuncu/Oyuncu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://test.gd" type="Script" id=3]
-[ext_resource path="res://yeryuzu/Toprak_Tarla.png" type="Texture" id=4]
-[ext_resource path="res://yeryuzu/Surulmus_Tarla_1.png" type="Texture" id=5]
+[ext_resource path="res://Yeryuzu/Toprak_Tarla.png" type="Texture" id=4]
+[ext_resource path="res://Yeryuzu/Surulmus_Tarla_1.png" type="Texture" id=5]
 [ext_resource path="res://Blok/Duvar/Duvar.png" type="Texture" id=6]
-[ext_resource path="res://yeryuzu/autotile.gd" type="Script" id=7]
-[ext_resource path="res://yeryuzu/Surulmus_Tarla_2.png" type="Texture" id=8]
-[ext_resource path="res://yeryuzu/Sulanmis_Tarla.png" type="Texture" id=9]
+[ext_resource path="res://Yeryuzu/autotile.gd" type="Script" id=7]
+[ext_resource path="res://Yeryuzu/Surulmus_Tarla_2.png" type="Texture" id=8]
+[ext_resource path="res://Yeryuzu/Sulanmis_Tarla.png" type="Texture" id=9]
 [ext_resource path="res://Blok/Kapı/Kapı-üst.png" type="Texture" id=10]
 [ext_resource path="res://Blok/Camlı Duvar/CamlıDuvar.png" type="Texture" id=11]
 [ext_resource path="res://Blok/Çatı/Çatı.png" type="Texture" id=12]
 [ext_resource path="res://Blok/Kapı/DunyaKapi.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Blok/Kapı/Kapı.png" type="Texture" id=14]
-[ext_resource path="res://Agac.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Tas.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Yeryuzu/Agac/Agac.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Yeryuzu/Tas/Tas.tscn" type="PackedScene" id=16]
 
 [sub_resource type="TileSet" id=2]
 0/name = "Toprak_Tarla.png 0"
@@ -1021,26 +1021,20 @@ points = PoolVector2Array( 16, 48, 0, 48, 0, 32, 16, 32 )
 2/shape_one_way_margin = 0.0
 2/shapes = [  ]
 2/z_index = 0
-3/name = "Kapı-üst.png 3"
-3/texture = ExtResource( 10 )
-3/tex_offset = Vector2( -1, -48 )
-3/modulate = Color( 1, 1, 1, 1 )
-3/region = Rect2( 0, 0, 18, 16 )
-3/tile_mode = 0
-3/occluder_offset = Vector2( 0, 0 )
-3/navigation_offset = Vector2( 0, 0 )
-3/shape_offset = Vector2( 0, 0 )
-3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-3/shape_one_way = false
-3/shape_one_way_margin = 1.0
-3/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": null,
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-3/z_index = 0
+4/name = "Kapı-üst.png 4"
+4/texture = ExtResource( 10 )
+4/tex_offset = Vector2( -1, -48 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 0, 0, 18, 16 )
+4/tile_mode = 0
+4/occluder_offset = Vector2( 0, 0 )
+4/navigation_offset = Vector2( 0, 0 )
+4/shape_offset = Vector2( 0, 0 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+4/shape_one_way = false
+4/shape_one_way_margin = 0.0
+4/shapes = [  ]
+4/z_index = 0
 script = ExtResource( 7 )
 
 [sub_resource type="TileSet" id=96]
@@ -1086,14 +1080,14 @@ cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
 format = 1
 
 [node name="Yapi" type="TileMap" parent="."]
+light_mask = 3
 tile_set = SubResource( 3 )
 cell_size = Vector2( 16, 16 )
-cell_quadrant_size = 32
-cell_custom_transform = Transform2D( 16, 0, 0, 32, 0, 0 )
+cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
 cell_tile_origin = 2
 cell_y_sort = true
 format = 1
-tile_data = PoolIntArray( 393218, 0, 4, 393219, 0, 196610, 393220, 1, 196610, 393221, 0, 196610, 393222, 0, 196610, 393223, 1, 196610, 393224, 0, 196610, 393225, 0, 196610, 393226, 1, 196610, 393227, 0, 196610, 393228, 0, 7, 458754, 0, 65536, 458764, 0, 65536, 524290, 0, 65536, 524300, 0, 65536, 589826, 0, 65536, 589836, 0, 65536, 655362, 0, 65536, 655372, 0, 65536, 720898, 0, 65536, 720908, 0, 65536, 786434, 0, 196612, 786435, 1, 196610, 786436, 0, 7, 786442, 0, 4, 786443, 1, 196610, 786444, 0, 196615, 851972, 0, 196612, 851973, 1, 196610, 851974, 0, 196611, 851976, 0, 196609, 851977, 1, 196610, 851978, 0, 196615, 917511, 3, 0 )
+tile_data = PoolIntArray( 393218, 0, 4, 393219, 0, 196610, 393220, 1, 196610, 393221, 0, 196610, 393222, 0, 196610, 393223, 1, 196610, 393224, 0, 196610, 393225, 0, 196610, 393226, 1, 196610, 393227, 0, 196610, 393228, 0, 7, 458754, 0, 65536, 458764, 0, 65536, 524290, 0, 65536, 524300, 0, 65536, 589826, 0, 65536, 589836, 0, 65536, 655362, 0, 65536, 655372, 0, 65536, 720898, 0, 65536, 720908, 0, 65536, 786434, 0, 196612, 786435, 1, 196610, 786436, 0, 7, 786442, 0, 4, 786443, 1, 196610, 786444, 0, 196615, 851972, 0, 196612, 851973, 1, 196610, 851974, 0, 196611, 851976, 0, 196609, 851977, 1, 196610, 851978, 0, 196615, 917511, 4, 0 )
 
 [node name="Oyuncu" parent="Yapi" instance=ExtResource( 2 )]
 position = Vector2( 328, 189 )
