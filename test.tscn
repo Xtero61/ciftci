@@ -1,8 +1,7 @@
-[gd_scene load_steps=114 format=2]
+[gd_scene load_steps=113 format=2]
 
 [ext_resource path="res://Yeryuzu/Yeryuzu.tres" type="TileSet" id=1]
 [ext_resource path="res://Oyuncu/Oyuncu.tscn" type="PackedScene" id=2]
-[ext_resource path="res://test.gd" type="Script" id=3]
 [ext_resource path="res://Yeryuzu/Toprak_Tarla.png" type="Texture" id=4]
 [ext_resource path="res://Yeryuzu/Surulmus_Tarla_1.png" type="Texture" id=5]
 [ext_resource path="res://Blok/Duvar/Duvar.png" type="Texture" id=6]
@@ -1063,7 +1062,6 @@ script = ExtResource( 7 )
 0/z_index = 0
 
 [node name="Dunya" type="Node2D"]
-script = ExtResource( 3 )
 
 [node name="Yeryuzu" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -1114,7 +1112,7 @@ position = Vector2( 359, 316 )
 position = Vector2( 319, 316 )
 
 [node name="Kapi" parent="Yapi" instance=ExtResource( 13 )]
-position = Vector2( 120, 215 )
+position = Vector2( 120, 216 )
 
 [node name="Agac4" parent="Yapi" instance=ExtResource( 15 )]
 position = Vector2( 280, 316 )

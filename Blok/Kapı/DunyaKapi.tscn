@@ -1,7 +1,22 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Blok/Kapı/KapıAnimasyon.png" type="Texture" id=1]
 [ext_resource path="res://Blok/Kapı/DunyaKapi.gd" type="Script" id=2]
+
+[sub_resource type="Shader" id=7]
+code = "shader_type canvas_item;
+
+uniform float hit_opacity = 0;
+
+void fragment(){
+ COLOR.rgb = texture(TEXTURE, UV).rgb * (1.0 - hit_opacity) + vec3(1,1,1) * hit_opacity;
+ COLOR.a = texture(TEXTURE, UV).a ;
+}
+"
+
+[sub_resource type="ShaderMaterial" id=8]
+shader = SubResource( 7 )
+shader_param/hit_opacity = 0.0
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8, 9 )
@@ -70,12 +85,41 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=5]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("KapiAnimasyon:material:shader_param/hit_opacity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
 
-[node name="Kapi" type="Node2D"]
+[sub_resource type="Animation" id=10]
+resource_name = "Vurulma"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("KapiAnimasyon:material:shader_param/hit_opacity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.08, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.0, 0.0 ]
+}
+
+[node name="Kapi" type="Node2D" groups=["Kapi"]]
 script = ExtResource( 2 )
 
 [node name="KapiAnimasyon" type="Sprite" parent="."]
-position = Vector2( 0, -7 )
+material = SubResource( 8 )
+position = Vector2( 0, -8 )
 texture = ExtResource( 1 )
 hframes = 5
 
@@ -98,6 +142,9 @@ shape = SubResource( 1 )
 "anims/Açılma" = SubResource( 3 )
 anims/Kapanma = SubResource( 4 )
 anims/RESET = SubResource( 5 )
+
+[node name="VurulmaPlayer" type="AnimationPlayer" parent="."]
+anims/Vurulma = SubResource( 10 )
 
 [connection signal="body_entered" from="KapiAcilmaArea" to="." method="_on_Kapi_body_entered"]
 [connection signal="body_exited" from="KapiAcilmaArea" to="." method="_on_Kapi_body_exited"]

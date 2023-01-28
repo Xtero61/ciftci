@@ -19,7 +19,8 @@ const tarla_sulu_toprak : int = 3
 #Yapı döşeme sayıları
 const yapi_duvar : int = 0
 const yapi_duvar_camli : int = 1
-const yapi_kapi : int = 2 
+const yapi_kapi : int = 2
+const yapi_kapi_ust : int = 4
 const yapi_cati : int = 0
 const bos : int = -1
 
@@ -101,7 +102,18 @@ func _YapiYapma(Koy_Sil_Cati,YapilanYapi,Fare_yer):
 		else:
 			get_node(YAPI_TILEMAP).set_cell(tile.x,tile.y,bos)
 			get_node(YAPI_TILEMAP).update_bitmask_region(tile,tile)
+	get_tree().call_group("Kapi","kapi_etrafi_kontrol")
 
+func _KapiUstu(Koyma_Silme,Kapi_Yer):
+	var tile = get_node(TARLA_TILEMAP).world_to_map(Kapi_Yer)
+	if Koyma_Silme == "Koyma":
+		if get_node(YAPI_TILEMAP).get_cell(tile.x+1,tile.y) >= 0 and get_node(YAPI_TILEMAP).get_cell(tile.x-1,tile.y) >= 0 :
+			get_node(YAPI_TILEMAP).set_cell(tile.x,tile.y+1,yapi_kapi_ust)
+			get_node(YAPI_TILEMAP).update_bitmask_region(tile,tile)
+		else:
+			get_node(YAPI_TILEMAP).set_cell(tile.x,tile.y+1,bos)
+	elif Koyma_Silme == "Silme":
+		get_node(YAPI_TILEMAP).set_cell(tile.x,tile.y+1,bos)
 
 func _CatiAltindaMi(Oyuncu_Yer):
 	var tile = get_node(CATI_TILEMAP).world_to_map(Oyuncu_Yer)
