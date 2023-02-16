@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Oyuncu/Oyuncu.gd" type="Script" id=1]
 [ext_resource path="res://İmleç.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Oyuncu/KGövdeDYK.png" type="Texture" id=4]
 [ext_resource path="res://Oyuncu/kKafaDYK.png" type="Texture" id=5]
 [ext_resource path="res://Gölge.png" type="Texture" id=6]
+[ext_resource path="res://YurumeDokunmatikTus.tscn" type="PackedScene" id=7]
+[ext_resource path="res://YonDokunmatikTus.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Gradient" id=13]
 offsets = PoolRealArray( 0, 0.984127, 1 )
@@ -393,5 +395,15 @@ smoothing_enabled = true
 [node name="TimerVurma" type="Timer" parent="."]
 wait_time = 0.06
 one_shot = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="YurumeDokunmatikTus" parent="UI" instance=ExtResource( 7 )]
+position = Vector2( 88, 232 )
+scale = Vector2( 1.5, 1.5 )
+
+[node name="YonDokunmatikTus" parent="UI" instance=ExtResource( 8 )]
+position = Vector2( 480, 232 )
+scale = Vector2( 1.5, 1.5 )
 
 [connection signal="timeout" from="TimerVurma" to="." method="_on_TimerVurma_timeout"]

@@ -82,10 +82,11 @@ func _YapiYapma(Koy_Sil_Cati,YapilanYapi,Fare_yer):
 	if Koy_Sil_Cati == "Koy":
 		#Yapının haritanın sulu yerine yapılmaması için olan if
 		if get_node(YERYUZU_TILEMAP).get_cell(tile.x,tile.y) == yeryuzu_kara :
-			if YapilanYapi == yapi_kapi :
+			if YapilanYapi == yapi_kapi and get_node(YAPI_TILEMAP).get_cell(tile.x,tile.y) == bos :
 				var Kapi = Kapisahne.instance()
 				get_node(YAPI_TILEMAP).add_child(Kapi)
 				Kapi.global_position = Fare_yer
+				get_node(YAPI_TILEMAP).set_cell(tile.x,tile.y,yapi_kapi)
 
 			elif get_node(YAPI_TILEMAP).get_cell(tile.x,tile.y) == bos :
 				get_node(YAPI_TILEMAP).set_cell(tile.x,tile.y,YapilanYapi)
@@ -100,8 +101,14 @@ func _YapiYapma(Koy_Sil_Cati,YapilanYapi,Fare_yer):
 			get_node(CATI_TILEMAP).set_cell(tile.x,tile.y,bos)
 			get_node(CATI_TILEMAP).update_bitmask_region(tile,tile)
 		else:
-			get_node(YAPI_TILEMAP).set_cell(tile.x,tile.y,bos)
-			get_node(YAPI_TILEMAP).update_bitmask_region(tile,tile)
+			if get_node(YAPI_TILEMAP).get_cell(tile.x,tile.y) != yapi_kapi :
+				get_node(YAPI_TILEMAP).set_cell(tile.x,tile.y,bos)
+				get_node(YAPI_TILEMAP).update_bitmask_region(tile,tile)
+
+	elif Koy_Sil_Cati == "KapiSil":
+		get_node(YAPI_TILEMAP).set_cell(tile.x,tile.y,YapilanYapi)
+		get_node(YAPI_TILEMAP).update_bitmask_region(tile,tile)
+			
 	get_tree().call_group("Kapi","kapi_etrafi_kontrol")
 
 func _KapiUstu(Koyma_Silme,Kapi_Yer):
@@ -110,10 +117,10 @@ func _KapiUstu(Koyma_Silme,Kapi_Yer):
 		if get_node(YAPI_TILEMAP).get_cell(tile.x+1,tile.y) >= 0 and get_node(YAPI_TILEMAP).get_cell(tile.x-1,tile.y) >= 0 :
 			get_node(YAPI_TILEMAP).set_cell(tile.x,tile.y+1,yapi_kapi_ust)
 			get_node(YAPI_TILEMAP).update_bitmask_region(tile,tile)
-		else:
-			get_node(YAPI_TILEMAP).set_cell(tile.x,tile.y+1,bos)
+
 	elif Koyma_Silme == "Silme":
 		get_node(YAPI_TILEMAP).set_cell(tile.x,tile.y+1,bos)
+		get_node(YAPI_TILEMAP).update_bitmask_region(tile,tile)
 
 func _CatiAltindaMi(Oyuncu_Yer):
 	var tile = get_node(CATI_TILEMAP).world_to_map(Oyuncu_Yer)
