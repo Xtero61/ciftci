@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dokunmatiktusarka.png-87619cde81894981a5554805d1d1ce54.stex"
+path="res://.import/dokunmatiktusarka.png-fec0824f67013f40d64f17b9bf1ba1a1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Oyuncu/dokunmatiktusarka.png"
-dest_files=[ "res://.import/dokunmatiktusarka.png-87619cde81894981a5554805d1d1ce54.stex" ]
+source_file="res://Joystick/resim/dokunmatiktusarka.png"
+dest_files=[ "res://.import/dokunmatiktusarka.png-fec0824f67013f40d64f17b9bf1ba1a1.stex" ]
 
 [params]
 

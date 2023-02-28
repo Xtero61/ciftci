@@ -14,6 +14,7 @@ onready var El_Esya_Yer = $DoluEl/Cevir/AnimasyonO
 onready var TimerVurma = $TimerVurma
 onready var UI = $UI
 onready var YurumeDokunmatikTus = $UI/YurumeDokunmatikTus
+onready var YonDokunmatikTus = $UI/YonDokunmatikTus
 
 var kare_boyu = 16.0
 var vektor = Vector2.ZERO
@@ -21,7 +22,7 @@ export(int) var Hiz = 50
 
 func _ready():
 	if OS.get_name() != "Android":
-		UI.visible = false
+		UI.visible = true
 	else :
 		UI.visible = true
 
@@ -33,12 +34,12 @@ func _physics_process(delta):
 
 	#oyuncunun vektörünün ayarlanması
 	var Yon : Vector2 = Vector2.ZERO
-	if OS.get_name() != "Android":
+	if UI.visible == false :
 		Yon.x = Input.get_action_strength("Sag") - Input.get_action_strength("Sol")
 		Yon.y = Input.get_action_strength("Asagi") - Input.get_action_strength("Yukari")
 	else :
-		Yon = YurumeDokunmatikTus.yon
-	
+		Yon = YurumeDokunmatikTus.get_output()
+
 	#eldeki eşyanın sallanması
 	if Dolu_el.visible == true :
 		El_Esya_Yer.position.y = sin(OS.get_ticks_msec() * delta * 0.35)
@@ -112,7 +113,7 @@ func _input(event):
 		El_Esya_Yer.add_child(CamliDuvar)
 
 	var fare_global : Vector2
-	if OS.get_name() != "Android":
+	if UI.visible == false :
 		fare_global = get_global_mouse_position()
 			#oyuncunun yönü ve eldeki eşyanın yönü
 		if fare_global.x - global_position.x < 0:
@@ -125,7 +126,7 @@ func _input(event):
 		Dolu_el.look_at(fare_global)
 
 	else :
-		fare_global = $UI/YonDokunmatikTus.yon
+		fare_global = YonDokunmatikTus.get_output()
 		if fare_global.x < 0 :
 			Cevir.scale.x = -1
 			El_Cevir.scale.y = -1
@@ -143,7 +144,7 @@ func _input(event):
 		Sol_el.visible = false
 		Dolu_el.visible = true
 
-		if OS.get_name() != "Android":
+		if UI.visible == false:
 		#eldeki eşyayla vurma
 			if event.is_action_pressed("Vurma") and ! VanimationPlayer.is_playing():
 				TimerVurma.start()

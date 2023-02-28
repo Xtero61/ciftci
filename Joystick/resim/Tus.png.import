@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Tus.png-6967886c44367489b1f434049b1ab2e7.stex"
+path="res://.import/Tus.png-6e7b6761230d8b1134de65198a40ae36.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Oyuncu/Tus.png"
-dest_files=[ "res://.import/Tus.png-6967886c44367489b1f434049b1ab2e7.stex" ]
+source_file="res://Joystick/resim/Tus.png"
+dest_files=[ "res://.import/Tus.png-6e7b6761230d8b1134de65198a40ae36.stex" ]
 
 [params]
 
