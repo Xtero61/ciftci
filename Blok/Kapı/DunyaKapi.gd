@@ -8,6 +8,9 @@ onready var TimerYokOlma = $TimerYokOlma
 var VurulmaSayi : int = 0
 var KirilmaSayi : int = 3
 
+func _ready():
+	kapi_etrafi_kontrol()
+
 func kapi_etrafi_kontrol():
 	Genel._KapiUstu("Koyma",global_position)
 

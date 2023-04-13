@@ -66,6 +66,8 @@ onready var _tip_default_position : Vector2 = _tip.rect_position
 #### FUNCTIONS ####
 
 func _ready() -> void:
+	if $".".name == "YonDokunmatikTus":
+		$vurma.visible = true
 	if not OS.has_touchscreen_ui_hint() and visibility_mode == VisibilityMode.TOUCHSCREEN_ONLY:
 		hide()
 

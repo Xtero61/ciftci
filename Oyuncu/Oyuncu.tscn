@@ -388,22 +388,22 @@ anims/RESET = SubResource( 8 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
-zoom = Vector2( 0.7, 0.7 )
+zoom = Vector2( 0.8, 0.8 )
 smoothing_enabled = true
 
 [node name="TimerVurma" type="Timer" parent="."]
 wait_time = 0.06
 one_shot = true
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="AndroidUI" type="CanvasLayer" parent="."]
 
-[node name="YurumeDokunmatikTus" parent="UI" instance=ExtResource( 7 )]
+[node name="YurumeDokunmatikTus" parent="AndroidUI" instance=ExtResource( 7 )]
 margin_left = 32.0
 margin_top = -136.0
 margin_right = 240.0
 margin_bottom = 72.0
 
-[node name="YonDokunmatikTus" parent="UI" instance=ExtResource( 7 )]
+[node name="YonDokunmatikTus" parent="AndroidUI" instance=ExtResource( 7 )]
 margin_left = 432.0
 margin_top = -136.0
 margin_right = 640.0

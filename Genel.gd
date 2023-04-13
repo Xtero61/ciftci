@@ -10,6 +10,12 @@ const yeryuzu_kara : int = 3
 const yeryuzu_kenar_kara : int = 2
 const yeryuzu_deniz : int = 1
 
+enum Yeryuzu {
+	deniz = 1,
+	kenar_kara,
+	kara,
+}
+
 #Tarla döşeme sayıları
 const tarla_toprak : int = 0
 const tarla_suru_toprak : int = 1
@@ -27,8 +33,7 @@ const bos : int = -1
 var SulamaEfekSahne = load("res://SulamaEfek.tscn")
 var Kapisahne = load("res://Blok/Kapı/DunyaKapi.tscn")
 
-func _TarlaYapma(Koy_Sil_Sula_Kontrol,Fare_yer): 
-
+func _TarlaYapma(Koy_Sil_Sula_Kontrol,Fare_yer):
 	#aldığı kordinatı tilemap kordinatına çevirir
 	var tile = get_node(TARLA_TILEMAP).world_to_map(Fare_yer)
 	
@@ -114,7 +119,8 @@ func _YapiYapma(Koy_Sil_Cati,YapilanYapi,Fare_yer):
 func _KapiUstu(Koyma_Silme,Kapi_Yer):
 	var tile = get_node(TARLA_TILEMAP).world_to_map(Kapi_Yer)
 	if Koyma_Silme == "Koyma":
-		if get_node(YAPI_TILEMAP).get_cell(tile.x+1,tile.y) >= 0 and get_node(YAPI_TILEMAP).get_cell(tile.x-1,tile.y) >= 0 :
+		if ((get_node(YAPI_TILEMAP).get_cell(tile.x-1,tile.y) == yapi_duvar or get_node(YAPI_TILEMAP).get_cell(tile.x-1,tile.y) == yapi_duvar_camli)
+	    or (get_node(YAPI_TILEMAP).get_cell(tile.x+1,tile.y) == yapi_duvar or get_node(YAPI_TILEMAP).get_cell(tile.x+1,tile.y) == yapi_duvar_camli)):
 			get_node(YAPI_TILEMAP).set_cell(tile.x,tile.y+1,yapi_kapi_ust)
 			get_node(YAPI_TILEMAP).update_bitmask_region(tile,tile)
 
