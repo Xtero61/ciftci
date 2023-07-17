@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/İmleç.png-8fe8bc98db43b4fed661b3f5beaa1722.stex"
+path="res://.import/İmleç.png-85c643657cac0f6598aefbbdd280e6da.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://İmleç.png"
-dest_files=[ "res://.import/İmleç.png-8fe8bc98db43b4fed661b3f5beaa1722.stex" ]
+source_file="res://Oyuncu/İmleç.png"
+dest_files=[ "res://.import/İmleç.png-85c643657cac0f6598aefbbdd280e6da.stex" ]
 
 [params]
 

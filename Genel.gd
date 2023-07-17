@@ -4,6 +4,7 @@ const YERYUZU_TILEMAP : String = "/root/Dunya/Yeryuzu"
 const TARLA_TILEMAP : String = "/root/Dunya/Tarla"
 const YAPI_TILEMAP : String = "/root/Dunya/Yapi"
 const CATI_TILEMAP : String = "/root/Dunya/Cati"
+const CATILAR : String = "/root/Dunya/Catilar"
 
 #Yeryüzü döşeme sayıları
 const yeryuzu_kara : int = 3
@@ -32,6 +33,41 @@ const bos : int = -1
 
 var SulamaEfekSahne = load("res://SulamaEfek.tscn")
 var Kapisahne = load("res://Blok/Kapı/DunyaKapi.tscn")
+
+var CatiListesi = []
+
+func _CatiSil(Fare_yer):
+	var bayrak = false
+	for cati in CatiListesi:
+		var tile = cati.world_to_map(Fare_yer)
+		if cati.get_cell(tile.x,tile.y) != bos :
+			cati.set_cell(tile.x,tile.y,bos)
+			cati.update_bitmask_region(tile,tile)
+			bayrak = true
+	return bayrak
+
+func _CatiVarmiYakinda(Fare_yer):
+	for cati in CatiListesi:
+		var tile = cati.world_to_map(Fare_yer)
+		if (cati.get_cell(tile.x-1,tile.y) != bos or
+			cati.get_cell(tile.x+1,tile.y) != bos or 
+			cati.get_cell(tile.x,tile.y-1) != bos or
+			cati.get_cell(tile.x,tile.y+1) != bos) :
+			return cati
+	return null
+
+func _CatiKoy(Fare_yer):
+	var secili_tilemap = _CatiVarmiYakinda(Fare_yer)
+	if secili_tilemap == null :
+		secili_tilemap = TileMap.new()
+		secili_tilemap.set_tileset(get_node(CATI_TILEMAP).get_tileset())
+		secili_tilemap.set_cell_size(Vector2(16, 16))
+		CatiListesi.append(secili_tilemap)
+		get_node(CATILAR).add_child(secili_tilemap)
+
+	var tile = secili_tilemap.world_to_map(Fare_yer)
+	secili_tilemap.set_cell(tile.x,tile.y,yapi_cati)
+	secili_tilemap.update_bitmask_region(tile,tile)
 
 func _TarlaYapma(Koy_Sil_Sula_Kontrol,Fare_yer):
 	#aldığı kordinatı tilemap kordinatına çevirir
@@ -98,14 +134,12 @@ func _YapiYapma(Koy_Sil_Cati,YapilanYapi,Fare_yer):
 				get_node(YAPI_TILEMAP).update_bitmask_region(tile,tile)
 
 	elif Koy_Sil_Cati == "Cati":
-		get_node(CATI_TILEMAP).set_cell(tile.x,tile.y,YapilanYapi)
-		get_node(CATI_TILEMAP).update_bitmask_region(tile,tile)
+#		get_node(CATI_TILEMAP).set_cell(tile.x,tile.y,YapilanYapi)
+#		get_node(CATI_TILEMAP).update_bitmask_region(tile,tile)
+		_CatiKoy(Fare_yer)
 
 	elif Koy_Sil_Cati == "Sil" :
-		if get_node(CATI_TILEMAP).get_cell(tile.x,tile.y) != bos :
-			get_node(CATI_TILEMAP).set_cell(tile.x,tile.y,bos)
-			get_node(CATI_TILEMAP).update_bitmask_region(tile,tile)
-		else:
+		if !_CatiSil(Fare_yer):
 			if get_node(YAPI_TILEMAP).get_cell(tile.x,tile.y) != yapi_kapi :
 				get_node(YAPI_TILEMAP).set_cell(tile.x,tile.y,bos)
 				get_node(YAPI_TILEMAP).update_bitmask_region(tile,tile)
@@ -130,7 +164,14 @@ func _KapiUstu(Koyma_Silme,Kapi_Yer):
 
 func _CatiAltindaMi(Oyuncu_Yer):
 	var tile = get_node(CATI_TILEMAP).world_to_map(Oyuncu_Yer)
-	if get_node(CATI_TILEMAP).get_cell(tile.x,tile.y-1) != bos :
-		get_node(CATI_TILEMAP).modulate = Color("b4ffffff")
+	if get_node(CATI_TILEMAP).get_cell(tile.x,tile.y-2) != bos :
+		get_node(CATI_TILEMAP).modulate = Color("70ffffff")
 	else :
 		get_node(CATI_TILEMAP).modulate = Color("ffffffff")
+
+	for cati in CatiListesi:
+		if cati.get_cell(tile.x,tile.y-2) != bos :
+			cati.modulate = Color("70ffffff")
+		else:
+			cati.modulate = Color("ffffffff")
+	

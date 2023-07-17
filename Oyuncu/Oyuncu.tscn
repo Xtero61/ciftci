@@ -1,12 +1,17 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Oyuncu/Oyuncu.gd" type="Script" id=1]
-[ext_resource path="res://İmleç.png" type="Texture" id=2]
+[ext_resource path="res://Oyuncu/İmleç.png" type="Texture" id=2]
 [ext_resource path="res://Oyuncu/El.png" type="Texture" id=3]
 [ext_resource path="res://Oyuncu/KGövdeDYK.png" type="Texture" id=4]
 [ext_resource path="res://Oyuncu/kKafaDYK.png" type="Texture" id=5]
 [ext_resource path="res://Gölge.png" type="Texture" id=6]
 [ext_resource path="res://Joystick/virtual_joystick.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Blok/Kapı/Kapı.png" type="Texture" id=8]
+[ext_resource path="res://Blok/Duvar/Duvaricon.png" type="Texture" id=9]
+[ext_resource path="res://Blok/Camlı Duvar/CamlıDuvaricon.png" type="Texture" id=10]
+[ext_resource path="res://Blok/Çatı/Çatıicon.png" type="Texture" id=11]
+[ext_resource path="res://Blok/Tahta_Zemin_icon.png" type="Texture" id=12]
 
 [sub_resource type="Gradient" id=13]
 offsets = PoolRealArray( 0, 0.984127, 1 )
@@ -196,6 +201,35 @@ tracks/3/keys = {
 "values": [ Vector2( -2, -2 ), Vector2( -5, -3 ), Vector2( -6, -4 ), Vector2( -7, -2 ), Vector2( -6, -3 ), Vector2( -4, -3 ), Vector2( -2, -2 ) ]
 }
 
+[sub_resource type="Animation" id=18]
+resource_name = "OltaAtma"
+length = 0.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("../DoluEl/Cevir/AnimasyonO:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.35 ),
+"transitions": PoolRealArray( -2, 1, 2, 1 ),
+"update": 0,
+"values": [ 0.0, -135.0, -135.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../DoluEl/Cevir/AnimasyonO:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.35 ),
+"transitions": PoolRealArray( 1, -2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -5, -5 ), Vector2( 0, 0 ) ]
+}
+
 [sub_resource type="Animation" id=5]
 length = 0.001
 tracks/0/type = "value"
@@ -221,6 +255,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../DoluEl/Cevir/AnimasyonO:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -312,6 +358,43 @@ fixed_fps = 60
 local_coords = false
 process_material = SubResource( 17 )
 
+[node name="CekicKoyulcakYapi" type="Position2D" parent="."]
+visible = false
+z_index = 5
+
+[node name="CamliDuvaricon" type="Sprite" parent="CekicKoyulcakYapi"]
+visible = false
+modulate = Color( 1, 1, 1, 0.470588 )
+self_modulate = Color( 0, 1, 0, 1 )
+position = Vector2( 0, -16 )
+texture = ExtResource( 10 )
+
+[node name="Duvaricon" type="Sprite" parent="CekicKoyulcakYapi"]
+visible = false
+modulate = Color( 1, 1, 1, 0.470588 )
+self_modulate = Color( 0, 1, 0, 1 )
+position = Vector2( 0, -16 )
+texture = ExtResource( 9 )
+
+[node name="Catiicon" type="Sprite" parent="CekicKoyulcakYapi"]
+visible = false
+modulate = Color( 1, 1, 1, 0.470588 )
+self_modulate = Color( 0, 1, 0, 1 )
+texture = ExtResource( 11 )
+
+[node name="Kapi" type="Sprite" parent="CekicKoyulcakYapi"]
+visible = false
+modulate = Color( 1, 1, 1, 0.470588 )
+self_modulate = Color( 0, 1, 0, 1 )
+position = Vector2( 0, -14 )
+texture = ExtResource( 8 )
+
+[node name="TahtaZeminIcon" type="Sprite" parent="CekicKoyulcakYapi"]
+visible = false
+modulate = Color( 1, 1, 1, 0.470588 )
+self_modulate = Color( 0, 1, 0, 1 )
+texture = ExtResource( 12 )
+
 [node name="imlec" type="Sprite" parent="."]
 z_index = 5
 texture = ExtResource( 2 )
@@ -377,6 +460,7 @@ anims/Yurume = SubResource( 4 )
 
 [node name="VurmaAnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../VucutAnimationPlayer")
+anims/OltaAtma = SubResource( 18 )
 anims/RESET = SubResource( 5 )
 anims/Sulama = SubResource( 7 )
 anims/Vurma = SubResource( 6 )
@@ -395,7 +479,12 @@ smoothing_enabled = true
 wait_time = 0.06
 one_shot = true
 
+[node name="TimerOlta" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
 [node name="AndroidUI" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="YurumeDokunmatikTus" parent="AndroidUI" instance=ExtResource( 7 )]
 margin_left = 32.0
@@ -410,3 +499,4 @@ margin_right = 640.0
 margin_bottom = 72.0
 
 [connection signal="timeout" from="TimerVurma" to="." method="_on_TimerVurma_timeout"]
+[connection signal="timeout" from="TimerOlta" to="." method="_on_TimerOlta_timeout"]

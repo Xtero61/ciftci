@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/odunSimge.png-d1b46a0329dcd44254e845b986eafda3.stex"
+path="res://.import/OltaSimge.png-640f1790ba184a3a57f8870e5be05f79.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://odunSimge.png"
-dest_files=[ "res://.import/odunSimge.png-d1b46a0329dcd44254e845b986eafda3.stex" ]
+source_file="res://Alet/Olta/OltaSimge.png"
+dest_files=[ "res://.import/OltaSimge.png-640f1790ba184a3a57f8870e5be05f79.stex" ]
 
 [params]
 

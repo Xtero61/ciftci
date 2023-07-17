@@ -15,6 +15,13 @@ onready var TimerVurma = $TimerVurma
 onready var AndroidUI = $AndroidUI
 onready var YurumeDokunmatikTus = $AndroidUI/YurumeDokunmatikTus
 onready var YonDokunmatikTus = $AndroidUI/YonDokunmatikTus
+onready var TimerOlta = $TimerOlta
+onready var CekicKoyulcakYapi = $CekicKoyulcakYapi
+onready var cekicCamDuvar = $CekicKoyulcakYapi/CamliDuvaricon
+onready var cekicDuvar = $CekicKoyulcakYapi/Duvaricon
+onready var cekicCati = $CekicKoyulcakYapi/Catiicon
+onready var cekicKapi = $CekicKoyulcakYapi/Kapi
+onready var cekicZemin = $CekicKoyulcakYapi/TahtaZeminIcon
 
 var kare_boyu = 16.0
 var vektor = Vector2.ZERO
@@ -26,9 +33,42 @@ func _ready():
 	else :
 		AndroidUI.visible = true
 
+func gorunurlukKapa():
+	cekicCamDuvar.visible = false
+	cekicDuvar.visible = false
+	cekicCati.visible = false
+	cekicKapi.visible = false
+	cekicZemin.visible = false
+
 func _process(_delta):
 	var imlec_yer = Esya_Vurma_Yer.global_position + Vector2(8,8)
 	imlec.global_position = Vector2(stepify(imlec_yer.x , kare_boyu) , stepify(imlec_yer.y , kare_boyu)) - Vector2(8,8)
+
+	if El_Esya_Yer.get_child_count() == 3 :
+		if El_Esya_Yer.get_child(2).name == "Cekic":
+			if El_Esya_Yer.get_child(2).cekicMenuSecili == 1 :
+				gorunurlukKapa()
+				cekicDuvar.visible = true
+			elif El_Esya_Yer.get_child(2).cekicMenuSecili == 2:
+				gorunurlukKapa()
+				cekicCamDuvar.visible = true
+			elif El_Esya_Yer.get_child(2).cekicMenuSecili == 3:
+				gorunurlukKapa()
+				cekicKapi.visible = true
+			elif El_Esya_Yer.get_child(2).cekicMenuSecili == 4:
+				gorunurlukKapa()
+				cekicCati.visible = true
+			elif El_Esya_Yer.get_child(2).cekicMenuSecili == 5 :
+				gorunurlukKapa()
+				cekicZemin.visible = true
+			else :
+				gorunurlukKapa()
+			CekicKoyulcakYapi.visible = true
+			CekicKoyulcakYapi.global_position = imlec.global_position
+		else :
+			CekicKoyulcakYapi.visible = false
+	else :
+		CekicKoyulcakYapi.visible = false
 
 func _physics_process(delta):
 
@@ -103,14 +143,14 @@ func _input(event):
 		El_Esya_Yer.add_child(Cekic)
 	elif event.is_action_pressed("Yuva8"):
 		EldekiEsyayiSil()
-		var Sahne = load("res://Blok/Duvar/Duvar.tscn")
-		var Duvar = Sahne.instance()
-		El_Esya_Yer.add_child(Duvar)
+		var Sahne = load("res://Alet/Olta/Olta.tscn")
+		var Olta = Sahne.instance()
+		El_Esya_Yer.add_child(Olta)
 	elif event.is_action_pressed("Yuva9"):
 		EldekiEsyayiSil()
-		var Sahne = load("res://Blok/Kapı/Kapi.tscn")
-		var CamliDuvar = Sahne.instance()
-		El_Esya_Yer.add_child(CamliDuvar)
+		#var Sahne = load("res://Blok/Çatı/Cati.tscn")
+		#var CamliDuvar = Sahne.instance()
+		#El_Esya_Yer.add_child(CamliDuvar)
 
 	var fare_global : Vector2
 	if AndroidUI.visible == false :
@@ -136,10 +176,11 @@ func _input(event):
 		#eldeki esyayı fare göre çevirme
 		Dolu_el.look_at(fare_global*500)
 
-
 	#elde eşya olup olmamasına göre animasyon değişimleri
 	if El_Esya_Yer.get_child_count() == 3 : 
-
+		
+		var EldekiEsya = El_Esya_Yer.get_child(2)
+		
 		Sag_el.visible = false
 		Sol_el.visible = false
 		Dolu_el.visible = true
@@ -147,11 +188,27 @@ func _input(event):
 		if AndroidUI.visible == false:
 		#eldeki eşyayla vurma
 			if event.is_action_pressed("Vurma") and ! VanimationPlayer.is_playing():
-				TimerVurma.start()
-				if El_Esya_Yer.get_child(2).name == "SulamaKabi":
+
+				if EldekiEsya.name != "Olta":
+					if ! EldekiEsya.cekicMenu :
+						TimerVurma.start()
+				else :
+					if EldekiEsya.atma :
+						TimerOlta.wait_time = 0.3
+					else :
+						TimerOlta.wait_time = 0.15
+					TimerOlta.start()
+
+				if EldekiEsya.name == "SulamaKabi":
 					VanimationPlayer.play("Sulama")
+				elif EldekiEsya.name == "Olta":
+					VanimationPlayer.play("OltaAtma")
 				else : 
-					VanimationPlayer.play("Vurma")
+					if EldekiEsya.name == "Cekic":
+						if ! EldekiEsya.cekicMenu :
+							VanimationPlayer.play("Vurma")
+					else :
+						VanimationPlayer.play("Vurma")
 		else :
 			pass
 
@@ -162,4 +219,6 @@ func _input(event):
 
 func _on_TimerVurma_timeout():
 	El_Esya_Yer.get_child(2).call("Islev_Oynat",imlec.global_position)
-	
+
+func _on_TimerOlta_timeout():
+	El_Esya_Yer.get_child(2).call("Islev_Oynat",imlec.global_position)
