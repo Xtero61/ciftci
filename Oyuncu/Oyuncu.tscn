@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Oyuncu/Oyuncu.gd" type="Script" id=1]
 [ext_resource path="res://Oyuncu/İmleç.png" type="Texture" id=2]
@@ -12,6 +12,9 @@
 [ext_resource path="res://Blok/Camlı Duvar/CamlıDuvaricon.png" type="Texture" id=10]
 [ext_resource path="res://Blok/Çatı/Çatıicon.png" type="Texture" id=11]
 [ext_resource path="res://Blok/Tahta_Zemin_icon.png" type="Texture" id=12]
+[ext_resource path="res://Envanter.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Oyuncu/UI.gd" type="Script" id=14]
+[ext_resource path="res://Oyuncu/EsyaAlmaAlani.gd" type="Script" id=15]
 
 [sub_resource type="Gradient" id=13]
 offsets = PoolRealArray( 0, 0.984127, 1 )
@@ -43,6 +46,9 @@ color_ramp = SubResource( 14 )
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 4.0
 height = 4.0
+
+[sub_resource type="CircleShape2D" id=19]
+radius = 21.0
 
 [sub_resource type="Animation" id=2]
 resource_name = "Durus"
@@ -399,6 +405,12 @@ texture = ExtResource( 12 )
 z_index = 5
 texture = ExtResource( 2 )
 
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.8, 0.8 )
+process_mode = 0
+smoothing_enabled = true
+
 [node name="Cevir" type="Node2D" parent="."]
 
 [node name="Gölge" type="Sprite" parent="Cevir"]
@@ -453,6 +465,13 @@ visible = false
 rotation = 1.5708
 shape = SubResource( 1 )
 
+[node name="EsyaAlmaAlani" type="Area2D" parent="."]
+script = ExtResource( 15 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EsyaAlmaAlani"]
+visible = false
+shape = SubResource( 19 )
+
 [node name="VucutAnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Durus = SubResource( 2 )
 anims/RESET = SubResource( 3 )
@@ -470,11 +489,6 @@ autoplay = "İmlec"
 anims/RESET = SubResource( 8 )
 "anims/İmlec" = SubResource( 9 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
-zoom = Vector2( 0.8, 0.8 )
-smoothing_enabled = true
-
 [node name="TimerVurma" type="Timer" parent="."]
 wait_time = 0.06
 one_shot = true
@@ -482,6 +496,12 @@ one_shot = true
 [node name="TimerOlta" type="Timer" parent="."]
 wait_time = 0.3
 one_shot = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource( 14 )
+
+[node name="Envanter" parent="UI" instance=ExtResource( 13 )]
+visible = false
 
 [node name="AndroidUI" type="CanvasLayer" parent="."]
 visible = false
@@ -498,5 +518,7 @@ margin_top = -136.0
 margin_right = 640.0
 margin_bottom = 72.0
 
+[connection signal="body_entered" from="EsyaAlmaAlani" to="EsyaAlmaAlani" method="_on_EsyaAlmaAlani_body_entered"]
+[connection signal="body_exited" from="EsyaAlmaAlani" to="EsyaAlmaAlani" method="_on_EsyaAlmaAlani_body_exited"]
 [connection signal="timeout" from="TimerVurma" to="." method="_on_TimerVurma_timeout"]
 [connection signal="timeout" from="TimerOlta" to="." method="_on_TimerOlta_timeout"]

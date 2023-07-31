@@ -2,15 +2,16 @@
 
 [ext_resource path="res://Alet/Alet.gd" type="Script" id=1]
 [ext_resource path="res://Alet/Çapa/ÇapaEfek.png" type="Texture" id=2]
-[ext_resource path="res://Alet/Çapa/ÇapaSimge.png" type="Texture" id=3]
+[ext_resource path="res://Alet/Çapa/TaşÇapa.png" type="Texture" id=3]
 
 [node name="Capa" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="Simge" type="Sprite" parent="."]
+position = Vector2( -9.31323e-10, 0 )
 rotation = 0.785398
 texture = ExtResource( 3 )
-offset = Vector2( 6, -5 )
+offset = Vector2( 5.00563, -4.98895 )
 
 [node name="Efek" type="Sprite" parent="Simge"]
 visible = false

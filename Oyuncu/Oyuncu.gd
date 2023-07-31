@@ -22,6 +22,8 @@ onready var cekicDuvar = $CekicKoyulcakYapi/Duvaricon
 onready var cekicCati = $CekicKoyulcakYapi/Catiicon
 onready var cekicKapi = $CekicKoyulcakYapi/Kapi
 onready var cekicZemin = $CekicKoyulcakYapi/TahtaZeminIcon
+onready var EsyaAlmaAlan = $EsyaAlmaAlani
+onready var Envanter = $UI/Envanter
 
 var kare_boyu = 16.0
 var vektor = Vector2.ZERO
@@ -75,8 +77,9 @@ func _physics_process(delta):
 	#oyuncunun vektörünün ayarlanması
 	var Yon : Vector2 = Vector2.ZERO
 	if AndroidUI.visible == false :
-		Yon.x = Input.get_action_strength("Sag") - Input.get_action_strength("Sol")
-		Yon.y = Input.get_action_strength("Asagi") - Input.get_action_strength("Yukari")
+		if !Envanter.visible :
+			Yon.x = Input.get_action_strength("Sag") - Input.get_action_strength("Sol")
+			Yon.y = Input.get_action_strength("Asagi") - Input.get_action_strength("Yukari")
 	else :
 		Yon = YurumeDokunmatikTus.get_output()
 
@@ -103,6 +106,8 @@ func EldekiEsyayiSil():
 		El_Esya_Yer.remove_child(El_Esya_Yer.get_child(2))
 
 func _input(event):
+	if !Envanter.visible :
+		YerdenEsyaAlma(event)
 
 	if event.is_action_pressed("Yuva0"):
 		EldekiEsyayiSil()
@@ -156,14 +161,16 @@ func _input(event):
 	if AndroidUI.visible == false :
 		fare_global = get_global_mouse_position()
 			#oyuncunun yönü ve eldeki eşyanın yönü
-		if fare_global.x - global_position.x < 0:
-			Cevir.scale.x = -1
-			El_Cevir.scale.y = -1
-		else:
-			Cevir.scale.x = 1
-			El_Cevir.scale.y = 1
-		#eldeki esyayı fare göre çevirme
-		Dolu_el.look_at(fare_global)
+		if !Envanter.visible :
+			if fare_global.x - global_position.x < 0:
+				Cevir.scale.x = -1
+				El_Cevir.scale.y = -1
+			else:
+				Cevir.scale.x = 1
+				El_Cevir.scale.y = 1
+			#eldeki esyayı fare göre çevirme
+			
+			Dolu_el.look_at(fare_global)
 
 	else :
 		fare_global = YonDokunmatikTus.get_output()
@@ -187,28 +194,29 @@ func _input(event):
 
 		if AndroidUI.visible == false:
 		#eldeki eşyayla vurma
-			if event.is_action_pressed("Vurma") and ! VanimationPlayer.is_playing():
+			if !Envanter.visible :
+				if event.is_action_pressed("Vurma") and ! VanimationPlayer.is_playing():
 
-				if EldekiEsya.name != "Olta":
-					if ! EldekiEsya.cekicMenu :
-						TimerVurma.start()
-				else :
-					if EldekiEsya.atma :
-						TimerOlta.wait_time = 0.3
-					else :
-						TimerOlta.wait_time = 0.15
-					TimerOlta.start()
-
-				if EldekiEsya.name == "SulamaKabi":
-					VanimationPlayer.play("Sulama")
-				elif EldekiEsya.name == "Olta":
-					VanimationPlayer.play("OltaAtma")
-				else : 
-					if EldekiEsya.name == "Cekic":
+					if EldekiEsya.name != "Olta":
 						if ! EldekiEsya.cekicMenu :
-							VanimationPlayer.play("Vurma")
+							TimerVurma.start()
 					else :
-						VanimationPlayer.play("Vurma")
+						if EldekiEsya.atma :
+							TimerOlta.wait_time = 0.3
+						else :
+							TimerOlta.wait_time = 0.15
+						TimerOlta.start()
+
+					if EldekiEsya.name == "SulamaKabi":
+						VanimationPlayer.play("Sulama")
+					elif EldekiEsya.name == "Olta":
+						VanimationPlayer.play("OltaAtma")
+					else : 
+						if EldekiEsya.name == "Cekic":
+							if ! EldekiEsya.cekicMenu :
+								VanimationPlayer.play("Vurma")
+						else :
+							VanimationPlayer.play("Vurma")
 		else :
 			pass
 
@@ -222,3 +230,12 @@ func _on_TimerVurma_timeout():
 
 func _on_TimerOlta_timeout():
 	El_Esya_Yer.get_child(2).call("Islev_Oynat",imlec.global_position)
+
+func YerdenEsyaAlma(event):
+	if event.is_action_pressed("YerdenEsyaAlma"):
+		if EsyaAlmaAlan.AlandakiEsyalar.size() > 0 :
+			var alinan_esya = EsyaAlmaAlan.AlandakiEsyalar.values()[0]
+			alinan_esya.alinan_esya(self)
+			EsyaAlmaAlan.AlandakiEsyalar.erase(alinan_esya)
+			Envanter.envanter_slotlarini_guncelle()
+

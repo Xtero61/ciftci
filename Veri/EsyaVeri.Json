@@ -1,0 +1,18 @@
+{
+	"Odun": {
+		"EsyaTürü": "Kaynak",
+		"YığınBoyu": 64,
+	},
+	"Taş Kazma": {
+		"EsyaTürü": "Kazma",
+		"YığınBoyu": 1,
+	},
+	"Taş Balta": {
+		"EsyaTürü": "Balta",
+		"YığınBoyu": 1,
+	},
+	"Taş Kürek": {
+		"EsyaTürü": "Kürek",
+		"YığınBoyu": 64,
+	}
+}
