@@ -14,7 +14,7 @@ var hiz : Vector2 = Vector2.ZERO
 func _physics_process(delta):
 	if aliniyor == true :
 		var yon = global_position.direction_to(oyuncu.global_position)
-		apply_impulse(yon,yon*800*delta)
+		apply_impulse(yon,yon*1000*delta)
 
 		var mesafe = global_position.distance_to(oyuncu.global_position)
 		if mesafe < 12 :

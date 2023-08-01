@@ -8,6 +8,7 @@ var bos_style : StyleBoxTexture = null
 
 var EsyaSinifi = preload("res://Esya.tscn")
 var esya = null
+var slot_sayisi
 
 func _ready():
 	dolu_style = StyleBoxTexture.new()
