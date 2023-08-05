@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Envanter.png-b44619fe21e630bcc78b5fe505c53ef5.stex"
+path="res://.import/DoluSlot.png-f46b3094dc0230af60349cb470e81cec.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Envanter.png"
-dest_files=[ "res://.import/Envanter.png-b44619fe21e630bcc78b5fe505c53ef5.stex" ]
+source_file="res://Envanter/Resimler/DoluSlot.png"
+dest_files=[ "res://.import/DoluSlot.png-f46b3094dc0230af60349cb470e81cec.stex" ]
 
 [params]
 

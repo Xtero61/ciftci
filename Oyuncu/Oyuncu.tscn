@@ -12,7 +12,7 @@
 [ext_resource path="res://Blok/Camlı Duvar/CamlıDuvaricon.png" type="Texture" id=10]
 [ext_resource path="res://Blok/Çatı/Çatıicon.png" type="Texture" id=11]
 [ext_resource path="res://Blok/Tahta_Zemin_icon.png" type="Texture" id=12]
-[ext_resource path="res://Envanter.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Envanter/Envanter.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Oyuncu/UI.gd" type="Script" id=14]
 [ext_resource path="res://Oyuncu/EsyaAlmaAlani.gd" type="Script" id=15]
 

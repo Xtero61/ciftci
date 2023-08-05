@@ -4,7 +4,7 @@ var esya_veri :  Dictionary = {
 	"Odun": {
 		"EsyaTürü": "Kaynak",
 		"BirikmeMiktarı": 64,
-		"ResimYolu": "res://Odun.png",
+		"ResimYolu": "res://Esyalar/Resimler/Odun.png",
 	},
 	"Taş Kazma": {
 		"EsyaTürü": "Kazma",
@@ -19,7 +19,33 @@ var esya_veri :  Dictionary = {
 	"Taş Kürek": {
 		"EsyaTürü": "Kürek",
 		"BirikmeMiktarı": 1,
-	}
+		"ResimYolu" : "res://Alet/Kürek/TaşKürek.png",
+	},
+	"Taş Kılıç": {
+		"EsyaTürü": "Kılıç",
+		"BirikmeMiktarı": 1,
+		"ResimYolu" : "res://Alet/Kılıç/TaşKılıç.png",
+	},
+	"Taş Çapa": {
+		"EsyaTürü": "Çapa",
+		"BirikmeMiktarı": 1,
+		"ResimYolu" : "res://Alet/Çapa/TaşÇapa.png",
+	},
+	"Taş Çekiç": {
+		"EsyaTürü": "Çekiç",
+		"BirikmeMiktarı": 1,
+		"ResimYolu" : "res://Alet/Çekiç/TaşÇekiç.png",
+	},
+	"Sulama Kabı": {
+		"EsyaTürü": "Sulama Kabı",
+		"BirikmeMiktarı": 1,
+		"ResimYolu" : "res://Alet/Sulama Kabı/SulamaKabı.png",
+	},
+	"Olta": {
+		"EsyaTürü": "Olta",
+		"BirikmeMiktarı": 1,
+		"ResimYolu" : "res://Alet/Olta/Olta.png",
+	},
 }
 
 #func _ready():

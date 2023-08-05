@@ -1,6 +1,6 @@
 extends Node2D
 
-const SlotSinifi = preload("res://Slot.gd")
+const SlotSinifi = preload("res://Envanter/Slot.gd")
 onready var envanter_slotlari = $EnvanterSlotlari
 var tutulan_esya = null 
 

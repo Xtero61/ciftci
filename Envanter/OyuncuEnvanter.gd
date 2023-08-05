@@ -1,13 +1,18 @@
 extends Node
 
 const ENVANTER_SLOT = 17
-const SlotSinifi = preload("res://Slot.gd")
-const EsyaSinifi = preload("res://Esya.gd")
+const SlotSinifi = preload("res://Envanter/Slot.gd")
+const EsyaSinifi = preload("res://Esyalar/Esya.gd")
 
 var envanter = {
-	0: ["Taş Kazma", 1],
-	1: ["Odun", 62],
-	2: ["Taş Balta", 1]
+	0: ["Taş Kılıç", 1],
+	1: ["Taş Kazma", 1],
+	2: ["Taş Balta", 1],
+	3: ["Taş Kürek", 1],
+	4: ["Taş Çapa", 1],
+	5: ["Sulama Kabı", 1],
+	6: ["Taş Çekiç", 1],
+	7: ["Olta", 1],
 }
 
 func esya_ekleme(esya_isim, esya_miktar):

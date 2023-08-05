@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Slot.png-abd6d74417d977136a681cc5cca187e5.stex"
+path="res://.import/Envanter.png-4c63f42f1f58c2ae85843e9b672b9eca.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Slot.png"
-dest_files=[ "res://.import/Slot.png-abd6d74417d977136a681cc5cca187e5.stex" ]
+source_file="res://Envanter/Resimler/Envanter.png"
+dest_files=[ "res://.import/Envanter.png-4c63f42f1f58c2ae85843e9b672b9eca.stex" ]
 
 [params]
 

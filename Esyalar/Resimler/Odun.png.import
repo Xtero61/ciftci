@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/DoluSlot.png-c9b47c88d3c2a824ac01145857978239.stex"
+path="res://.import/Odun.png-b2a20b2385125b3da867a680526eb720.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://DoluSlot.png"
-dest_files=[ "res://.import/DoluSlot.png-c9b47c88d3c2a824ac01145857978239.stex" ]
+source_file="res://Esyalar/Resimler/Odun.png"
+dest_files=[ "res://.import/Odun.png-b2a20b2385125b3da867a680526eb720.stex" ]
 
 [params]
 

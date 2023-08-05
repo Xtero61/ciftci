@@ -32,7 +32,7 @@ default_bus_layout=""
 
 Genel="*res://Genel.gd"
 JsonVeri="*res://Veri/JSONVeri.gd"
-OyuncuEnvanter="*res://OyuncuEnvanter.gd"
+OyuncuEnvanter="*res://Envanter/OyuncuEnvanter.gd"
 
 [debug]
 

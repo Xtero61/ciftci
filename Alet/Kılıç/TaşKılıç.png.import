@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TaşKılıc.png-5a7ca37145a559876f8497da24fa64f2.stex"
+path="res://.import/TaşKılıç.png-0b745275f1dd08e1a0def2335ca7ac22.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Alet/Kılıç/TaşKılıc.png"
-dest_files=[ "res://.import/TaşKılıc.png-5a7ca37145a559876f8497da24fa64f2.stex" ]
+source_file="res://Alet/Kılıç/TaşKılıç.png"
+dest_files=[ "res://.import/TaşKılıç.png-0b745275f1dd08e1a0def2335ca7ac22.stex" ]
 
 [params]
 

@@ -1,12 +1,12 @@
 extends Panel
 
-var dolu_resim = preload("res://DoluSlot.png")
-var bos_resim = preload("res://Slot.png")
+var dolu_resim = preload("res://Envanter/Resimler/DoluSlot.png")
+var bos_resim = preload("res://Envanter/Resimler/Slot.png")
 
 var dolu_style : StyleBoxTexture = null
 var bos_style : StyleBoxTexture = null
 
-var EsyaSinifi = preload("res://Esya.tscn")
+var EsyaSinifi = preload("res://Esyalar/Esya.tscn")
 var esya = null
 var slot_sayisi
 

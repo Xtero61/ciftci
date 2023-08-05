@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Odun.png-41993f7460ac05187ba1bd15e60510bf.stex"
+path="res://.import/Slot.png-501a0f1b9d19962b6bd2c1e6cbcf7764.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Odun.png"
-dest_files=[ "res://.import/Odun.png-41993f7460ac05187ba1bd15e60510bf.stex" ]
+source_file="res://Envanter/Resimler/Slot.png"
+dest_files=[ "res://.import/Slot.png-501a0f1b9d19962b6bd2c1e6cbcf7764.stex" ]
 
 [params]
 

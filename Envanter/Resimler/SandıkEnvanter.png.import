@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/HızlıErişim.png-87098d3566c68d49c40d33056206cb84.stex"
+path="res://.import/SandıkEnvanter.png-60b0d57f9f75d332be8d9c6bb10b4284.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://HızlıErişim.png"
-dest_files=[ "res://.import/HızlıErişim.png-87098d3566c68d49c40d33056206cb84.stex" ]
+source_file="res://Envanter/Resimler/SandıkEnvanter.png"
+dest_files=[ "res://.import/SandıkEnvanter.png-60b0d57f9f75d332be8d9c6bb10b4284.stex" ]
 
 [params]
 
