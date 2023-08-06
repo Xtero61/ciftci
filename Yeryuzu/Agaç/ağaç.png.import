@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ağaç.png-a106859636c5c1c807547d79f8a9edb9.stex"
+path="res://.import/ağaç.png-e59105b0d008ddcdab8a2b78331e9221.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Yeryuzu/Agac/ağaç.png"
-dest_files=[ "res://.import/ağaç.png-a106859636c5c1c807547d79f8a9edb9.stex" ]
+source_file="res://Yeryuzu/Agaç/ağaç.png"
+dest_files=[ "res://.import/ağaç.png-e59105b0d008ddcdab8a2b78331e9221.stex" ]
 
 [params]
 

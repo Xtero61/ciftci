@@ -1,8 +1,8 @@
 [gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Gölge.png" type="Texture" id=1]
-[ext_resource path="res://Yeryuzu/Tas/Tas.gd" type="Script" id=2]
-[ext_resource path="res://Yeryuzu/Tas/Taş.png" type="Texture" id=3]
+[ext_resource path="res://Yeryuzu/Taş/Tas.gd" type="Script" id=2]
+[ext_resource path="res://Yeryuzu/Taş/Taş.png" type="Texture" id=3]
 
 [sub_resource type="Gradient" id=8]
 offsets = PoolRealArray( 0.365079, 0.746032 )

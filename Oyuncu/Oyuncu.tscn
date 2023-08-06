@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Oyuncu/Oyuncu.gd" type="Script" id=1]
 [ext_resource path="res://Oyuncu/İmleç.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Envanter/Envanter.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Oyuncu/UI.gd" type="Script" id=14]
 [ext_resource path="res://Oyuncu/EsyaAlmaAlani.gd" type="Script" id=15]
+[ext_resource path="res://HizliErisim.tscn" type="PackedScene" id=16]
 
 [sub_resource type="Gradient" id=13]
 offsets = PoolRealArray( 0, 0.984127, 1 )
@@ -498,10 +499,14 @@ wait_time = 0.3
 one_shot = true
 
 [node name="UI" type="CanvasLayer" parent="."]
+scale = Vector2( 2, 2 )
+transform = Transform2D( 2, 0, 0, 2, 0, 0 )
 script = ExtResource( 14 )
 
 [node name="Envanter" parent="UI" instance=ExtResource( 13 )]
 visible = false
+
+[node name="HizliErisim" parent="UI" instance=ExtResource( 16 )]
 
 [node name="AndroidUI" type="CanvasLayer" parent="."]
 visible = false

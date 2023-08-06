@@ -14,8 +14,8 @@
 [ext_resource path="res://Blok/Çatı/cati_tileset.tres" type="TileSet" id=12]
 [ext_resource path="res://Blok/Kapı/DunyaKapi.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Blok/Kapı/Kapı.png" type="Texture" id=14]
-[ext_resource path="res://Yeryuzu/Agac/Agac.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Yeryuzu/Tas/Tas.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Yeryuzu/Agaç/Agac.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Yeryuzu/Taş/Tas.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Blok/Tahta_Zemin.png" type="Texture" id=17]
 [ext_resource path="res://Esyalar/DunyaEsya.tscn" type="PackedScene" id=18]
 

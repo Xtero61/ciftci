@@ -10,7 +10,6 @@ texture = ExtResource( 2 )
 region_rect = Rect2( 0, 0, 17, 17 )
 
 [node name="Envanter" type="Node2D"]
-scale = Vector2( 2, 2 )
 script = ExtResource( 3 )
 
 [node name="EnvanterResim" type="TextureRect" parent="."]

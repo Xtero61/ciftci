@@ -30,6 +30,12 @@ var vektor = Vector2.ZERO
 export(int) var Hiz = 50
 
 func _ready():
+	OyuncuEnvanter.hizliErisim_esya_ele_verme()
+	if El_Esya_Yer.get_child_count() == 3 : 
+		Sag_el.visible = false
+		Sol_el.visible = false
+		Dolu_el.visible = true
+
 	if OS.get_name() != "Android":
 		AndroidUI.visible = false
 	else :
@@ -101,61 +107,9 @@ func _physics_process(delta):
 
 	vektor = move_and_slide(vektor)
 
-func EldekiEsyayiSil():
-	if El_Esya_Yer.get_child_count() == 3 :
-		El_Esya_Yer.remove_child(El_Esya_Yer.get_child(2))
-
 func _input(event):
 	if !Envanter.visible :
 		YerdenEsyaAlma(event)
-
-	if event.is_action_pressed("Yuva0"):
-		EldekiEsyayiSil()
-	elif event.is_action_pressed("Yuva1"):
-		EldekiEsyayiSil()
-		var Sahne = load("res://Alet/Kılıç/Kilic.tscn")
-		var Kilic = Sahne.instance()
-		El_Esya_Yer.add_child(Kilic) 
-	elif event.is_action_pressed("Yuva2"):
-		EldekiEsyayiSil()
-		var Sahne = load("res://Alet/Kazma/Kazma.tscn")
-		var Kazma = Sahne.instance()
-		El_Esya_Yer.add_child(Kazma)
-	elif event.is_action_pressed("Yuva3"):
-		EldekiEsyayiSil()
-		var Sahne = load("res://Alet/Balta/Balta.tscn")
-		var Balta = Sahne.instance()
-		El_Esya_Yer.add_child(Balta)
-	elif event.is_action_pressed("Yuva4"):
-		EldekiEsyayiSil()
-		var Sahne = load("res://Alet/Kürek/Kurek.tscn")
-		var Kurek = Sahne.instance()
-		El_Esya_Yer.add_child(Kurek)
-	elif event.is_action_pressed("Yuva5"):
-		EldekiEsyayiSil()
-		var Sahne = load("res://Alet/Çapa/Capa.tscn")
-		var Capa = Sahne.instance()
-		El_Esya_Yer.add_child(Capa)
-	elif event.is_action_pressed("Yuva6"):
-		EldekiEsyayiSil()
-		var Sahne = load("res://Alet/Sulama Kabı/SulamaKabi.tscn")
-		var SulamaKabi = Sahne.instance()
-		El_Esya_Yer.add_child(SulamaKabi)
-	elif event.is_action_pressed("Yuva7"):
-		EldekiEsyayiSil()
-		var Sahne = load("res://Alet/Çekiç/Cekic.tscn")
-		var Cekic = Sahne.instance()
-		El_Esya_Yer.add_child(Cekic)
-	elif event.is_action_pressed("Yuva8"):
-		EldekiEsyayiSil()
-		var Sahne = load("res://Alet/Olta/Olta.tscn")
-		var Olta = Sahne.instance()
-		El_Esya_Yer.add_child(Olta)
-	elif event.is_action_pressed("Yuva9"):
-		EldekiEsyayiSil()
-		#var Sahne = load("res://Blok/Çatı/Cati.tscn")
-		#var CamliDuvar = Sahne.instance()
-		#El_Esya_Yer.add_child(CamliDuvar)
 
 	var fare_global : Vector2
 	if AndroidUI.visible == false :

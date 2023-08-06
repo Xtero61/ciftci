@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Taş.png-ff1de0948305cedbc01f8d08e4644925.stex"
+path="res://.import/Taş.png-a9d0f879262e93eaad91f00602305325.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Yeryuzu/Tas/Taş.png"
-dest_files=[ "res://.import/Taş.png-ff1de0948305cedbc01f8d08e4644925.stex" ]
+source_file="res://Yeryuzu/Taş/Taş.png"
+dest_files=[ "res://.import/Taş.png-a9d0f879262e93eaad91f00602305325.stex" ]
 
 [params]
 
