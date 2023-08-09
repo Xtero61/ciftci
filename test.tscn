@@ -1,4 +1,4 @@
-[gd_scene load_steps=116 format=2]
+[gd_scene load_steps=115 format=2]
 
 [ext_resource path="res://Yeryuzu/Yeryuzu.tres" type="TileSet" id=1]
 [ext_resource path="res://Oyuncu/Oyuncu.tscn" type="PackedScene" id=2]
@@ -17,7 +17,6 @@
 [ext_resource path="res://Yeryuzu/Agaç/Agac.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Yeryuzu/Taş/Tas.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Blok/Tahta_Zemin.png" type="Texture" id=17]
-[ext_resource path="res://Esyalar/DunyaEsya.tscn" type="PackedScene" id=18]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Toprak_Tarla.png 0"
@@ -1101,42 +1100,38 @@ position = Vector2( 328, 189 )
 
 [node name="Tas" parent="Yapi" instance=ExtResource( 16 )]
 position = Vector2( 200, 292 )
+YikilmaSayi = 1
 
 [node name="Tas2" parent="Yapi" instance=ExtResource( 16 )]
 position = Vector2( 159, 292 )
+YikilmaSayi = 1
 
 [node name="Tas3" parent="Yapi" instance=ExtResource( 16 )]
 position = Vector2( 118, 292 )
+YikilmaSayi = 1
 
 [node name="Tas4" parent="Yapi" instance=ExtResource( 16 )]
 position = Vector2( 77, 292 )
+YikilmaSayi = 1
 
 [node name="Agac" parent="Yapi" instance=ExtResource( 15 )]
 position = Vector2( 398, 316 )
+YikilmaSayi = 1
 
 [node name="Agac2" parent="Yapi" instance=ExtResource( 15 )]
 position = Vector2( 359, 316 )
+YikilmaSayi = 1
 
 [node name="Agac3" parent="Yapi" instance=ExtResource( 15 )]
 position = Vector2( 319, 316 )
+YikilmaSayi = 1
 
 [node name="Kapi" parent="Yapi" instance=ExtResource( 13 )]
 position = Vector2( 120, 216 )
 
 [node name="Agac4" parent="Yapi" instance=ExtResource( 15 )]
 position = Vector2( 280, 316 )
-
-[node name="DunyaEsya" parent="Yapi" instance=ExtResource( 18 )]
-position = Vector2( 314, 190 )
-
-[node name="DunyaEsya2" parent="Yapi" instance=ExtResource( 18 )]
-position = Vector2( 233, 173 )
-
-[node name="DunyaEsya3" parent="Yapi" instance=ExtResource( 18 )]
-position = Vector2( 235, 197 )
-
-[node name="DunyaEsya4" parent="Yapi" instance=ExtResource( 18 )]
-position = Vector2( 253, 156 )
+YikilmaSayi = 1
 
 [node name="Cati" type="TileMap" parent="."]
 z_index = 1

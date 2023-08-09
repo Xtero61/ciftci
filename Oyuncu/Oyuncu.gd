@@ -48,7 +48,9 @@ func gorunurlukKapa():
 	cekicKapi.visible = false
 	cekicZemin.visible = false
 
-func _process(_delta):
+func _process(delta):
+	YerdenEsyaAlma(Input, delta)
+
 	var imlec_yer = Esya_Vurma_Yer.global_position + Vector2(8,8)
 	imlec.global_position = Vector2(stepify(imlec_yer.x , kare_boyu) , stepify(imlec_yer.y , kare_boyu)) - Vector2(8,8)
 
@@ -108,8 +110,6 @@ func _physics_process(delta):
 	vektor = move_and_slide(vektor)
 
 func _input(event):
-	if !Envanter.visible :
-		YerdenEsyaAlma(event)
 
 	var fare_global : Vector2
 	if AndroidUI.visible == false :
@@ -185,11 +185,32 @@ func _on_TimerVurma_timeout():
 func _on_TimerOlta_timeout():
 	El_Esya_Yer.get_child(2).call("Islev_Oynat",imlec.global_position)
 
-func YerdenEsyaAlma(event):
-	if event.is_action_pressed("YerdenEsyaAlma"):
-		if EsyaAlmaAlan.AlandakiEsyalar.size() > 0 :
-			var alinan_esya = EsyaAlmaAlan.AlandakiEsyalar.values()[0]
-			alinan_esya.alinan_esya(self)
-			EsyaAlmaAlan.AlandakiEsyalar.erase(alinan_esya)
-			Envanter.envanter_slotlarini_guncelle()
+var basili_tutuluyor = false
+var mesaj_goster = false
+var zamanlayici = 0
+var adim_araligi = 0.12  # İşlem adımları arasındaki zaman aralığı (saniye)
 
+func YerdenEsyaAlma(event, delta):
+	if !Envanter.visible :
+		if event.is_action_pressed("YerdenEsyaAlma"):
+			if not basili_tutuluyor:
+				basili_tutuluyor = true
+				zamanlayici = adim_araligi
+				EsyaAlma()
+
+		if event.is_action_just_released("YerdenEsyaAlma"):
+			basili_tutuluyor = false
+			zamanlayici = 0
+	    
+		if basili_tutuluyor:
+			zamanlayici -= delta
+			if zamanlayici <= 0:
+				zamanlayici = adim_araligi
+				EsyaAlma()
+
+func EsyaAlma():
+	if EsyaAlmaAlan.AlandakiEsyalar.size() > 0 :
+		var alinan_esya = EsyaAlmaAlan.AlandakiEsyalar.values()[0]
+		alinan_esya.alinan_esya(self)
+		EsyaAlmaAlan.AlandakiEsyalar.erase(alinan_esya)
+		Envanter.envanter_slotlarini_guncelle()

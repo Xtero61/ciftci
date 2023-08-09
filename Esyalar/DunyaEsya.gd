@@ -6,7 +6,7 @@ var yer_esya_miktar
 onready var resim = $Sprite
 
 func _ready():
-	yer_esya_isim = "Odun"
+
 	resim.texture = load(JsonVeri.esya_veri[yer_esya_isim]["ResimYolu"])
 
 var oyuncu = null
