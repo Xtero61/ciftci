@@ -155,7 +155,7 @@ func _input(event):
 						if ! EldekiEsya.cekicMenu :
 							TimerVurma.start()
 					else :
-						if EldekiEsya.atma :
+						if EldekiEsya.olta_atma :
 							TimerOlta.wait_time = 0.3
 						else :
 							TimerOlta.wait_time = 0.15

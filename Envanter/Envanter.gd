@@ -66,8 +66,42 @@ func sol_tik_basilmiyorsa(slot: SlotSinifi):
 	slot.SlottanSecme()
 	find_parent("UI").tutulan_esya.global_position = get_global_mouse_position()
 
-func _input(_event):
+func _input(event):
 	if find_parent("UI").tutulan_esya:
 		find_parent("UI").tutulan_esya.global_position = get_global_mouse_position()
 		find_parent("UI").tutulan_esya.visible = true
+
+	if $".".visible :
+		pass
+
+	else :
+		if event.is_action_pressed("Yuva0"):
+			pass
+		elif event.is_action_pressed("Yuva1"):
+			OyuncuEnvanter.aktif_slot = 0
+			OyuncuEnvanter.hizliErisim_guncelle()
+		elif event.is_action_pressed("Yuva2"):
+			OyuncuEnvanter.aktif_slot = 1
+			OyuncuEnvanter.hizliErisim_guncelle()
+		elif event.is_action_pressed("Yuva3"):
+			OyuncuEnvanter.aktif_slot = 2
+			OyuncuEnvanter.hizliErisim_guncelle()
+		elif event.is_action_pressed("Yuva4"):
+			OyuncuEnvanter.aktif_slot = 3
+			OyuncuEnvanter.hizliErisim_guncelle()
+		elif event.is_action_pressed("Yuva5"):
+			OyuncuEnvanter.aktif_slot = 4
+			OyuncuEnvanter.hizliErisim_guncelle()
+		elif event.is_action_pressed("Yuva6"):
+			OyuncuEnvanter.aktif_slot = 5
+			OyuncuEnvanter.hizliErisim_guncelle()
+		elif event.is_action_pressed("Yuva7"):
+			OyuncuEnvanter.aktif_slot = 6
+			OyuncuEnvanter.hizliErisim_guncelle()
+		elif event.is_action_pressed("Yuva8"):
+			OyuncuEnvanter.aktif_slot = 7
+			OyuncuEnvanter.hizliErisim_guncelle()
+		elif event.is_action_pressed("Yuva9"):
+			OyuncuEnvanter.aktif_slot = 8
+			OyuncuEnvanter.hizliErisim_guncelle()
 		

@@ -1112,7 +1112,6 @@ YikilmaSayi = 1
 
 [node name="Tas4" parent="Yapi" instance=ExtResource( 16 )]
 position = Vector2( 77, 292 )
-YikilmaSayi = 1
 
 [node name="Agac" parent="Yapi" instance=ExtResource( 15 )]
 position = Vector2( 398, 316 )
@@ -1126,12 +1125,12 @@ YikilmaSayi = 1
 position = Vector2( 319, 316 )
 YikilmaSayi = 1
 
-[node name="Kapi" parent="Yapi" instance=ExtResource( 13 )]
-position = Vector2( 120, 216 )
-
 [node name="Agac4" parent="Yapi" instance=ExtResource( 15 )]
 position = Vector2( 280, 316 )
 YikilmaSayi = 1
+
+[node name="Kapi" parent="Yapi" instance=ExtResource( 13 )]
+position = Vector2( 120, 216 )
 
 [node name="Cati" type="TileMap" parent="."]
 z_index = 1

@@ -6,8 +6,8 @@ var yer_esya_miktar
 onready var resim = $Sprite
 
 func _ready():
-
 	resim.texture = load(JsonVeri.esya_veri[yer_esya_isim]["ResimYolu"])
+	set_linear_velocity(Vector2(rand_range(200, -200),rand_range(200, -200)))
 
 var oyuncu = null
 var aliniyor = false

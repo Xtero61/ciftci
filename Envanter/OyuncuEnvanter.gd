@@ -76,8 +76,7 @@ func esya_miktar_ekleme(slot: SlotSinifi , eklenecek_miktar: int, hizlierisim_mi
 
 func aktif_esya_yukari_cevirme():
 	aktif_slot = (aktif_slot + 1) % HIZLI_ERISIM_SLOT
-	emit_signal("aktif_esya_guncellendi")
-	hizliErisim_esya_ele_verme()
+	hizliErisim_guncelle()
 
 
 func aktif_esya_asagi_cevirme():
@@ -85,6 +84,9 @@ func aktif_esya_asagi_cevirme():
 		aktif_slot = HIZLI_ERISIM_SLOT - 1
 	else :
 		aktif_slot -= 1
+		hizliErisim_guncelle()
+
+func hizliErisim_guncelle():
 	emit_signal("aktif_esya_guncellendi")
 	hizliErisim_esya_ele_verme()
 

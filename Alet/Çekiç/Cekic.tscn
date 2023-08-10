@@ -122,9 +122,6 @@ disabled = true
 wait_time = 0.06
 one_shot = true
 
-[node name="ImlecYer" type="Position2D" parent="."]
-position = Vector2( 17, -4 )
-
 [node name="YapiMenu" type="CanvasLayer" parent="."]
 
 [node name="ana" type="Node2D" parent="YapiMenu"]

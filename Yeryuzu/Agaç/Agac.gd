@@ -38,11 +38,10 @@ func _on_AgacArea_area_entered(area):
 				animasyonPlayer.play("Yıkılma")
 			TimerYokOlma.start()
 
-			for _i in range(4 + randi() % 3): #[ 4 , 6 ] sayı üretiyor
-				var esya = dunya_esya.instance()
-				esya.global_position = global_position
-				esya.yer_esya_isim = "Odun"
-				get_node(Dunya_yolu).call_deferred("add_child",esya)
-
 func _on_TimerYokOlma_timeout():
+	for _i in range(4 + randi() % 3): #[ 4 , 6 ] sayı üretiyor
+		var esya = dunya_esya.instance()
+		esya.global_position = $Cevir/EsyaDusmeYer.global_position
+		esya.yer_esya_isim = "Odun"
+		get_node(Dunya_yolu).call_deferred("add_child",esya)
 	queue_free()

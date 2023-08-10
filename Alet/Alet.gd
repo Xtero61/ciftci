@@ -6,7 +6,7 @@ onready var Simge = $Simge
 onready var Efek = $Simge/Efek
 
 var sulama_hak = 0 
-var atma = true
+var olta_atma = true
 var cekicMenu = false
 var cekicMenuSecili = 0
 
@@ -20,11 +20,10 @@ func _process(_delta):
 		if Input.is_action_just_pressed("YapıMenu"):
 			if cekicMenu :
 				$YapiMenu/ana/AnimationPlayer.play("Kapanma")
-				cekicMenu = false
 				cekicMenuSecili = $YapiMenu/ana/Menu.frame
 			else :
 				$YapiMenu/ana/AnimationPlayer.play("Açılma")
-				cekicMenu = true
+			cekicMenu = !cekicMenu
 
 	if ismim == "Olta":
 		var ip = $OltaUcuYer/ip
@@ -33,16 +32,15 @@ func _process(_delta):
 
 func Islev_Oynat(Yapilcak_Yer):
 
-	if atma == true :
+	if olta_atma == true :
 		Efek.visible = true
 	
 	TimerEfek.start()
 	if ismim != "SulamaKabi" and ismim != "Capa":
-		var VurmaAlan = $VurmaAlan
 		if ! ismim == "Cekic":
-			VurmaAlan.disabled = false
+			$VurmaAlan.disabled = false
 		elif cekicMenuSecili == 0 : 
-			VurmaAlan.disabled = false
+			$VurmaAlan.disabled = false
 
 	if ismim == "Capa":
 		Capalama(Yapilcak_Yer)
@@ -91,23 +89,23 @@ func YapiYap(Yapi,Yapilacak_yer,Tur):
 	else :
 		Genel._YapiYapma("Cati",Yapi,Yapilacak_yer)
 
-
 func Yik(Yapilcak_Yer):
 	Genel._YapiYapma("Sil",-1,Yapilcak_Yer)
 
 func _on_TimerEfek_timeout():
+
 	Efek.visible = false
+
 	if ismim != "SulamaKabi" and ismim != "Capa":
-		var VurmaAlan = $VurmaAlan
-		VurmaAlan.disabled = true
+		$VurmaAlan.disabled = true
 	if ismim == "Olta":
-		if atma == true :
+		if olta_atma == true :
 			$OltaUcuYer/OltaUcu.position = $OltaUcuPos.global_position
 			$OltaUcuYer.visible = true
-			atma = false
+			olta_atma = false
 		else :
 			$OltaUcuYer.visible = false
-			atma = true
+			olta_atma = true
 
 func menu_kapa() :
 	$YapiMenu/ana/AnimationPlayer.play("Kapanma")

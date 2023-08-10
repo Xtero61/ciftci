@@ -485,7 +485,7 @@ anims/RESET = SubResource( 5 )
 anims/Sulama = SubResource( 7 )
 anims/Vurma = SubResource( 6 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="İmlecAnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "İmlec"
 anims/RESET = SubResource( 8 )
 "anims/İmlec" = SubResource( 9 )
