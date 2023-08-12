@@ -15,7 +15,7 @@
 [ext_resource path="res://Envanter/Envanter.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Oyuncu/UI.gd" type="Script" id=14]
 [ext_resource path="res://Oyuncu/EsyaAlmaAlani.gd" type="Script" id=15]
-[ext_resource path="res://HizliErisim.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Envanter/HizliErisim.tscn" type="PackedScene" id=16]
 
 [sub_resource type="Gradient" id=13]
 offsets = PoolRealArray( 0, 0.984127, 1 )
@@ -411,6 +411,7 @@ current = true
 zoom = Vector2( 0.8, 0.8 )
 process_mode = 0
 smoothing_enabled = true
+smoothing_speed = 10.0
 
 [node name="Cevir" type="Node2D" parent="."]
 
@@ -485,7 +486,7 @@ anims/RESET = SubResource( 5 )
 anims/Sulama = SubResource( 7 )
 anims/Vurma = SubResource( 6 )
 
-[node name="İmlecAnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="ImlecAnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "İmlec"
 anims/RESET = SubResource( 8 )
 "anims/İmlec" = SubResource( 9 )

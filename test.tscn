@@ -1129,6 +1129,22 @@ YikilmaSayi = 1
 position = Vector2( 280, 316 )
 YikilmaSayi = 1
 
+[node name="Agac5" parent="Yapi" instance=ExtResource( 15 )]
+position = Vector2( 490, 314 )
+YikilmaSayi = 1
+
+[node name="Agac7" parent="Yapi" instance=ExtResource( 15 )]
+position = Vector2( 537, 313 )
+YikilmaSayi = 1
+
+[node name="Agac8" parent="Yapi" instance=ExtResource( 15 )]
+position = Vector2( 584, 312 )
+YikilmaSayi = 1
+
+[node name="Agac6" parent="Yapi" instance=ExtResource( 15 )]
+position = Vector2( 446, 315 )
+YikilmaSayi = 1
+
 [node name="Kapi" parent="Yapi" instance=ExtResource( 13 )]
 position = Vector2( 120, 216 )
 

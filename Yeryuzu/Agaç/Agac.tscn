@@ -399,6 +399,7 @@ texture = ExtResource( 3 )
 hframes = 2
 
 [node name="EsyaDusmeYer" type="Position2D" parent="Cevir"]
+visible = false
 position = Vector2( 48, -4 )
 
 [node name="AgacStatic" type="StaticBody2D" parent="."]
