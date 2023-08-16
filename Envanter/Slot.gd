@@ -55,6 +55,11 @@ func SlotaKoyma(yeni_esya):
 	add_child(esya)
 	style_yenile()
 
+func esya_sil():
+	remove_child(esya)
+	esya = null
+	style_yenile()
+
 func esya_olusturma(esya_isim, esya_miktar):
 	if esya == null:
 		esya = EsyaSinifi.instance()

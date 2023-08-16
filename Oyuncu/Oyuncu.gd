@@ -123,8 +123,8 @@ func _input(event):
 				Cevir.scale.x = 1
 				El_Cevir.scale.y = 1
 			#eldeki esyayı fare göre çevirme
-			
-			Dolu_el.look_at(fare_global)
+			if !Envanter.visible :
+				Dolu_el.look_at(fare_global)
 
 	else :
 		fare_global = YonDokunmatikTus.get_output()

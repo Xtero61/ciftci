@@ -126,7 +126,7 @@ func _YapiYapma(Koy_Sil_Cati,YapilanYapi,Fare_yer):
 			if YapilanYapi == yapi_kapi and get_node(YAPI_TILEMAP).get_cell(tile.x,tile.y) == bos :
 				var Kapi = Kapisahne.instance()
 				get_node(YAPI_TILEMAP).add_child(Kapi)
-				Kapi.global_position = Fare_yer
+				Kapi.global_position = get_node(YAPI_TILEMAP).map_to_world(tile) + Vector2(8,8)
 				get_node(YAPI_TILEMAP).set_cell(tile.x,tile.y,yapi_kapi)
 
 			elif get_node(YAPI_TILEMAP).get_cell(tile.x,tile.y) == bos :

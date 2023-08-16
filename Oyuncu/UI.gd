@@ -3,7 +3,7 @@ extends CanvasLayer
 onready var Envanter = $Envanter
 onready var HizliErisim = $HizliErisim
 
-var tutulan_esya = null 
+var tutulan_esya = null
 
 func _input(event):
 	if event.is_action_pressed("Envanter"):

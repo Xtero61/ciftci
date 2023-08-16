@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://sandıkAnimasyonrenkli.png" type="Texture" id=1]
+[ext_resource path="res://sandıkAnimasyon.png" type="Texture" id=2]
+[ext_resource path="res://Sandik.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 5, 5 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 3 )
+
+[node name="Sandik" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="SandıkAnimasyon" type="Sprite" parent="."]
+position = Vector2( 0, -8 )
+texture = ExtResource( 2 )
+hframes = 10
+
+[node name="SandıkAnimasyonrenkli" type="Sprite" parent="SandıkAnimasyon"]
+use_parent_material = true
+texture = ExtResource( 1 )
+hframes = 10
+
+[node name="SandikArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SandikArea2D"]
+shape = SubResource( 1 )
+
+[node name="SandikStaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SandikStaticBody2D"]
+position = Vector2( 0, 1 )
+shape = SubResource( 2 )
+
+[connection signal="area_entered" from="SandikArea2D" to="." method="_on_SandikArea2D_area_entered"]
+[connection signal="area_exited" from="SandikArea2D" to="." method="_on_SandikArea2D_area_exited"]
