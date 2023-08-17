@@ -2,16 +2,28 @@ extends CanvasLayer
 
 onready var Envanter = $Envanter
 onready var HizliErisim = $HizliErisim
+onready var Sandik = $Sandik_slotlari
 
 var tutulan_esya = null
+var sandiga_bakiyo : bool = false
 
 func _input(event):
 	if event.is_action_pressed("Envanter"):
 		if tutulan_esya != null :
 			tutulan_esya.visible = true
 		Envanter.visible = !Envanter.visible
+		if Envanter.visible and sandiga_bakiyo :
+			Sandik.visible = true
+			Envanter.animasyonPlayer.play("SandıkAçık")
+		else :
+			Sandik.visible = false
+			Envanter.animasyonPlayer.play("SandıkKapalı")
 		HizliErisim.envanter_acikmi = !HizliErisim.envanter_acikmi
 		Envanter.envanter_slotlarini_guncelle()
+		if !Envanter.visible :
+			sandiga_bakiyo = false
+		else:
+			sandiga_bakiyo = false
 
 	if !Envanter.visible :
 		if tutulan_esya != null :

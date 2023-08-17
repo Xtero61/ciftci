@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Envanter/Slot.gd" type="Script" id=1]
 [ext_resource path="res://Envanter/Resimler/Slot.png" type="Texture" id=2]
 [ext_resource path="res://Envanter/Envanter.gd" type="Script" id=3]
 [ext_resource path="res://Envanter/Resimler/Envanter.png" type="Texture" id=4]
-[ext_resource path="res://Envanter/Resimler/SandıkEnvanter.png" type="Texture" id=5]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 2 )
@@ -36,30 +35,6 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector2( 117, 51 ) ]
 }
-tracks/2/type = "value"
-tracks/2/path = NodePath("SandikSlotlari:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ false ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("SandikResim:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ false ]
-}
 
 [sub_resource type="Animation" id=3]
 resource_name = "SandıkAçık"
@@ -87,30 +62,6 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 60, 65 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("SandikSlotlari:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("SandikResim:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -140,30 +91,6 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector2( 117, 51 ) ]
 }
-tracks/2/type = "value"
-tracks/2/path = NodePath("SandikSlotlari:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("SandikResim:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
 
 [node name="Envanter" type="Node2D"]
 script = ExtResource( 3 )
@@ -178,14 +105,6 @@ margin_top = 48.0
 margin_right = 227.0
 margin_bottom = 109.0
 texture = ExtResource( 4 )
-
-[node name="SandikResim" type="TextureRect" parent="."]
-visible = false
-margin_left = 114.0
-margin_top = 5.0
-margin_right = 227.0
-margin_bottom = 72.0
-texture = ExtResource( 5 )
 
 [node name="EnvanterSlotlari" type="GridContainer" parent="."]
 margin_left = 117.0
@@ -341,169 +260,6 @@ custom_styles/panel = SubResource( 1 )
 script = ExtResource( 1 )
 
 [node name="slot18" type="Panel" parent="EnvanterSlotlari"]
-margin_left = 90.0
-margin_top = 38.0
-margin_right = 107.0
-margin_bottom = 55.0
-rect_min_size = Vector2( 17, 17 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 1 )
-
-[node name="SandikSlotlari" type="GridContainer" parent="."]
-visible = false
-margin_left = 117.0
-margin_top = 8.0
-margin_right = 224.0
-margin_bottom = 63.0
-custom_constants/vseparation = 2
-custom_constants/hseparation = 1
-columns = 6
-
-[node name="slot1" type="Panel" parent="SandikSlotlari"]
-margin_right = 17.0
-margin_bottom = 17.0
-rect_min_size = Vector2( 17, 17 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 1 )
-
-[node name="slot2" type="Panel" parent="SandikSlotlari"]
-margin_left = 18.0
-margin_right = 35.0
-margin_bottom = 17.0
-rect_min_size = Vector2( 17, 17 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 1 )
-
-[node name="slot3" type="Panel" parent="SandikSlotlari"]
-margin_left = 36.0
-margin_right = 53.0
-margin_bottom = 17.0
-rect_min_size = Vector2( 17, 17 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 1 )
-
-[node name="slot4" type="Panel" parent="SandikSlotlari"]
-margin_left = 54.0
-margin_right = 71.0
-margin_bottom = 17.0
-rect_min_size = Vector2( 17, 17 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 1 )
-
-[node name="slot5" type="Panel" parent="SandikSlotlari"]
-margin_left = 72.0
-margin_right = 89.0
-margin_bottom = 17.0
-rect_min_size = Vector2( 17, 17 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 1 )
-
-[node name="slot6" type="Panel" parent="SandikSlotlari"]
-margin_left = 90.0
-margin_right = 107.0
-margin_bottom = 17.0
-rect_min_size = Vector2( 17, 17 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 1 )
-
-[node name="slot7" type="Panel" parent="SandikSlotlari"]
-margin_top = 19.0
-margin_right = 17.0
-margin_bottom = 36.0
-rect_min_size = Vector2( 17, 17 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 1 )
-
-[node name="slot8" type="Panel" parent="SandikSlotlari"]
-margin_left = 18.0
-margin_top = 19.0
-margin_right = 35.0
-margin_bottom = 36.0
-rect_min_size = Vector2( 17, 17 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 1 )
-
-[node name="slot9" type="Panel" parent="SandikSlotlari"]
-margin_left = 36.0
-margin_top = 19.0
-margin_right = 53.0
-margin_bottom = 36.0
-rect_min_size = Vector2( 17, 17 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 1 )
-
-[node name="slot10" type="Panel" parent="SandikSlotlari"]
-margin_left = 54.0
-margin_top = 19.0
-margin_right = 71.0
-margin_bottom = 36.0
-rect_min_size = Vector2( 17, 17 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 1 )
-
-[node name="slot11" type="Panel" parent="SandikSlotlari"]
-margin_left = 72.0
-margin_top = 19.0
-margin_right = 89.0
-margin_bottom = 36.0
-rect_min_size = Vector2( 17, 17 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 1 )
-
-[node name="slot12" type="Panel" parent="SandikSlotlari"]
-margin_left = 90.0
-margin_top = 19.0
-margin_right = 107.0
-margin_bottom = 36.0
-rect_min_size = Vector2( 17, 17 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 1 )
-
-[node name="slot13" type="Panel" parent="SandikSlotlari"]
-margin_top = 38.0
-margin_right = 17.0
-margin_bottom = 55.0
-rect_min_size = Vector2( 17, 17 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 1 )
-
-[node name="slot14" type="Panel" parent="SandikSlotlari"]
-margin_left = 18.0
-margin_top = 38.0
-margin_right = 35.0
-margin_bottom = 55.0
-rect_min_size = Vector2( 17, 17 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 1 )
-
-[node name="slot15" type="Panel" parent="SandikSlotlari"]
-margin_left = 36.0
-margin_top = 38.0
-margin_right = 53.0
-margin_bottom = 55.0
-rect_min_size = Vector2( 17, 17 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 1 )
-
-[node name="slot16" type="Panel" parent="SandikSlotlari"]
-margin_left = 54.0
-margin_top = 38.0
-margin_right = 71.0
-margin_bottom = 55.0
-rect_min_size = Vector2( 17, 17 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 1 )
-
-[node name="slot17" type="Panel" parent="SandikSlotlari"]
-margin_left = 72.0
-margin_top = 38.0
-margin_right = 89.0
-margin_bottom = 55.0
-rect_min_size = Vector2( 17, 17 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 1 )
-
-[node name="slot18" type="Panel" parent="SandikSlotlari"]
 margin_left = 90.0
 margin_top = 38.0
 margin_right = 107.0

@@ -125,7 +125,7 @@ one_shot = true
 [node name="YapiMenu" type="CanvasLayer" parent="."]
 
 [node name="ana" type="Node2D" parent="YapiMenu"]
-position = Vector2( 285, 160 )
+position = Vector2( 285, 150 )
 scale = Vector2( 1e-05, 1e-05 )
 
 [node name="Menu" type="Sprite" parent="YapiMenu/ana"]

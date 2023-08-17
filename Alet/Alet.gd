@@ -10,10 +10,6 @@ var olta_atma = true
 var cekicMenu = false
 var cekicMenuSecili = 0
 
-func _ready():
-	if ismim == "Cekic":
-		$YapiMenu/ana.global_position = Vector2(OS.get_screen_size().x/4.80,OS.get_screen_size().y/5.1)
-
 func _process(_delta):
 
 	if ismim == "Cekic":

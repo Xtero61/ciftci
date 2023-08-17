@@ -9,7 +9,6 @@ size = 18
 font_data = ExtResource( 3 )
 
 [node name="Esya" type="Node2D"]
-z_index = 1
 script = ExtResource( 1 )
 
 [node name="TextureRect" type="TextureRect" parent="."]

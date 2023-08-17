@@ -1150,10 +1150,13 @@ YikilmaSayi = 1
 position = Vector2( 120, 216 )
 
 [node name="Sandik" parent="Yapi" instance=ExtResource( 18 )]
-position = Vector2( 279, 186 )
+position = Vector2( 280, 184 )
+sandik = {
+0: [ "Taş Kılıç", 1 ]
+}
 
 [node name="Sandik3" parent="Yapi" instance=ExtResource( 18 )]
-position = Vector2( 262, 186 )
+position = Vector2( 264, 184 )
 
 [node name="Cati" type="TileMap" parent="."]
 z_index = 1

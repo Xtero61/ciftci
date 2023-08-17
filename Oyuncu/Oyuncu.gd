@@ -24,6 +24,8 @@ onready var cekicKapi = $CekicKoyulcakYapi/Kapi
 onready var cekicZemin = $CekicKoyulcakYapi/TahtaZeminIcon
 onready var EsyaAlmaAlan = $EsyaAlmaAlani
 onready var Envanter = $UI/Envanter
+onready var Sandik = $UI/Sandik_slotlari
+onready var UI = $UI
 
 var kare_boyu = 16.0
 var vektor = Vector2.ZERO

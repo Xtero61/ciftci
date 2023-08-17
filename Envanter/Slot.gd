@@ -8,6 +8,7 @@ var dolu_style : StyleBoxTexture = null
 var bos_style : StyleBoxTexture = null
 var secili_style : StyleBoxTexture = null
 
+var UI : String = "/root/Dunya/Yapi/Oyuncu/UI"
 var EsyaSinifi = preload("res://Esyalar/Esya.tscn")
 var esya = null
 var slot_sayisi
@@ -41,7 +42,7 @@ func style_yenile():
 
 func SlottanSecme():
 	remove_child(esya)
-	var envanterNode = find_parent("UI")
+	var envanterNode = get_node(UI)
 	envanterNode.add_child(esya)
 	esya.visible = false
 	esya = null
@@ -50,7 +51,7 @@ func SlottanSecme():
 func SlotaKoyma(yeni_esya):
 	esya = yeni_esya
 	esya.position = Vector2(0,0)
-	var envanterNode = find_parent("UI")
+	var envanterNode = get_node(UI)
 	envanterNode.remove_child(esya)
 	add_child(esya)
 	style_yenile()

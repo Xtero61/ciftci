@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Oyuncu/Oyuncu.gd" type="Script" id=1]
 [ext_resource path="res://Oyuncu/İmleç.png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Oyuncu/UI.gd" type="Script" id=14]
 [ext_resource path="res://Oyuncu/EsyaAlmaAlani.gd" type="Script" id=15]
 [ext_resource path="res://Envanter/HizliErisim.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Sandik_slotlari.tscn" type="PackedScene" id=17]
 
 [sub_resource type="Gradient" id=13]
 offsets = PoolRealArray( 0, 0.984127, 1 )
@@ -516,6 +517,9 @@ script = ExtResource( 14 )
 visible = false
 
 [node name="HizliErisim" parent="UI" instance=ExtResource( 16 )]
+
+[node name="Sandik_slotlari" parent="UI" instance=ExtResource( 17 )]
+visible = false
 
 [node name="AndroidUI" type="CanvasLayer" parent="."]
 visible = false

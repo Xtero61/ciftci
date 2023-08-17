@@ -53,26 +53,16 @@ func slot_goruntusu_yenile(slot_sayisi, esya_isim, yeni_miktar):
 	else :
 		slot.esya_olusturma(esya_isim, yeni_miktar)
 
-func bos_slota_esya_ekle(esya: EsyaSinifi, slot: SlotSinifi, hizlierisim_mi : bool = false):
-	if hizlierisim_mi:
-		hizlierisim[slot.slot_sayisi] = [esya.esya_isim, esya.esya_miktar]
+func bos_slota_esya_ekle(esya: EsyaSinifi, slot: SlotSinifi, sozluk: Dictionary = {}):
+		sozluk[slot.slot_sayisi] = [esya.esya_isim, esya.esya_miktar]
 		hizliErisim_esya_ele_verme()
-	else :
-		envanter[slot.slot_sayisi] = [esya.esya_isim, esya.esya_miktar]
 
-func esya_sil(slot: SlotSinifi, hizlierisim_mi : bool = false):
-	if hizlierisim_mi:
-		hizlierisim.erase(slot.slot_sayisi)
-		hizliErisim_esya_ele_verme()
-	else :
-		envanter.erase(slot.slot_sayisi)
+func esya_sil(slot: SlotSinifi, sozluk: Dictionary = {}):
+	sozluk.erase(slot.slot_sayisi)
+	hizliErisim_esya_ele_verme()
 
-func esya_miktar_ekleme(slot: SlotSinifi , eklenecek_miktar: int, hizlierisim_mi : bool = false):
-	if hizlierisim_mi:
-		hizlierisim[slot.slot_sayisi][1] += eklenecek_miktar
-		hizliErisim_esya_ele_verme()
-	else:
-		envanter[slot.slot_sayisi][1] += eklenecek_miktar
+func esya_miktar_ekleme(slot: SlotSinifi , eklenecek_miktar: int, sozluk: Dictionary = {}):
+	sozluk[slot.slot_sayisi][1] += eklenecek_miktar
 
 func aktif_esya_yukari_cevirme():
 	aktif_slot = (aktif_slot + 1) % HIZLI_ERISIM_SLOT
