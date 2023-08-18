@@ -21,7 +21,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 60, 48 ) ]
+"values": [ Vector2( 60, 49.5 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("EnvanterSlotlari:rect_position")
@@ -49,7 +49,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 117, 68 ) ]
+"values": [ Vector2( 117, 69.5 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("EnvanterResim:rect_position")
@@ -61,7 +61,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 60, 65 ) ]
+"values": [ Vector2( 60, 66.5 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -77,7 +77,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 60, 48 ) ]
+"values": [ Vector2( 60, 49.5 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("EnvanterSlotlari:rect_position")
@@ -89,7 +89,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 117, 51 ) ]
+"values": [ Vector2( 117, 52.5 ) ]
 }
 
 [node name="Envanter" type="Node2D"]
@@ -101,9 +101,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = 60.0
-margin_top = 48.0
+margin_top = 49.5
 margin_right = 227.0
-margin_bottom = 109.0
+margin_bottom = 110.5
 texture = ExtResource( 4 )
 
 [node name="EnvanterSlotlari" type="GridContainer" parent="."]

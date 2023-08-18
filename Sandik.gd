@@ -10,9 +10,11 @@ func _on_SandikArea2D_area_entered(area):
 		$AnimationPlayer.play("Açılma")
 		area.find_parent("Oyuncu").Sandik.sandik = sandik
 		area.find_parent("Oyuncu").Sandik.sandik_slotlarini_guncelle()
-		area.find_parent("Oyuncu").UI.sandiga_bakiyo = true
+		area.find_parent("Oyuncu").UI.sandiklar.append($".")
 
 func _on_SandikArea2D_area_exited(area):
 	if area.name == "ImlecArea2D":
 		$AnimationPlayer.play("Kapanma")
+		area.find_parent("Oyuncu").UI.sandiklar.erase($".")
+		
 		
