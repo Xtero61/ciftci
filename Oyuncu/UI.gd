@@ -14,10 +14,15 @@ func _input(event):
 		Envanter.visible = !Envanter.visible
 		if Envanter.visible and !sandiklar.empty() :
 			Sandik.visible = true
+			Sandik.kirmizi.value = sandiklar[0].sandik_rengi.get_modulate().r8
+			Sandik.yesil.value = sandiklar[0].sandik_rengi.get_modulate().g8
+			Sandik.mavi.value = sandiklar[0].sandik_rengi.get_modulate().b8
 			Envanter.animasyonPlayer.play("SandıkAçık")
 		else :
 			Sandik.visible = false
 			Envanter.animasyonPlayer.play("SandıkKapalı")
+		if !Envanter.visible and !sandiklar.empty():
+			sandiklar[0].sandik_rengi_ayarla(Sandik.renklist)
 		HizliErisim.envanter_acikmi = !HizliErisim.envanter_acikmi
 		Envanter.envanter_slotlarini_guncelle()
 

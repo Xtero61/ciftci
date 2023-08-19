@@ -4,8 +4,13 @@ const SlotSinifi = preload("res://Envanter/Slot.gd")
 
 onready var sandik_slotlari = $SandikSlotlari
 onready var slotlar = sandik_slotlari.get_children()
+onready var simge_sandik_rengi = $RenkSecici/SandikRenkliIcon
+onready var kirmizi = $RenkSecici/Renkler/kirmizi
+onready var yesil = $RenkSecici/Renkler/yesil
+onready var mavi = $RenkSecici/Renkler/mavi
 
 var sandik = {}
+var renklist = [144,109,82]
 
 func sandik_slotlarini_guncelle():
 	for i in range(slotlar.size()):
@@ -68,3 +73,18 @@ func sol_tik_basilmiyorsa(slot: SlotSinifi):
 	find_parent("UI").tutulan_esya = slot.esya
 	slot.SlottanSecme()
 	find_parent("UI").tutulan_esya.global_position = get_global_mouse_position()
+
+
+func _on_kirmizi_value_changed(value):
+	renklist[0] = float(value)
+	$RenkSecici/SandikRenkliIcon.modulate = Color8(renklist[0],renklist[1],renklist[2])
+
+
+func _on_yesil_value_changed(value):
+	renklist[1] = float(value)
+	$RenkSecici/SandikRenkliIcon.modulate = Color8(renklist[0],renklist[1],renklist[2])
+
+
+func _on_mavi_value_changed(value):
+	renklist[2] = float(value)
+	$RenkSecici/SandikRenkliIcon.modulate = Color8(renklist[0],renklist[1],renklist[2])

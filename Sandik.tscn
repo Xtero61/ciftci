@@ -15,7 +15,7 @@ resource_name = "Açılma"
 length = 0.5
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("SandıkAnimasyon:frame")
+tracks/0/path = NodePath("SandikAnimasyon:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -27,7 +27,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("SandıkAnimasyon/SandıkAnimasyonrenkli:frame")
+tracks/1/path = NodePath("SandikAnimasyon/SandikAnimasyonrenkli:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -44,7 +44,7 @@ resource_name = "Kapanma"
 length = 0.5
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("SandıkAnimasyon:frame")
+tracks/0/path = NodePath("SandikAnimasyon:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -56,7 +56,7 @@ tracks/0/keys = {
 "values": [ 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("SandıkAnimasyon/SandıkAnimasyonrenkli:frame")
+tracks/1/path = NodePath("SandikAnimasyon/SandikAnimasyonrenkli:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -71,7 +71,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id=5]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("SandıkAnimasyon:frame")
+tracks/0/path = NodePath("SandikAnimasyon:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -83,7 +83,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("SandıkAnimasyon/SandıkAnimasyonrenkli:frame")
+tracks/1/path = NodePath("SandikAnimasyon/SandikAnimasyonrenkli:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -98,12 +98,13 @@ tracks/1/keys = {
 [node name="Sandik" type="Node2D"]
 script = ExtResource( 3 )
 
-[node name="SandıkAnimasyon" type="Sprite" parent="."]
+[node name="SandikAnimasyon" type="Sprite" parent="."]
 position = Vector2( 0, -8 )
 texture = ExtResource( 2 )
 hframes = 10
 
-[node name="SandıkAnimasyonrenkli" type="Sprite" parent="SandıkAnimasyon"]
+[node name="SandikAnimasyonrenkli" type="Sprite" parent="SandikAnimasyon"]
+modulate = Color( 0.564706, 0.427451, 0.321569, 1 )
 use_parent_material = true
 texture = ExtResource( 1 )
 hframes = 10
