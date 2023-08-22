@@ -54,8 +54,12 @@ func slot_goruntusu_yenile(slot_sayisi, esya_isim, yeni_miktar):
 		slot.esya_olusturma(esya_isim, yeni_miktar)
 
 func bos_slota_esya_ekle(esya: EsyaSinifi, slot: SlotSinifi, sozluk: Dictionary = {}):
-		sozluk[slot.slot_sayisi] = [esya.esya_isim, esya.esya_miktar]
-		hizliErisim_esya_ele_verme()
+	sozluk[slot.slot_sayisi] = [esya.esya_isim, esya.esya_miktar]
+	hizliErisim_esya_ele_verme()
+
+func bos_slot_belli_miktar_esya_ekle(esya: EsyaSinifi, slot: SlotSinifi, miktar, sozluk: Dictionary = {}):
+	sozluk[slot.slot_sayisi] = [esya.esya_isim, miktar]
+	hizliErisim_esya_ele_verme()
 
 func esya_sil(slot: SlotSinifi, sozluk: Dictionary = {}):
 	sozluk.erase(slot.slot_sayisi)

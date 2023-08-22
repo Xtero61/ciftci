@@ -16,11 +16,11 @@ func kapi_etrafi_kontrol():
 
 func _on_Kapi_body_entered(body):
 	if body.name == "Oyuncu":
-		animasyonPlayer.play("Açılma")
+		animasyonPlayer.play("Kapi_anim")
 
 func _on_Kapi_body_exited(body):
 	if body.name == "Oyuncu":
-		animasyonPlayer.play("Kapanma")
+		animasyonPlayer.play("Kapi_anim",-1,-1,true)
 
 func _on_KapiKirilma_area_entered(area):
 	if area.name == "Cekic":

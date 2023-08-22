@@ -19,9 +19,13 @@ func _ready():
 	var yigin_boyu = int(JsonVeri.esya_veri[esya_isim]["BirikmeMiktarı"])
 	esya_miktar = randi() % yigin_boyu + 1
 
+	esya_miktar_yazisi()
+
+func esya_miktar_yazisi() :
 	if esya_miktar == 1:
 		$Label.visible = false
 	else:
+		$Label.visible = true
 		$Label.text = String(esya_miktar)
 
 func esya_ayarla(esya_is, esya_mik):
@@ -36,12 +40,11 @@ func esya_ayarla(esya_is, esya_mik):
 	else :
 		esya_g_sayi.visible = true
 		esya_g_sayi.text = String(esya_miktar)
-		
-		
+
 func esya_miktari_ekle(eklencek_miktar):
 	esya_miktar += eklencek_miktar
-	$Label.text = String(esya_miktar)
+	esya_miktar_yazisi()
 
 func esya_miktari_azalt(azaltilacak_miktar):
 	esya_miktar -= azaltilacak_miktar
-	$Label.text = String(esya_miktar)
+	esya_miktar_yazisi()

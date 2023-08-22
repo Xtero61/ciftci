@@ -12,14 +12,14 @@ func sandik_rengi_ayarla(list):
 
 func _on_SandikArea2D_area_entered(area):
 	if area.name == "ImlecArea2D":
-		$AnimationPlayer.play("Açılma")
+		$AnimationPlayer.play("Sandik_anim")
 		area.find_parent("Oyuncu").Sandik.sandik = sandik
 		area.find_parent("Oyuncu").Sandik.sandik_slotlarini_guncelle()
 		area.find_parent("Oyuncu").UI.sandiklar.append($".")
 
 func _on_SandikArea2D_area_exited(area):
 	if area.name == "ImlecArea2D":
-		$AnimationPlayer.play("Kapanma")
+		$AnimationPlayer.play("Sandik_anim",-1,-1,true)
 		area.find_parent("Oyuncu").UI.sandiklar.erase($".")
 		
 		
