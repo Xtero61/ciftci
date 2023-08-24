@@ -26,24 +26,24 @@ var hizlierisim = {
 
 var aktif_slot = 0
 
-func esya_ekleme(esya_isim, esya_miktar):
-	for esya in envanter :
-		if envanter[esya][0] == esya_isim:
+func esya_ekleme(esya_isim, esya_miktar, sozluk):
+	for esya in sozluk :
+		if sozluk[esya][0] == esya_isim:
 			var birikme_miktari = int(JsonVeri.esya_veri[esya_isim]["BirikmeMiktarı"])
-			var eklenecek_miktar = birikme_miktari - envanter[esya][1]
+			var eklenecek_miktar = birikme_miktari - sozluk[esya][1]
 			if eklenecek_miktar >= esya_miktar:
-				envanter[esya][1] += esya_miktar
-				slot_goruntusu_yenile(esya,envanter[esya][0],envanter[esya][1])
+				sozluk[esya][1] += esya_miktar
+				slot_goruntusu_yenile(esya,sozluk[esya][0],sozluk[esya][1])
 				return
 			else :
-				envanter[esya][1] += eklenecek_miktar
-				slot_goruntusu_yenile(esya,envanter[esya][0],envanter[esya][1])
+				sozluk[esya][1] += eklenecek_miktar
+				slot_goruntusu_yenile(esya,sozluk[esya][0],sozluk[esya][1])
 				esya_miktar = esya_miktar - eklenecek_miktar
 
 	for i in range(ENVANTER_SLOT):
-		if envanter.has(i) == false :
-			envanter[i] = [esya_isim, esya_miktar]
-			slot_goruntusu_yenile(i,envanter[i][0],envanter[i][1])
+		if sozluk.has(i) == false :
+			sozluk[i] = [esya_isim, esya_miktar]
+			slot_goruntusu_yenile(i,sozluk[i][0],sozluk[i][1])
 			return
 
 func slot_goruntusu_yenile(slot_sayisi, esya_isim, yeni_miktar):

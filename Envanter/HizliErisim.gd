@@ -11,7 +11,6 @@ func hizlierisim_slotlarini_guncelle():
 	for i in range(slotlar.size()):
 		if OyuncuEnvanter.hizlierisim.has(i):
 			slotlar[i].esya_olusturma(OyuncuEnvanter.hizlierisim[i][0],OyuncuEnvanter.hizlierisim[i][1])
-
 func _ready():
 	for i in range(slotlar.size()):
 		slotlar[i].connect("gui_input", self, "slot_gui_girdisi", [slotlar[i]])

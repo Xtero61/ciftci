@@ -20,7 +20,7 @@ func _physics_process(delta):
 
 		var mesafe = global_position.distance_to(oyuncu.global_position)
 		if mesafe < 12 :
-			OyuncuEnvanter.esya_ekleme(yer_esya_isim, 1)
+			OyuncuEnvanter.esya_ekleme(yer_esya_isim, 1, OyuncuEnvanter.envanter)
 			queue_free()
 
 func alinan_esya(body):

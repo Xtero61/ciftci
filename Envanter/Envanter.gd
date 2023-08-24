@@ -4,12 +4,16 @@ const SlotSinifi = preload("res://Envanter/Slot.gd")
 onready var envanter_slotlari = $EnvanterSlotlari
 onready var animasyonPlayer = $AnimationPlayer
 
+
 func envanter_slotlarini_guncelle():
 	var slotlar = envanter_slotlari.get_children()
 	for i in range(slotlar.size()):
 		if OyuncuEnvanter.envanter.has(i):
 			slotlar[i].esya_olusturma(OyuncuEnvanter.envanter[i][0],OyuncuEnvanter.envanter[i][1])
 			slotlar[i].esya.esya_miktar_yazisi()
+		else:
+			if slotlar[i].esya != null:
+				slotlar[i].esya_sil()
 
 func _ready():
 	var slotlar = envanter_slotlari.get_children()
@@ -19,8 +23,14 @@ func _ready():
 		slotlar[i].slot_tip = SlotSinifi.SlotTipi.ENVANTER
 	envanter_slotlarini_guncelle()
 
-func slot_gui_girdisi(event:InputEvent, slot: SlotSinifi):
-	if event is InputEventMouseButton:
+func slot_gui_girdisi(event, slot: SlotSinifi):
+
+	if event is InputEventMouseButton :
+		if ShiftKontrol() :
+			if event.button_index == BUTTON_LEFT and event.pressed :
+				if slot.esya :
+					find_parent("UI").esyayi_envanterden_sandiga_ve_hizlierisime_yolla(slot, slot.esya.esya_isim, slot.esya.esya_miktar)
+
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			if find_parent("UI").tutulan_esya != null :
 				if !slot.esya:
@@ -43,7 +53,14 @@ func slot_gui_girdisi(event:InputEvent, slot: SlotSinifi):
 			elif slot.esya:
 				sag_tik_slottaki_esyanin_yarisini_alma(slot)
 
+func ShiftKontrol():
+	if Input.is_action_pressed("Shift"):
+		return true
+	else :
+		return false
+
 func sag_tik_slottaki_esyanin_yarisini_alma(slot : SlotSinifi):
+
 	if slot.esya.esya_miktar > 1 :
 		var esya_yarisi
 		var tutulan_esya_yarisi
@@ -53,6 +70,7 @@ func sag_tik_slottaki_esyanin_yarisini_alma(slot : SlotSinifi):
 		else :
 			esya_yarisi = slot.esya.esya_miktar / 2 + 1
 			tutulan_esya_yarisi = slot.esya.esya_miktar / 2
+
 		OyuncuEnvanter.bos_slot_belli_miktar_esya_ekle(slot.esya,slot,esya_yarisi,OyuncuEnvanter.envanter)
 		find_parent("UI").tutulan_esya = slot.esya
 		slot.SlottanSecme()
@@ -119,6 +137,7 @@ func _input(event):
 
 	if $".".visible: 
 		pass
+
 	else :
 		if event.is_action_pressed("Yuva0"):
 			pass

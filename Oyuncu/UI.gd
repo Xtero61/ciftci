@@ -33,3 +33,19 @@ func _input(event):
 			OyuncuEnvanter.aktif_esya_asagi_cevirme()
 		elif event.is_action_pressed("FareTekerlekAşağı"):
 			OyuncuEnvanter.aktif_esya_yukari_cevirme()
+
+func esyayi_envanterden_sandiga_ve_hizlierisime_yolla(slot,esya_isim,esya_miktar):
+	if !sandiklar.empty() :
+		OyuncuEnvanter.esya_sil(slot,OyuncuEnvanter.envanter)
+		OyuncuEnvanter.esya_ekleme(esya_isim, esya_miktar, Sandik.sandik)
+		Envanter.envanter_slotlarini_guncelle()
+		Sandik.sandik_slotlarini_guncelle()
+	else :
+		pass
+
+func esyayi_sandiktan_envantere_yolla(slot,esya_isim,esya_miktar):
+	if !sandiklar.empty() :
+		OyuncuEnvanter.esya_sil(slot,Sandik.sandik)
+		OyuncuEnvanter.esya_ekleme(esya_isim, esya_miktar, OyuncuEnvanter.envanter)
+		Envanter.envanter_slotlarini_guncelle()
+		Sandik.sandik_slotlarini_guncelle()

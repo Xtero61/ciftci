@@ -9,6 +9,7 @@ onready var kirmizi = $RenkSecici/Renkler/kirmizi
 onready var yesil = $RenkSecici/Renkler/yesil
 onready var mavi = $RenkSecici/Renkler/mavi
 
+var SANDIK_SLOT = 17
 var sandik = {}
 var renklist = [144,109,82]
 
@@ -30,6 +31,12 @@ func _ready():
 
 func slot_gui_girdisi(event:InputEvent, slot: SlotSinifi):
 	if event is InputEventMouseButton:
+
+		if ShiftKontrol() :
+			if event.button_index == BUTTON_LEFT and event.pressed :
+				if slot.esya :
+					find_parent("UI").esyayi_sandiktan_envantere_yolla(slot, slot.esya.esya_isim, slot.esya.esya_miktar)
+
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			if find_parent("UI").tutulan_esya != null :
 				if !slot.esya:
@@ -51,7 +58,14 @@ func slot_gui_girdisi(event:InputEvent, slot: SlotSinifi):
 			elif slot.esya:
 				sag_tik_slottaki_esyanin_yarisini_alma(slot)
 
+func ShiftKontrol():
+	if Input.is_action_pressed("Shift"):
+		return true
+	else :
+		return false
+
 func sag_tik_slottaki_esyanin_yarisini_alma(slot : SlotSinifi):
+
 	if slot.esya.esya_miktar > 1 :
 		var esya_yarisi
 		var tutulan_esya_yarisi
@@ -61,6 +75,7 @@ func sag_tik_slottaki_esyanin_yarisini_alma(slot : SlotSinifi):
 		else :
 			esya_yarisi = slot.esya.esya_miktar / 2 + 1
 			tutulan_esya_yarisi = slot.esya.esya_miktar / 2
+
 		OyuncuEnvanter.bos_slot_belli_miktar_esya_ekle(slot.esya,slot,esya_yarisi,sandik)
 		find_parent("UI").tutulan_esya = slot.esya
 		slot.SlottanSecme()
