@@ -69,3 +69,4 @@ func esya_olusturma(esya_isim, esya_miktar):
 	else :
 		esya.esya_ayarla(esya_isim, esya_miktar)
 	style_yenile()
+	esya.esya_miktar_yazisi()

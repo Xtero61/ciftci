@@ -41,7 +41,10 @@ func esyayi_envanterden_sandiga_ve_hizlierisime_yolla(slot,esya_isim,esya_miktar
 		Envanter.envanter_slotlarini_guncelle()
 		Sandik.sandik_slotlarini_guncelle()
 	else :
-		pass
+		OyuncuEnvanter.esya_sil(slot,OyuncuEnvanter.envanter)
+		OyuncuEnvanter.esya_ekleme(esya_isim, esya_miktar, OyuncuEnvanter.hizlierisim)
+		Envanter.envanter_slotlarini_guncelle()
+		HizliErisim.hizlierisim_slotlarini_guncelle()
 
 func esyayi_sandiktan_envantere_yolla(slot,esya_isim,esya_miktar):
 	if !sandiklar.empty() :
@@ -49,3 +52,16 @@ func esyayi_sandiktan_envantere_yolla(slot,esya_isim,esya_miktar):
 		OyuncuEnvanter.esya_ekleme(esya_isim, esya_miktar, OyuncuEnvanter.envanter)
 		Envanter.envanter_slotlarini_guncelle()
 		Sandik.sandik_slotlarini_guncelle()
+
+func esyayi_hizlierisimden_envantere_ve_sandiga_yolla(slot,esya_isim,esya_miktar):
+	if !sandiklar.empty() :
+		OyuncuEnvanter.esya_sil(slot, OyuncuEnvanter.hizlierisim)
+		OyuncuEnvanter.esya_ekleme(esya_isim, esya_miktar, Sandik.sandik)
+		HizliErisim.hizlierisim_slotlarini_guncelle()
+		Sandik.sandik_slotlarini_guncelle()
+		Envanter.envanter_slotlarini_guncelle()
+	else :
+		OyuncuEnvanter.esya_sil(slot, OyuncuEnvanter.hizlierisim)
+		OyuncuEnvanter.esya_ekleme(esya_isim, esya_miktar, OyuncuEnvanter.envanter)
+		HizliErisim.hizlierisim_slotlarini_guncelle()
+		Envanter.envanter_slotlarini_guncelle()

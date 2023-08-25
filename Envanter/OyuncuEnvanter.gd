@@ -60,6 +60,7 @@ func bos_slota_esya_ekle(esya: EsyaSinifi, slot: SlotSinifi, sozluk: Dictionary 
 func bos_slot_belli_miktar_esya_ekle(esya: EsyaSinifi, slot: SlotSinifi, miktar, sozluk: Dictionary = {}):
 	sozluk[slot.slot_sayisi] = [esya.esya_isim, miktar]
 	hizliErisim_esya_ele_verme()
+	esya.esya_miktar_yazisi()
 
 func esya_sil(slot: SlotSinifi, sozluk: Dictionary = {}):
 	sozluk.erase(slot.slot_sayisi)
