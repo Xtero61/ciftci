@@ -6,6 +6,7 @@ onready var Sandik = $Sandik_slotlari
 
 var tutulan_esya = null
 var sandiklar = []
+var FareSlot = null
 
 func _input(event):
 	if event.is_action_pressed("Envanter"):
@@ -33,6 +34,47 @@ func _input(event):
 			OyuncuEnvanter.aktif_esya_asagi_cevirme()
 		elif event.is_action_pressed("FareTekerlekAşağı"):
 			OyuncuEnvanter.aktif_esya_yukari_cevirme()
+
+func hizliE_esyalari_San_v_Env_yer_deis(slot , slot_sayisi ):
+	var HizliErisimSlot = HizliErisim.hizli_erisim.get_children()[slot_sayisi]
+	if Envanter.visible :
+		if FareSlot != null:
+			if slot.get_parent().name == "EnvanterSlotlari" :
+				if slot.esya and HizliErisimSlot.esya :
+					OyuncuEnvanter.bos_slota_esya_ekle(slot.esya,  HizliErisimSlot, OyuncuEnvanter.hizlierisim)
+					OyuncuEnvanter.bos_slota_esya_ekle(HizliErisimSlot.esya, slot, OyuncuEnvanter.envanter)
+				elif slot.esya and !HizliErisimSlot.esya :
+					OyuncuEnvanter.bos_slota_esya_ekle(slot.esya,  HizliErisimSlot, OyuncuEnvanter.hizlierisim)
+					OyuncuEnvanter.esya_sil(slot, OyuncuEnvanter.envanter)
+				elif !slot.esya and HizliErisimSlot.esya :
+					OyuncuEnvanter.esya_sil(HizliErisimSlot, OyuncuEnvanter.hizlierisim)
+					OyuncuEnvanter.bos_slota_esya_ekle(HizliErisimSlot.esya, slot, OyuncuEnvanter.envanter)
+
+			elif slot.get_parent().name == "SandikSlotlari" :
+				if slot.esya and HizliErisimSlot.esya :
+					OyuncuEnvanter.bos_slota_esya_ekle(slot.esya,  HizliErisimSlot, OyuncuEnvanter.hizlierisim)
+					OyuncuEnvanter.bos_slota_esya_ekle(HizliErisimSlot.esya, slot, Sandik.sandik)
+				elif slot.esya and !HizliErisimSlot.esya :
+					OyuncuEnvanter.bos_slota_esya_ekle(slot.esya,  HizliErisimSlot, OyuncuEnvanter.hizlierisim)
+					OyuncuEnvanter.esya_sil(slot, Sandik.sandik)
+				elif !slot.esya and HizliErisimSlot.esya :
+					OyuncuEnvanter.esya_sil(HizliErisimSlot, OyuncuEnvanter.hizlierisim)
+					OyuncuEnvanter.bos_slota_esya_ekle(HizliErisimSlot.esya, slot, Sandik.sandik)
+
+			else :
+				if slot.esya and HizliErisimSlot.esya :
+					OyuncuEnvanter.bos_slota_esya_ekle(slot.esya,  HizliErisimSlot, OyuncuEnvanter.hizlierisim)
+					OyuncuEnvanter.bos_slota_esya_ekle(HizliErisimSlot.esya, slot, OyuncuEnvanter.hizlierisim)
+				elif slot.esya and !HizliErisimSlot.esya :
+					OyuncuEnvanter.bos_slota_esya_ekle(slot.esya,  HizliErisimSlot, OyuncuEnvanter.hizlierisim)
+					OyuncuEnvanter.esya_sil(slot, OyuncuEnvanter.hizlierisim)
+				elif !slot.esya and HizliErisimSlot.esya :
+					OyuncuEnvanter.esya_sil(HizliErisimSlot, OyuncuEnvanter.hizlierisim)
+					OyuncuEnvanter.bos_slota_esya_ekle(HizliErisimSlot.esya, slot, OyuncuEnvanter.hizlierisim)
+		
+		Envanter.envanter_slotlarini_guncelle()
+		HizliErisim.hizlierisim_slotlarini_guncelle()
+		Sandik.sandik_slotlarini_guncelle()
 
 func esyayi_envanterden_sandiga_ve_hizlierisime_yolla(slot,esya_isim,esya_miktar):
 	if !sandiklar.empty() :

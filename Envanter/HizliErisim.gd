@@ -6,7 +6,6 @@ onready var hizli_erisim = $HizliErisimSlotlari
 onready var slotlar = hizli_erisim.get_children()
 
 var envanter_acikmi : bool = false
-var kacinci_slot : int 
 
 func hizlierisim_slotlarini_guncelle():
 	for i in range(slotlar.size()):
@@ -25,7 +24,8 @@ func _ready():
 	hizlierisim_slotlarini_guncelle()
 
 func slot_gui_girdisi(event:InputEvent, slot: SlotSinifi):
-	kacinci_slot = slot.slot_sayisi 
+	find_parent("UI").FareSlot = slot
+
 	if envanter_acikmi :
 		if event is InputEventMouseButton:
 			if ShiftKontrol() :

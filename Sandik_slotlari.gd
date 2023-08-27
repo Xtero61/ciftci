@@ -13,8 +13,6 @@ var SANDIK_SLOT = 17
 var sandik = {}
 var renklist = [144,109,82]
 
-var kacinci_slot : int
-
 func sandik_slotlarini_guncelle():
 	for i in range(slotlar.size()):
 		if sandik.has(i):
@@ -32,8 +30,8 @@ func _ready():
 	sandik_slotlarini_guncelle()
 
 func slot_gui_girdisi(event:InputEvent, slot: SlotSinifi):
-	kacinci_slot = slot.slot_sayisi
-	
+	find_parent("UI").FareSlot = slot
+ 
 	if event is InputEventMouseButton:
 
 		if ShiftKontrol() :

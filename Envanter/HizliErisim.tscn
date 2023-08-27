@@ -28,14 +28,14 @@ custom_constants/vseparation = 2
 custom_constants/hseparation = 1
 columns = 9
 
-[node name="HizliErisimSlot1" type="Panel" parent="HizliErisimSlotlari"]
+[node name="slot1" type="Panel" parent="HizliErisimSlotlari"]
 margin_right = 17.0
 margin_bottom = 17.0
 rect_min_size = Vector2( 17, 17 )
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 3 )
 
-[node name="HizliErisimSlot2" type="Panel" parent="HizliErisimSlotlari"]
+[node name="slot2" type="Panel" parent="HizliErisimSlotlari"]
 margin_left = 18.0
 margin_right = 35.0
 margin_bottom = 17.0
@@ -43,7 +43,7 @@ rect_min_size = Vector2( 17, 17 )
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 3 )
 
-[node name="HizliErisimSlot3" type="Panel" parent="HizliErisimSlotlari"]
+[node name="slot3" type="Panel" parent="HizliErisimSlotlari"]
 margin_left = 36.0
 margin_right = 53.0
 margin_bottom = 17.0
@@ -51,7 +51,7 @@ rect_min_size = Vector2( 17, 17 )
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 3 )
 
-[node name="HizliErisimSlot4" type="Panel" parent="HizliErisimSlotlari"]
+[node name="slot4" type="Panel" parent="HizliErisimSlotlari"]
 margin_left = 54.0
 margin_right = 71.0
 margin_bottom = 17.0
@@ -59,7 +59,7 @@ rect_min_size = Vector2( 17, 17 )
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 3 )
 
-[node name="HizliErisimSlot5" type="Panel" parent="HizliErisimSlotlari"]
+[node name="slot5" type="Panel" parent="HizliErisimSlotlari"]
 margin_left = 72.0
 margin_right = 89.0
 margin_bottom = 17.0
@@ -67,7 +67,7 @@ rect_min_size = Vector2( 17, 17 )
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 3 )
 
-[node name="HizliErisimSlot6" type="Panel" parent="HizliErisimSlotlari"]
+[node name="slot6" type="Panel" parent="HizliErisimSlotlari"]
 margin_left = 90.0
 margin_right = 107.0
 margin_bottom = 17.0
@@ -75,7 +75,7 @@ rect_min_size = Vector2( 17, 17 )
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 3 )
 
-[node name="HizliErisimSlot7" type="Panel" parent="HizliErisimSlotlari"]
+[node name="slot7" type="Panel" parent="HizliErisimSlotlari"]
 margin_left = 108.0
 margin_right = 125.0
 margin_bottom = 17.0
@@ -83,7 +83,7 @@ rect_min_size = Vector2( 17, 17 )
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 3 )
 
-[node name="HizliErisimSlot8" type="Panel" parent="HizliErisimSlotlari"]
+[node name="slot8" type="Panel" parent="HizliErisimSlotlari"]
 margin_left = 126.0
 margin_right = 143.0
 margin_bottom = 17.0
@@ -91,10 +91,20 @@ rect_min_size = Vector2( 17, 17 )
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 3 )
 
-[node name="HizliErisimSlot9" type="Panel" parent="HizliErisimSlotlari"]
+[node name="slot9" type="Panel" parent="HizliErisimSlotlari"]
 margin_left = 144.0
 margin_right = 161.0
 margin_bottom = 17.0
 rect_min_size = Vector2( 17, 17 )
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 3 )
+
+[connection signal="mouse_exited" from="HizliErisimSlotlari/slot1" to="HizliErisimSlotlari/slot1" method="_on_slot1_mouse_exited"]
+[connection signal="mouse_exited" from="HizliErisimSlotlari/slot2" to="HizliErisimSlotlari/slot2" method="_on_slot2_mouse_exited"]
+[connection signal="mouse_exited" from="HizliErisimSlotlari/slot3" to="HizliErisimSlotlari/slot2" method="_on_slot3_mouse_exited"]
+[connection signal="mouse_exited" from="HizliErisimSlotlari/slot4" to="HizliErisimSlotlari/slot5" method="_on_slot4_mouse_exited"]
+[connection signal="mouse_exited" from="HizliErisimSlotlari/slot5" to="HizliErisimSlotlari/slot5" method="_on_slot5_mouse_exited"]
+[connection signal="mouse_exited" from="HizliErisimSlotlari/slot6" to="HizliErisimSlotlari/slot4" method="_on_slot6_mouse_exited"]
+[connection signal="mouse_exited" from="HizliErisimSlotlari/slot7" to="HizliErisimSlotlari/slot3" method="_on_slot7_mouse_exited"]
+[connection signal="mouse_exited" from="HizliErisimSlotlari/slot8" to="HizliErisimSlotlari/slot4" method="_on_slot8_mouse_exited"]
+[connection signal="mouse_exited" from="HizliErisimSlotlari/slot9" to="HizliErisimSlotlari/slot3" method="_on_slot9_mouse_exited"]

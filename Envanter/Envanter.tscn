@@ -272,3 +272,22 @@ script = ExtResource( 1 )
 anims/RESET = SubResource( 2 )
 "anims/SandıkAçık" = SubResource( 3 )
 "anims/SandıkKapalı" = SubResource( 4 )
+
+[connection signal="mouse_exited" from="EnvanterSlotlari/slot1" to="EnvanterSlotlari/slot1" method="_on_slot1_mouse_exited"]
+[connection signal="mouse_exited" from="EnvanterSlotlari/slot2" to="EnvanterSlotlari/slot2" method="_on_slot2_mouse_exited"]
+[connection signal="mouse_exited" from="EnvanterSlotlari/slot3" to="EnvanterSlotlari/slot3" method="_on_slot3_mouse_exited"]
+[connection signal="mouse_exited" from="EnvanterSlotlari/slot4" to="EnvanterSlotlari/slot4" method="_on_slot4_mouse_exited"]
+[connection signal="mouse_exited" from="EnvanterSlotlari/slot5" to="EnvanterSlotlari/slot5" method="_on_slot5_mouse_exited"]
+[connection signal="mouse_exited" from="EnvanterSlotlari/slot6" to="EnvanterSlotlari/slot6" method="_on_slot6_mouse_exited"]
+[connection signal="mouse_exited" from="EnvanterSlotlari/slot7" to="EnvanterSlotlari/slot7" method="_on_slot7_mouse_exited"]
+[connection signal="mouse_exited" from="EnvanterSlotlari/slot8" to="EnvanterSlotlari/slot8" method="_on_slot8_mouse_exited"]
+[connection signal="mouse_exited" from="EnvanterSlotlari/slot9" to="EnvanterSlotlari/slot9" method="_on_slot9_mouse_exited"]
+[connection signal="mouse_exited" from="EnvanterSlotlari/slot10" to="EnvanterSlotlari/slot10" method="_on_slot10_mouse_exited"]
+[connection signal="mouse_exited" from="EnvanterSlotlari/slot11" to="EnvanterSlotlari/slot11" method="_on_slot11_mouse_exited"]
+[connection signal="mouse_exited" from="EnvanterSlotlari/slot12" to="EnvanterSlotlari/slot12" method="_on_slot12_mouse_exited"]
+[connection signal="mouse_exited" from="EnvanterSlotlari/slot13" to="EnvanterSlotlari/slot13" method="_on_slot13_mouse_exited"]
+[connection signal="mouse_exited" from="EnvanterSlotlari/slot14" to="EnvanterSlotlari/slot14" method="_on_slot14_mouse_exited"]
+[connection signal="mouse_exited" from="EnvanterSlotlari/slot15" to="EnvanterSlotlari/slot15" method="_on_slot15_mouse_exited"]
+[connection signal="mouse_exited" from="EnvanterSlotlari/slot16" to="EnvanterSlotlari/slot16" method="_on_slot16_mouse_exited"]
+[connection signal="mouse_exited" from="EnvanterSlotlari/slot17" to="EnvanterSlotlari/slot17" method="_on_slot17_mouse_exited"]
+[connection signal="mouse_exited" from="EnvanterSlotlari/slot18" to="EnvanterSlotlari/slot18" method="_on_slot18_mouse_exited"]

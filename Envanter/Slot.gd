@@ -70,3 +70,74 @@ func esya_olusturma(esya_isim, esya_miktar):
 		esya.esya_ayarla(esya_isim, esya_miktar)
 	style_yenile()
 	esya.esya_miktar_yazisi()
+
+func _on_slot1_mouse_exited():
+	find_parent("UI").FareSlot = null
+
+
+func _on_slot2_mouse_exited():
+	find_parent("UI").FareSlot = null
+
+
+func _on_slot3_mouse_exited():
+	find_parent("UI").FareSlot = null
+
+
+func _on_slot4_mouse_exited():
+	find_parent("UI").FareSlot = null
+
+
+func _on_slot5_mouse_exited():
+	find_parent("UI").FareSlot = null
+
+
+func _on_slot6_mouse_exited():
+	find_parent("UI").FareSlot = null
+
+
+func _on_slot7_mouse_exited():
+	find_parent("UI").FareSlot = null
+
+
+func _on_slot8_mouse_exited():
+	find_parent("UI").FareSlot = null
+
+
+func _on_slot9_mouse_exited():
+	find_parent("UI").FareSlot = null
+
+
+func _on_slot10_mouse_exited():
+	find_parent("UI").FareSlot = null
+
+
+func _on_slot11_mouse_exited():
+	find_parent("UI").FareSlot = null
+
+
+func _on_slot12_mouse_exited():
+	find_parent("UI").FareSlot = null
+
+
+func _on_slot13_mouse_exited():
+	find_parent("UI").FareSlot = null
+
+
+func _on_slot14_mouse_exited():
+	find_parent("UI").FareSlot = null
+
+
+func _on_slot15_mouse_exited():
+	find_parent("UI").FareSlot = null
+
+
+func _on_slot16_mouse_exited():
+	find_parent("UI").FareSlot = null
+
+
+func _on_slot17_mouse_exited():
+	find_parent("UI").FareSlot = null
+
+
+func _on_slot18_mouse_exited():
+	find_parent("UI").FareSlot = null

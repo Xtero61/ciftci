@@ -4,7 +4,6 @@ const SlotSinifi = preload("res://Envanter/Slot.gd")
 onready var envanter_slotlari = $EnvanterSlotlari
 onready var animasyonPlayer = $AnimationPlayer
 
-var kacinci_slot : int
 
 func envanter_slotlarini_guncelle():
 	var slotlar = envanter_slotlari.get_children()
@@ -25,8 +24,7 @@ func _ready():
 	envanter_slotlarini_guncelle()
 
 func slot_gui_girdisi(event, slot: SlotSinifi):
-	kacinci_slot = slot.slot_sayisi
-
+	find_parent("UI").FareSlot = slot
 	if event is InputEventMouseButton :
 		if ShiftKontrol() :
 			if event.button_index == BUTTON_LEFT and event.pressed :
@@ -132,7 +130,28 @@ func sol_tik_basilmiyorsa(slot: SlotSinifi):
 	slot.SlottanSecme()
 	find_parent("UI").tutulan_esya.global_position = get_global_mouse_position()
 
-func _input(_event):
+func _input(event):
 	if find_parent("UI").tutulan_esya:
 		find_parent("UI").tutulan_esya.global_position = get_global_mouse_position()
 		find_parent("UI").tutulan_esya.visible = true
+
+	if event.is_action_pressed("Yuva1"):
+		find_parent("UI").hizliE_esyalari_San_v_Env_yer_deis(find_parent("UI").FareSlot, 0)
+	elif event.is_action_pressed("Yuva2"):
+		find_parent("UI").hizliE_esyalari_San_v_Env_yer_deis(find_parent("UI").FareSlot, 1)
+	elif event.is_action_pressed("Yuva3"):
+		find_parent("UI").hizliE_esyalari_San_v_Env_yer_deis(find_parent("UI").FareSlot, 2)
+	elif event.is_action_pressed("Yuva4"):
+		find_parent("UI").hizliE_esyalari_San_v_Env_yer_deis(find_parent("UI").FareSlot, 3)
+	elif event.is_action_pressed("Yuva5"):
+		find_parent("UI").hizliE_esyalari_San_v_Env_yer_deis(find_parent("UI").FareSlot, 4)
+	elif event.is_action_pressed("Yuva6"):
+		find_parent("UI").hizliE_esyalari_San_v_Env_yer_deis(find_parent("UI").FareSlot, 5)
+	elif event.is_action_pressed("Yuva7"):
+		find_parent("UI").hizliE_esyalari_San_v_Env_yer_deis(find_parent("UI").FareSlot, 6)
+	elif event.is_action_pressed("Yuva8"):
+		find_parent("UI").hizliE_esyalari_San_v_Env_yer_deis(find_parent("UI").FareSlot, 7)
+	elif event.is_action_pressed("Yuva9"):
+		find_parent("UI").hizliE_esyalari_San_v_Env_yer_deis(find_parent("UI").FareSlot, 8)
+
+
