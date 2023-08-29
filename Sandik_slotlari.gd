@@ -88,8 +88,10 @@ func sag_tik_slottaki_esyanin_yarisini_alma(slot : SlotSinifi):
 
 func sag_tik_tutulan_esya_varsa_slottaki_esya_da_ayniysa(slot: SlotSinifi):
 	if find_parent("UI").tutulan_esya.esya_miktar > 0:
-		find_parent("UI").tutulan_esya.esya_miktari_azalt(1)
-		OyuncuEnvanter.esya_miktar_ekleme(slot, 1, sandik)
+		var birikme_miktari = int(JsonVeri.esya_veri[slot.esya.esya_isim]["BirikmeMiktarı"])
+		if slot.esya.esya_miktar < birikme_miktari :
+			find_parent("UI").tutulan_esya.esya_miktari_azalt(1)
+			OyuncuEnvanter.esya_miktar_ekleme(slot, 1, OyuncuEnvanter.envanter)
 		if find_parent("UI").tutulan_esya.esya_miktar == 0 :
 			find_parent("UI").tutulan_esya.queue_free()
 			find_parent("UI").tutulan_esya = null

@@ -9,7 +9,7 @@ const SlotSinifi = preload("res://Envanter/Slot.gd")
 const EsyaSinifi = preload("res://Esyalar/Esya.gd")
 
 var envanter = {
-	0: ["Odun", 20],
+	0: ["Odun", 64],
 	1: ["Taş", 20],
 }
 

@@ -13,16 +13,16 @@ region_rect = Rect2( 0, 0, 17, 17 )
 script = ExtResource( 4 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_left = 61.0
+margin_left = 60.0
 margin_top = 139.0
-margin_right = 228.0
+margin_right = 227.0
 margin_bottom = 160.0
 texture = ExtResource( 1 )
 
 [node name="HizliErisimSlotlari" type="GridContainer" parent="."]
-margin_left = 64.0
+margin_left = 63.0
 margin_top = 140.5
-margin_right = 233.0
+margin_right = 232.0
 margin_bottom = 158.5
 custom_constants/vseparation = 2
 custom_constants/hseparation = 1

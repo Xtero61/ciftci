@@ -525,16 +525,16 @@ visible = false
 visible = false
 
 [node name="YurumeDokunmatikTus" parent="AndroidUI" instance=ExtResource( 7 )]
-margin_left = 32.0
-margin_top = -136.0
-margin_right = 240.0
-margin_bottom = 72.0
+margin_left = 31.0
+margin_top = -152.0
+margin_right = 239.0
+margin_bottom = 56.0
 
 [node name="YonDokunmatikTus" parent="AndroidUI" instance=ExtResource( 7 )]
-margin_left = 432.0
-margin_top = -136.0
-margin_right = 640.0
-margin_bottom = 72.0
+margin_left = 434.0
+margin_top = -152.0
+margin_right = 642.0
+margin_bottom = 56.0
 
 [connection signal="body_entered" from="EsyaAlmaAlani" to="EsyaAlmaAlani" method="_on_EsyaAlmaAlani_body_entered"]
 [connection signal="body_exited" from="EsyaAlmaAlani" to="EsyaAlmaAlani" method="_on_EsyaAlmaAlani_body_exited"]
