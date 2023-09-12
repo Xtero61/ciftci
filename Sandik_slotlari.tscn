@@ -7,7 +7,7 @@
 [ext_resource path="res://Yazı Tipi/chava.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://SandikRenkliIcon.png" type="Texture" id=6]
 [ext_resource path="res://sandıkGorAyar.png" type="Texture" id=7]
-[ext_resource path="res://SandikIcon.png" type="Texture" id=8]
+[ext_resource path="res://sandıkAnimasyon.png" type="Texture" id=8]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 1 )
@@ -317,8 +317,9 @@ texture = ExtResource( 7 )
 position = Vector2( 95.8, 27 )
 
 [node name="SandikIcon" type="Sprite" parent="RenkSecici"]
-position = Vector2( 8.2, -10 )
+position = Vector2( 8.2, -14 )
 texture = ExtResource( 8 )
+hframes = 10
 
 [node name="SandikRenkliIcon" type="Sprite" parent="RenkSecici"]
 modulate = Color( 0.564706, 0.427451, 0.321569, 1 )
@@ -326,10 +327,10 @@ position = Vector2( 8.2, -10 )
 texture = ExtResource( 6 )
 
 [node name="Renk_K" type="Node2D" parent="RenkSecici"]
-visible = false
 position = Vector2( -0.1, -0.4 )
 
 [node name="Renk_Kodu" type="LineEdit" parent="RenkSecici/Renk_K"]
+visible = false
 margin_top = 33.0
 margin_right = 82.0
 margin_bottom = 63.0

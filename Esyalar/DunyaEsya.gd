@@ -1,17 +1,16 @@
 extends RigidBody2D
 
+onready var resim = $Sprite
 
 var yer_esya_isim
 var yer_esya_miktar
-onready var resim = $Sprite
+var oyuncu = null
+var aliniyor = false
+var hiz : Vector2 = Vector2.ZERO
 
 func _ready():
 	resim.texture = load(JsonVeri.esya_veri[yer_esya_isim]["ResimYolu"])
 	set_linear_velocity(Vector2(rand_range(200, -200),rand_range(200, -200)))
-
-var oyuncu = null
-var aliniyor = false
-var hiz : Vector2 = Vector2.ZERO
 
 func _physics_process(delta):
 	if aliniyor == true :

@@ -39,7 +39,7 @@ func slot_gui_girdisi(event:InputEvent, slot: SlotSinifi):
 				if slot.esya :
 					find_parent("UI").esyayi_sandiktan_envantere_yolla(slot, slot.esya.esya_isim, slot.esya.esya_miktar)
 
-		if event.button_index == BUTTON_LEFT and event.pressed:
+		elif event.button_index == BUTTON_LEFT and event.pressed:
 			if find_parent("UI").tutulan_esya != null :
 				if !slot.esya:
 					sol_tik_bos_slot(slot)
@@ -50,7 +50,7 @@ func slot_gui_girdisi(event:InputEvent, slot: SlotSinifi):
 						sol_tik_ayni_esya(slot)
 			elif slot.esya:
 				sol_tik_basilmiyorsa(slot)
-		if event.button_index == BUTTON_RIGHT and event.pressed:
+		elif event.button_index == BUTTON_RIGHT and event.pressed:
 			if find_parent("UI").tutulan_esya != null :
 				if !slot.esya:
 					sag_tik_tutulan_esya_varsa(slot)
