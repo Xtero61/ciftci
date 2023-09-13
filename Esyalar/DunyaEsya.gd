@@ -11,6 +11,7 @@ var hiz : Vector2 = Vector2.ZERO
 func _ready():
 	resim.texture = load(JsonVeri.esya_veri[yer_esya_isim]["ResimYolu"])
 	set_linear_velocity(Vector2(rand_range(200, -200),rand_range(200, -200)))
+	yer_esya_miktar = 1
 
 func _physics_process(delta):
 	if aliniyor == true :
@@ -19,7 +20,6 @@ func _physics_process(delta):
 
 		var mesafe = global_position.distance_to(oyuncu.global_position)
 		if mesafe < 12 :
-			OyuncuEnvanter.esya_ekleme(yer_esya_isim, 1, OyuncuEnvanter.envanter)
 			queue_free()
 
 func alinan_esya(body):

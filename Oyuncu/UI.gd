@@ -10,6 +10,7 @@ var FareSlot = null
 
 func _input(event):
 	if event.is_action_pressed("Envanter"):
+		OyuncuEnvanter.hizliErisim_guncelle()
 		if tutulan_esya != null :
 			tutulan_esya.visible = true
 		Envanter.visible = !Envanter.visible

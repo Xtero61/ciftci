@@ -49,7 +49,7 @@ func esya_ekleme(esya_isim, esya_miktar, sozluk : Dictionary):
 
 func bu_esya_icin_kac_tane_yer_var(esya_isim, sozluk : Dictionary, hizlierisim_mi : bool = false) :
 
-	var esya_kapasitesi : int
+	var esya_kapasitesi : int = 0
 	var birikme_miktari = int(JsonVeri.esya_veri[esya_isim]["BirikmeMiktarı"])
 	
 	for esya in sozluk :
@@ -75,16 +75,13 @@ func slot_goruntusu_yenile(slot_sayisi, esya_isim, yeni_miktar):
 
 func bos_slota_esya_ekle(esya: EsyaSinifi, slot: SlotSinifi, sozluk: Dictionary):
 	sozluk[slot.slot_sayisi] = [esya.esya_isim, esya.esya_miktar]
-	hizliErisim_esya_ele_verme()
 
 func bos_slot_belli_miktar_esya_ekle(esya: EsyaSinifi, slot: SlotSinifi, miktar, sozluk: Dictionary):
 	sozluk[slot.slot_sayisi] = [esya.esya_isim, miktar]
-	hizliErisim_esya_ele_verme()
 	esya.esya_miktar_yazisi()
 
 func esya_sil(slot: SlotSinifi, sozluk: Dictionary = {}):
-	sozluk.erase(slot.slot_sayisi)
-	hizliErisim_esya_ele_verme()
+	return sozluk.erase(slot.slot_sayisi)
 
 func esya_miktar_ekleme(slot: SlotSinifi , eklenecek_miktar: int, sozluk: Dictionary):
 	sozluk[slot.slot_sayisi][1] += eklenecek_miktar
@@ -92,7 +89,6 @@ func esya_miktar_ekleme(slot: SlotSinifi , eklenecek_miktar: int, sozluk: Dictio
 func aktif_esya_yukari_cevirme():
 	aktif_slot = (aktif_slot + 1) % HIZLI_ERISIM_SLOT
 	hizliErisim_guncelle()
-
 
 func aktif_esya_asagi_cevirme():
 	if aktif_slot == 0:
