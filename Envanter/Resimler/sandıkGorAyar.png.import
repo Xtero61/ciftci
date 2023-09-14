@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sandıkGorAyar.png-9d57d0127fc0500270ff860d4c01c9e3.stex"
+path="res://.import/sandıkGorAyar.png-b14fdb10876eaa427e034a41fc3d4de6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sandıkGorAyar.png"
-dest_files=[ "res://.import/sandıkGorAyar.png-9d57d0127fc0500270ff860d4c01c9e3.stex" ]
+source_file="res://Envanter/Resimler/sandıkGorAyar.png"
+dest_files=[ "res://.import/sandıkGorAyar.png-b14fdb10876eaa427e034a41fc3d4de6.stex" ]
 
 [params]
 

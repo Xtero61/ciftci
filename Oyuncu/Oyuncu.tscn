@@ -15,8 +15,8 @@
 [ext_resource path="res://Envanter/Envanter.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Oyuncu/UI.gd" type="Script" id=14]
 [ext_resource path="res://Oyuncu/EsyaAlmaAlani.gd" type="Script" id=15]
-[ext_resource path="res://Envanter/HizliErisim.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Sandik_slotlari.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Envanter/HızlıErişim/HizliErisim.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Envanter/Sandık İçi/Sandik_slotlari.tscn" type="PackedScene" id=17]
 
 [sub_resource type="Gradient" id=13]
 offsets = PoolRealArray( 0, 0.984127, 1 )

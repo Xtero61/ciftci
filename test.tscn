@@ -17,7 +17,7 @@
 [ext_resource path="res://Yeryuzu/Agaç/Agac.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Yeryuzu/Taş/Tas.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Blok/Tahta_Zemin.png" type="Texture" id=17]
-[ext_resource path="res://Sandik.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Yeryuzu/Sandık/Sandik.tscn" type="PackedScene" id=18]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Toprak_Tarla.png 0"

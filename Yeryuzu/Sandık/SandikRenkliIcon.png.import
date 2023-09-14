@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/SandikIcon.png-36a5605ef315833c7957f4f2b939ca90.stex"
+path="res://.import/SandikRenkliIcon.png-20f08a4b87b0f16d7596ea6e1c434192.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SandikIcon.png"
-dest_files=[ "res://.import/SandikIcon.png-36a5605ef315833c7957f4f2b939ca90.stex" ]
+source_file="res://Yeryuzu/Sandık/SandikRenkliIcon.png"
+dest_files=[ "res://.import/SandikRenkliIcon.png-20f08a4b87b0f16d7596ea6e1c434192.stex" ]
 
 [params]
 

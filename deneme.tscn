@@ -1,8 +1,8 @@
 [gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://sandıkGorAyar.png" type="Texture" id=1]
-[ext_resource path="res://SandikIcon.png" type="Texture" id=2]
-[ext_resource path="res://SandikRenkliIcon.png" type="Texture" id=3]
+[ext_resource path="res://Envanter/Resimler/sandıkGorAyar.png" type="Texture" id=1]
+[ext_resource path="res://Yeryuzu/Sandık/SandikIcon.png" type="Texture" id=2]
+[ext_resource path="res://Yeryuzu/Sandık/SandikRenkliIcon.png" type="Texture" id=3]
 [ext_resource path="res://Yazı Tipi/chava.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="DynamicFont" id=13]

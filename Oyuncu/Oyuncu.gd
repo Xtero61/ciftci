@@ -212,7 +212,7 @@ func YerdenEsyaAlma(event, delta):
 
 func EsyaAlma():
 	if EsyaAlmaAlan.AlandakiEsyalar.size() > 0 :
-		var alinan_esya = EsyaAlmaAlan.AlandakiEsyalar.values()[0]
+		var alinan_esya = EsyaAlmaAlan.AlandakiEsyalar[0]
 		if OyuncuEnvanter.bu_esya_icin_kac_tane_yer_var(alinan_esya.yer_esya_isim, OyuncuEnvanter.envanter) >= alinan_esya.yer_esya_miktar :
 			OyuncuEnvanter.esya_ekleme(alinan_esya.yer_esya_isim, alinan_esya.yer_esya_miktar, OyuncuEnvanter.envanter)
 			alinan_esya.alinan_esya(self)

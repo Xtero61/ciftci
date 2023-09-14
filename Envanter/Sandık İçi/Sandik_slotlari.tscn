@@ -3,11 +3,11 @@
 [ext_resource path="res://Envanter/Resimler/Slot.png" type="Texture" id=1]
 [ext_resource path="res://Envanter/Slot.gd" type="Script" id=2]
 [ext_resource path="res://Envanter/Resimler/SandıkEnvanter.png" type="Texture" id=3]
-[ext_resource path="res://Sandik_slotlari.gd" type="Script" id=4]
+[ext_resource path="res://Envanter/Sandık İçi/Sandik_slotlari.gd" type="Script" id=4]
 [ext_resource path="res://Yazı Tipi/chava.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://SandikRenkliIcon.png" type="Texture" id=6]
-[ext_resource path="res://sandıkGorAyar.png" type="Texture" id=7]
-[ext_resource path="res://sandıkAnimasyon.png" type="Texture" id=8]
+[ext_resource path="res://Yeryuzu/Sandık/SandikRenkliIcon.png" type="Texture" id=6]
+[ext_resource path="res://Envanter/Resimler/sandıkGorAyar.png" type="Texture" id=7]
+[ext_resource path="res://Yeryuzu/Sandık/sandıkAnimasyon.png" type="Texture" id=8]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 1 )
