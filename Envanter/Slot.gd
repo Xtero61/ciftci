@@ -7,6 +7,7 @@ var secili_resim = preload("res://Envanter/Resimler/SlotSeçili.png")
 var dolu_style : StyleBoxTexture = null
 var bos_style : StyleBoxTexture = null
 var secili_style : StyleBoxTexture = null
+var aktif_slot : bool
 
 var UI : String = "/root/Dunya/Yapi/Oyuncu/UI"
 var EsyaSinifi = preload("res://Esyalar/Esya.tscn")
@@ -35,10 +36,13 @@ func _ready():
 func style_yenile():
 	if SlotTipi.HIZLIERISIM == slot_tip and OyuncuEnvanter.aktif_slot == slot_sayisi:
 		set('custom_styles/panel',secili_style)
+		aktif_slot = true
 	elif esya == null :
 		set('custom_styles/panel',bos_style)
+		aktif_slot = false
 	else :
 		set('custom_styles/panel',dolu_style)
+		aktif_slot = false
 
 func SlottanSecme():
 	remove_child(esya)

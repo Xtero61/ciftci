@@ -134,6 +134,16 @@ func sol_tik_basilmiyorsa(slot: SlotSinifi):
 	slot.SlottanSecme()
 	find_parent("UI").tutulan_esya.global_position = get_global_mouse_position()
 
+func q_ile_esya_atma_envanter_kapali():
+	var slot
+	for i in hizli_erisim.get_children() :
+		if i.aktif_slot == true :
+			slot = i
+			break
+	if slot.esya != null:
+		OyuncuEnvanter.esya_miktar_ekleme(slot, -1, OyuncuEnvanter.hizlierisim)
+		OyuncuEnvanter.atilan_esya_olusturma(slot.esya.esya_isim, 1, find_parent("Oyuncu").AtilanEsyaDogma.global_position, find_parent("Oyuncu").esya_atma_yon)
+
 func _input(event):
 
 	if !envanter_acikmi :

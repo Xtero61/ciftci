@@ -26,6 +26,7 @@ var hizlierisim = {
 }
 
 var aktif_slot = 0
+var DunyaEsyaS = load("res://Esyalar/DunyaEsya.tscn")
 
 func esya_ekleme(esya_isim, esya_miktar, sozluk : Dictionary):
 	for esya in sozluk :
@@ -85,6 +86,16 @@ func esya_sil(slot: SlotSinifi, sozluk: Dictionary = {}):
 
 func esya_miktar_ekleme(slot: SlotSinifi , eklenecek_miktar: int, sozluk: Dictionary):
 	sozluk[slot.slot_sayisi][1] += eklenecek_miktar
+	if sozluk[slot.slot_sayisi][1] == 0 :
+		esya_sil(slot, sozluk)
+
+func atilan_esya_olusturma(esya_isim, esya_miktar, position, yon):
+	var DunyaEsya = DunyaEsyaS.instance()
+	DunyaEsya.yer_esya_isim = esya_isim
+	DunyaEsya.yer_esya_miktar = esya_miktar
+	DunyaEsya.global_position = position
+	DunyaEsya.yon = yon
+	get_node(Genel.YAPI_TILEMAP).add_child(DunyaEsya)
 
 func aktif_esya_yukari_cevirme():
 	aktif_slot = (aktif_slot + 1) % HIZLI_ERISIM_SLOT

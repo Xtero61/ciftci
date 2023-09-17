@@ -26,10 +26,12 @@ onready var EsyaAlmaAlan = $EsyaAlmaAlani
 onready var Envanter = $UI/Envanter
 onready var Sandik = $UI/Sandik_slotlari
 onready var UI = $UI
+onready var AtilanEsyaDogma = $DoluEl/AtilanEsyaDogma
 
+export(int) var Hiz : int = 50
 var kare_boyu = 16.0
-var vektor = Vector2.ZERO
-export(int) var Hiz = 50
+var vektor : Vector2 = Vector2.ZERO
+var esya_atma_yon : Vector2
 
 func _ready():
 	OyuncuEnvanter.hizliErisim_esya_ele_verme()
@@ -127,6 +129,7 @@ func _input(event):
 			#eldeki esyayı fare göre çevirme
 			if !Envanter.visible :
 				Dolu_el.look_at(fare_global)
+				esya_atma_yon = AtilanEsyaDogma.global_position.direction_to(Esya_Vurma_Yer.global_position)
 
 	else :
 		fare_global = YonDokunmatikTus.get_output()
@@ -138,6 +141,7 @@ func _input(event):
 			El_Cevir.scale.y = 1
 		#eldeki esyayı fare göre çevirme
 		Dolu_el.look_at(fare_global*500)
+		esya_atma_yon = global_position.direction_to(imlec.global_position)
 
 	#elde eşya olup olmamasına göre animasyon değişimleri
 	if El_Esya_Yer.get_child_count() == 3 : 
@@ -188,7 +192,6 @@ func _on_TimerOlta_timeout():
 	El_Esya_Yer.get_child(2).call("Islev_Oynat",imlec.global_position)
 
 var basili_tutuluyor = false
-var mesaj_goster = false
 var zamanlayici = 0
 var adim_araligi = 0.12  # İşlem adımları arasındaki zaman aralığı (saniye)
 
@@ -203,12 +206,19 @@ func YerdenEsyaAlma(event, delta):
 		if event.is_action_just_released("YerdenEsyaAlma"):
 			basili_tutuluyor = false
 			zamanlayici = 0
+			adim_araligi = 0.12
 	    
 		if basili_tutuluyor:
 			zamanlayici -= delta
 			if zamanlayici <= 0:
 				zamanlayici = adim_araligi
+				if adim_araligi >= 0.03 :
+					adim_araligi -= 0.003
 				EsyaAlma()
+
+func YerdenEsyaAlmaZamanlayiciSifirla():
+	basili_tutuluyor = false
+	adim_araligi = 0.12
 
 func EsyaAlma():
 	if EsyaAlmaAlan.AlandakiEsyalar.size() > 0 :

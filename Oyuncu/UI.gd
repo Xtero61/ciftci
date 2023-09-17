@@ -10,6 +10,7 @@ var FareSlot = null
 
 func _input(event):
 	if event.is_action_pressed("Envanter"):
+		find_parent("Oyuncu").YerdenEsyaAlmaZamanlayiciSifirla()
 		OyuncuEnvanter.hizliErisim_guncelle()
 		if tutulan_esya != null :
 			tutulan_esya.visible = true
@@ -31,10 +32,20 @@ func _input(event):
 	if !Envanter.visible :
 		if tutulan_esya != null :
 			tutulan_esya.visible = false
+
+		if event.is_action_pressed("EsyaAtma"):
+			HizliErisim.q_ile_esya_atma_envanter_kapali()
+			HizliErisim.hizlierisim_slotlarini_guncelle()
+			OyuncuEnvanter.hizliErisim_esya_ele_verme()
+
 		if event.is_action_pressed("FareTekerlekYukarı"):
 			OyuncuEnvanter.aktif_esya_asagi_cevirme()
+
 		elif event.is_action_pressed("FareTekerlekAşağı"):
 			OyuncuEnvanter.aktif_esya_yukari_cevirme()
+
+func hizliE_esya_atma():
+	HizliErisim.q_ile_esya_atma()
 
 func hizliE_esyalari_San_v_Env_yer_deis(slot , slot_sayisi ):
 

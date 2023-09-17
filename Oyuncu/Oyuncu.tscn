@@ -451,11 +451,13 @@ position = Vector2( -6, -3 )
 texture = ExtResource( 3 )
 
 [node name="DoluEl" type="Node2D" parent="."]
-visible = false
 position = Vector2( 0, -4 )
 
 [node name="EsyaVurmaYer" type="Position2D" parent="DoluEl"]
 position = Vector2( 17, 0 )
+
+[node name="AtilanEsyaDogma" type="Position2D" parent="DoluEl"]
+position = Vector2( 10, 0 )
 
 [node name="Cevir" type="Position2D" parent="DoluEl"]
 
@@ -472,7 +474,6 @@ rotation = 0.785398
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 rotation = 1.5708
 shape = SubResource( 1 )
 
