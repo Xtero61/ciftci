@@ -33,19 +33,17 @@ func _input(event):
 		if tutulan_esya != null :
 			tutulan_esya.visible = false
 
-		if event.is_action_pressed("EsyaAtma"):
-			HizliErisim.q_ile_esya_atma_envanter_kapali()
-			HizliErisim.hizlierisim_slotlarini_guncelle()
-			OyuncuEnvanter.hizliErisim_esya_ele_verme()
-
 		if event.is_action_pressed("FareTekerlekYukarı"):
 			OyuncuEnvanter.aktif_esya_asagi_cevirme()
 
 		elif event.is_action_pressed("FareTekerlekAşağı"):
 			OyuncuEnvanter.aktif_esya_yukari_cevirme()
 
-func hizliE_esya_atma():
-	HizliErisim.q_ile_esya_atma()
+func TusKontrol(Tus: String):
+	if Input.is_action_pressed(Tus):
+		return true
+	else :
+		return false
 
 func hizliE_esyalari_San_v_Env_yer_deis(slot , slot_sayisi ):
 
@@ -102,7 +100,7 @@ func esyayi_envanterden_sandiga_ve_hizlierisime_yolla(slot,esya_isim,esya_miktar
 		if OyuncuEnvanter.bu_esya_icin_kac_tane_yer_var(esya_isim, OyuncuEnvanter.hizlierisim, true) >= esya_miktar :
 			OyuncuEnvanter.esya_sil(slot,OyuncuEnvanter.envanter)
 			OyuncuEnvanter.esya_ekleme(esya_isim, esya_miktar, OyuncuEnvanter.hizlierisim)
-		else : 
+		elif OyuncuEnvanter.bu_esya_icin_kac_tane_yer_var(esya_isim, OyuncuEnvanter.hizlierisim, true) != 0 : 
 			OyuncuEnvanter.esya_miktar_ekleme(slot, -OyuncuEnvanter.bu_esya_icin_kac_tane_yer_var(esya_isim, OyuncuEnvanter.hizlierisim, true), OyuncuEnvanter.envanter)
 			OyuncuEnvanter.esya_ekleme(esya_isim, OyuncuEnvanter.bu_esya_icin_kac_tane_yer_var(esya_isim, OyuncuEnvanter.hizlierisim, true), OyuncuEnvanter.hizlierisim)
 

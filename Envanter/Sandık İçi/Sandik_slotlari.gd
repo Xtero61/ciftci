@@ -8,6 +8,7 @@ onready var simge_sandik_rengi = $RenkSecici/SandikRenkliIcon
 onready var kirmizi = $RenkSecici/Renkler/kirmizi
 onready var yesil = $RenkSecici/Renkler/yesil
 onready var mavi = $RenkSecici/Renkler/mavi
+onready var Sandik = $"."
 
 var SANDIK_SLOT = 17
 var sandik = {}
@@ -138,6 +139,21 @@ func sol_tik_basilmiyorsa(slot: SlotSinifi):
 	find_parent("UI").tutulan_esya = slot.esya
 	slot.SlottanSecme()
 	find_parent("UI").tutulan_esya.global_position = get_global_mouse_position()
+
+func _input(event):
+	if Sandik.visible :
+		if find_parent("UI").TusKontrol("Ctrl") and event.is_action_pressed("EsyaAtma") :
+			if find_parent("UI").FareSlot.esya :
+				if find_parent("UI").FareSlot.get_parent().name == "SandikSlotlari":
+					OyuncuEnvanter.yere_esya_atma(find_parent("UI").FareSlot, find_parent("Oyuncu").AtilanEsyaDogma.global_position, 
+					find_parent("Oyuncu").esya_atma_yon, sandik, true)
+					sandik_slotlarini_guncelle()
+		elif event.is_action_pressed("EsyaAtma") :
+			if find_parent("UI").FareSlot.esya :
+				if find_parent("UI").FareSlot.get_parent().name == "SandikSlotlari":
+					OyuncuEnvanter.yere_esya_atma(find_parent("UI").FareSlot, find_parent("Oyuncu").AtilanEsyaDogma.global_position, 
+					find_parent("Oyuncu").esya_atma_yon, sandik)
+					sandik_slotlarini_guncelle()
 
 
 func _on_kirmizi_value_changed(value):

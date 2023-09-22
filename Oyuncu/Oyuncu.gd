@@ -212,8 +212,8 @@ func YerdenEsyaAlma(event, delta):
 			zamanlayici -= delta
 			if zamanlayici <= 0:
 				zamanlayici = adim_araligi
-				if adim_araligi >= 0.03 :
-					adim_araligi -= 0.003
+				if adim_araligi >= 0.04 :
+					adim_araligi -= 0.002
 				EsyaAlma()
 
 func YerdenEsyaAlmaZamanlayiciSifirla():

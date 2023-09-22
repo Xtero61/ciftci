@@ -65,6 +65,7 @@ func bu_esya_icin_kac_tane_yer_var(esya_isim, sozluk : Dictionary, hizlierisim_m
 		for i in range(ENVANTER_SLOT) :
 			if !sozluk.has(i) :
 				esya_kapasitesi += birikme_miktari
+
 	return esya_kapasitesi
 
 func slot_goruntusu_yenile(slot_sayisi, esya_isim, yeni_miktar):
@@ -88,6 +89,14 @@ func esya_miktar_ekleme(slot: SlotSinifi , eklenecek_miktar: int, sozluk: Dictio
 	sozluk[slot.slot_sayisi][1] += eklenecek_miktar
 	if sozluk[slot.slot_sayisi][1] == 0 :
 		esya_sil(slot, sozluk)
+
+func yere_esya_atma(slot: SlotSinifi, olusma_yer: Vector2, yon: Vector2, sozluk: Dictionary, CokluAtma: bool = false):
+	if CokluAtma :
+		OyuncuEnvanter.esya_sil(slot, sozluk)
+		OyuncuEnvanter.atilan_esya_olusturma(slot.esya.esya_isim, slot.esya.esya_miktar, olusma_yer, yon)
+	else:
+		OyuncuEnvanter.esya_miktar_ekleme(slot, -1, sozluk)
+		OyuncuEnvanter.atilan_esya_olusturma(slot.esya.esya_isim, 1, olusma_yer, yon)
 
 func atilan_esya_olusturma(esya_isim, esya_miktar, position, yon):
 	var DunyaEsya = DunyaEsyaS.instance()

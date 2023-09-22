@@ -3,6 +3,7 @@ extends Node2D
 const SlotSinifi = preload("res://Envanter/Slot.gd")
 onready var envanter_slotlari = $EnvanterSlotlari
 onready var animasyonPlayer = $AnimationPlayer
+onready var Envanter = $"."
 
 
 func envanter_slotlarini_guncelle():
@@ -133,27 +134,39 @@ func sol_tik_basilmiyorsa(slot: SlotSinifi):
 	find_parent("UI").tutulan_esya.global_position = get_global_mouse_position()
 
 func _input(event):
-	if find_parent("UI").tutulan_esya:
-		find_parent("UI").tutulan_esya.global_position = get_global_mouse_position()
-		find_parent("UI").tutulan_esya.visible = true
+	if Envanter.visible :
+		if find_parent("UI").tutulan_esya:
+			find_parent("UI").tutulan_esya.global_position = get_global_mouse_position()
+			find_parent("UI").tutulan_esya.visible = true
 
-	if event.is_action_pressed("Yuva1"):
-		find_parent("UI").hizliE_esyalari_San_v_Env_yer_deis(find_parent("UI").FareSlot, 0)
-	elif event.is_action_pressed("Yuva2"):
-		find_parent("UI").hizliE_esyalari_San_v_Env_yer_deis(find_parent("UI").FareSlot, 1)
-	elif event.is_action_pressed("Yuva3"):
-		find_parent("UI").hizliE_esyalari_San_v_Env_yer_deis(find_parent("UI").FareSlot, 2)
-	elif event.is_action_pressed("Yuva4"):
-		find_parent("UI").hizliE_esyalari_San_v_Env_yer_deis(find_parent("UI").FareSlot, 3)
-	elif event.is_action_pressed("Yuva5"):
-		find_parent("UI").hizliE_esyalari_San_v_Env_yer_deis(find_parent("UI").FareSlot, 4)
-	elif event.is_action_pressed("Yuva6"):
-		find_parent("UI").hizliE_esyalari_San_v_Env_yer_deis(find_parent("UI").FareSlot, 5)
-	elif event.is_action_pressed("Yuva7"):
-		find_parent("UI").hizliE_esyalari_San_v_Env_yer_deis(find_parent("UI").FareSlot, 6)
-	elif event.is_action_pressed("Yuva8"):
-		find_parent("UI").hizliE_esyalari_San_v_Env_yer_deis(find_parent("UI").FareSlot, 7)
-	elif event.is_action_pressed("Yuva9"):
-		find_parent("UI").hizliE_esyalari_San_v_Env_yer_deis(find_parent("UI").FareSlot, 8)
+		if event.is_action_pressed("Yuva1"):
+			find_parent("UI").hizliE_esyalari_San_v_Env_yer_deis(find_parent("UI").FareSlot, 0)
+		elif event.is_action_pressed("Yuva2"):
+			find_parent("UI").hizliE_esyalari_San_v_Env_yer_deis(find_parent("UI").FareSlot, 1)
+		elif event.is_action_pressed("Yuva3"):
+			find_parent("UI").hizliE_esyalari_San_v_Env_yer_deis(find_parent("UI").FareSlot, 2)
+		elif event.is_action_pressed("Yuva4"):
+			find_parent("UI").hizliE_esyalari_San_v_Env_yer_deis(find_parent("UI").FareSlot, 3)
+		elif event.is_action_pressed("Yuva5"):
+			find_parent("UI").hizliE_esyalari_San_v_Env_yer_deis(find_parent("UI").FareSlot, 4)
+		elif event.is_action_pressed("Yuva6"):
+			find_parent("UI").hizliE_esyalari_San_v_Env_yer_deis(find_parent("UI").FareSlot, 5)
+		elif event.is_action_pressed("Yuva7"):
+			find_parent("UI").hizliE_esyalari_San_v_Env_yer_deis(find_parent("UI").FareSlot, 6)
+		elif event.is_action_pressed("Yuva8"):
+			find_parent("UI").hizliE_esyalari_San_v_Env_yer_deis(find_parent("UI").FareSlot, 7)
+		elif event.is_action_pressed("Yuva9"):
+			find_parent("UI").hizliE_esyalari_San_v_Env_yer_deis(find_parent("UI").FareSlot, 8)
 
-
+		if find_parent("UI").TusKontrol("Ctrl") and event.is_action_pressed("EsyaAtma") :
+			if find_parent("UI").FareSlot.esya :
+				if find_parent("UI").FareSlot.get_parent().name == "EnvanterSlotlari":
+					OyuncuEnvanter.yere_esya_atma(find_parent("UI").FareSlot, find_parent("Oyuncu").AtilanEsyaDogma.global_position, 
+					find_parent("Oyuncu").esya_atma_yon, OyuncuEnvanter.envanter, true)
+					envanter_slotlarini_guncelle()
+		elif event.is_action_pressed("EsyaAtma") :
+			if find_parent("UI").FareSlot.esya :
+				if find_parent("UI").FareSlot.get_parent().name == "EnvanterSlotlari":
+					OyuncuEnvanter.yere_esya_atma(find_parent("UI").FareSlot, find_parent("Oyuncu").AtilanEsyaDogma.global_position, 
+					find_parent("Oyuncu").esya_atma_yon, OyuncuEnvanter.envanter)
+					envanter_slotlarini_guncelle()

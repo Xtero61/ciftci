@@ -25,10 +25,9 @@ func _ready():
 
 func slot_gui_girdisi(event:InputEvent, slot: SlotSinifi):
 	find_parent("UI").FareSlot = slot
-
 	if envanter_acikmi :
 		if event is InputEventMouseButton:
-			if ShiftKontrol() :
+			if find_parent("UI").TusKontrol("Shift") :
 				if event.button_index == BUTTON_LEFT and event.pressed :
 					if slot.esya :
 						find_parent("UI").esyayi_hizlierisimden_envantere_ve_sandiga_yolla(slot, slot.esya.esya_isim, slot.esya.esya_miktar)
@@ -54,12 +53,6 @@ func slot_gui_girdisi(event:InputEvent, slot: SlotSinifi):
 							sag_tik_tutulan_esya_varsa_slottaki_esya_da_ayniysa(slot)
 				elif slot.esya:
 					sag_tik_slottaki_esyanin_yarisini_alma(slot)
-
-func ShiftKontrol():
-	if Input.is_action_pressed("Shift"):
-		return true
-	else :
-		return false
 
 func sag_tik_slottaki_esyanin_yarisini_alma(slot : SlotSinifi):
 
@@ -134,15 +127,8 @@ func sol_tik_basilmiyorsa(slot: SlotSinifi):
 	slot.SlottanSecme()
 	find_parent("UI").tutulan_esya.global_position = get_global_mouse_position()
 
-func q_ile_esya_atma_envanter_kapali():
-	var slot
-	for i in hizli_erisim.get_children() :
-		if i.aktif_slot == true :
-			slot = i
-			break
-	if slot.esya != null:
-		OyuncuEnvanter.esya_miktar_ekleme(slot, -1, OyuncuEnvanter.hizlierisim)
-		OyuncuEnvanter.atilan_esya_olusturma(slot.esya.esya_isim, 1, find_parent("Oyuncu").AtilanEsyaDogma.global_position, find_parent("Oyuncu").esya_atma_yon)
+func AktifSlot():
+	return hizli_erisim.get_children()[OyuncuEnvanter.aktif_slot]
 
 func _input(event):
 
@@ -176,4 +162,31 @@ func _input(event):
 		elif event.is_action_pressed("Yuva9"):
 			OyuncuEnvanter.aktif_slot = 8
 			OyuncuEnvanter.hizliErisim_guncelle()
-		
+
+		if AktifSlot().esya != null :
+			if find_parent("UI").TusKontrol("Ctrl") and event.is_action_pressed("EsyaAtma"):
+				OyuncuEnvanter.yere_esya_atma(AktifSlot(), find_parent("Oyuncu").AtilanEsyaDogma.global_position, 
+				find_parent("Oyuncu").esya_atma_yon, OyuncuEnvanter.hizlierisim, true)
+				hizlierisim_slotlarini_guncelle()
+				OyuncuEnvanter.hizliErisim_esya_ele_verme()
+			elif event.is_action_pressed("EsyaAtma"):
+				OyuncuEnvanter.yere_esya_atma(AktifSlot(), find_parent("Oyuncu").AtilanEsyaDogma.global_position, 
+				find_parent("Oyuncu").esya_atma_yon, OyuncuEnvanter.hizlierisim)
+				hizlierisim_slotlarini_guncelle()
+				OyuncuEnvanter.hizliErisim_esya_ele_verme()
+	else :
+
+		if find_parent("UI").TusKontrol("Ctrl") and event.is_action_pressed("EsyaAtma") :
+			if find_parent("UI").FareSlot.esya :
+				if find_parent("UI").FareSlot.get_parent().name == "HizliErisimSlotlari":
+					OyuncuEnvanter.yere_esya_atma(find_parent("UI").FareSlot, find_parent("Oyuncu").AtilanEsyaDogma.global_position, 
+					find_parent("Oyuncu").esya_atma_yon, OyuncuEnvanter.hizlierisim, true)
+					hizlierisim_slotlarini_guncelle()
+					OyuncuEnvanter.hizliErisim_esya_ele_verme()
+		elif event.is_action_pressed("EsyaAtma") :
+			if find_parent("UI").FareSlot.esya :
+				if find_parent("UI").FareSlot.get_parent().name == "HizliErisimSlotlari":
+					OyuncuEnvanter.yere_esya_atma(find_parent("UI").FareSlot, find_parent("Oyuncu").AtilanEsyaDogma.global_position, 
+					find_parent("Oyuncu").esya_atma_yon, OyuncuEnvanter.hizlierisim)
+					hizlierisim_slotlarini_guncelle()
+					OyuncuEnvanter.hizliErisim_esya_ele_verme()
