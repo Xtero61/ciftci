@@ -159,13 +159,13 @@ func _input(event):
 			find_parent("UI").hizliE_esyalari_San_v_Env_yer_deis(find_parent("UI").FareSlot, 8)
 
 		if find_parent("UI").TusKontrol("Ctrl") and event.is_action_pressed("EsyaAtma") :
-			if find_parent("UI").FareSlot.esya :
+			if find_parent("UI").FareSlot != null and find_parent("UI").FareSlot.esya :
 				if find_parent("UI").FareSlot.get_parent().name == "EnvanterSlotlari":
 					OyuncuEnvanter.yere_esya_atma(find_parent("UI").FareSlot, find_parent("Oyuncu").AtilanEsyaDogma.global_position, 
 					find_parent("Oyuncu").esya_atma_yon, OyuncuEnvanter.envanter, true)
 					envanter_slotlarini_guncelle()
 		elif event.is_action_pressed("EsyaAtma") :
-			if find_parent("UI").FareSlot.esya :
+			if find_parent("UI").FareSlot != null and find_parent("UI").FareSlot.esya :
 				if find_parent("UI").FareSlot.get_parent().name == "EnvanterSlotlari":
 					OyuncuEnvanter.yere_esya_atma(find_parent("UI").FareSlot, find_parent("Oyuncu").AtilanEsyaDogma.global_position, 
 					find_parent("Oyuncu").esya_atma_yon, OyuncuEnvanter.envanter)

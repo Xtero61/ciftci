@@ -451,6 +451,7 @@ position = Vector2( -6, -3 )
 texture = ExtResource( 3 )
 
 [node name="DoluEl" type="Node2D" parent="."]
+visible = false
 position = Vector2( 0, -4 )
 
 [node name="EsyaVurmaYer" type="Position2D" parent="DoluEl"]

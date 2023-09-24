@@ -143,13 +143,13 @@ func sol_tik_basilmiyorsa(slot: SlotSinifi):
 func _input(event):
 	if Sandik.visible :
 		if find_parent("UI").TusKontrol("Ctrl") and event.is_action_pressed("EsyaAtma") :
-			if find_parent("UI").FareSlot.esya :
+			if find_parent("UI").FareSlot != null and find_parent("UI").FareSlot.esya :
 				if find_parent("UI").FareSlot.get_parent().name == "SandikSlotlari":
 					OyuncuEnvanter.yere_esya_atma(find_parent("UI").FareSlot, find_parent("Oyuncu").AtilanEsyaDogma.global_position, 
 					find_parent("Oyuncu").esya_atma_yon, sandik, true)
 					sandik_slotlarini_guncelle()
 		elif event.is_action_pressed("EsyaAtma") :
-			if find_parent("UI").FareSlot.esya :
+			if find_parent("UI").FareSlot != null and find_parent("UI").FareSlot.esya :
 				if find_parent("UI").FareSlot.get_parent().name == "SandikSlotlari":
 					OyuncuEnvanter.yere_esya_atma(find_parent("UI").FareSlot, find_parent("Oyuncu").AtilanEsyaDogma.global_position, 
 					find_parent("Oyuncu").esya_atma_yon, sandik)

@@ -29,7 +29,14 @@ func _input(event):
 		HizliErisim.envanter_acikmi = !HizliErisim.envanter_acikmi
 		slotlari_guncelle()
 
-	if !Envanter.visible :
+	if Envanter.visible :
+		if event.is_action_pressed("Esc"):
+			Envanter.visible = !Envanter.visible
+			Sandik.visible = false
+			Envanter.animasyonPlayer.play("SandıkKapalı")
+			HizliErisim.envanter_acikmi = !HizliErisim.envanter_acikmi
+
+	else :
 		if tutulan_esya != null :
 			tutulan_esya.visible = false
 
