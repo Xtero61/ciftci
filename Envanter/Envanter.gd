@@ -5,12 +5,16 @@ onready var envanter_slotlari = $EnvanterSlotlari
 onready var animasyonPlayer = $AnimationPlayer
 onready var Envanter = $"."
 
+var envanter = {
+	0: ["Odun", 64],
+	1: ["Taş", 20],
+}
 
 func envanter_slotlarini_guncelle():
 	var slotlar = envanter_slotlari.get_children()
 	for i in range(slotlar.size()):
-		if OyuncuEnvanter.envanter.has(i):
-			slotlar[i].esya_olusturma(OyuncuEnvanter.envanter[i][0],OyuncuEnvanter.envanter[i][1])
+		if envanter.has(i):
+			slotlar[i].esya_olusturma(envanter[i][0],envanter[i][1])
 			slotlar[i].esya.esya_miktar_yazisi()
 		else:
 			if slotlar[i].esya != null:
@@ -38,7 +42,7 @@ func slot_gui_girdisi(event, slot: SlotSinifi):
 					sol_tik_bos_slot(slot)
 				else:
 					if find_parent("UI").tutulan_esya.esya_isim != slot.esya.esya_isim :
-						sol_tik_farkli_esya(event, slot)
+						sol_tik_farkli_esya(slot)
 					else :
 						sol_tik_ayni_esya(slot)
 			elif slot.esya:
@@ -72,7 +76,7 @@ func sag_tik_slottaki_esyanin_yarisini_alma(slot : SlotSinifi):
 			esya_yarisi = slot.esya.esya_miktar / 2 + 1
 			tutulan_esya_yarisi = slot.esya.esya_miktar / 2
 
-		OyuncuEnvanter.bos_slot_belli_miktar_esya_ekle(slot.esya,slot,esya_yarisi,OyuncuEnvanter.envanter)
+		OyuncuEnvanter.bos_slot_belli_miktar_esya_ekle(slot.esya, slot, esya_yarisi, envanter)
 		find_parent("UI").tutulan_esya = slot.esya
 		slot.SlottanSecme()
 		find_parent("UI").tutulan_esya.global_position = get_global_mouse_position()
@@ -85,7 +89,7 @@ func sag_tik_tutulan_esya_varsa_slottaki_esya_da_ayniysa(slot: SlotSinifi):
 		var birikme_miktari = int(JsonVeri.esya_veri[slot.esya.esya_isim]["BirikmeMiktarı"])
 		if slot.esya.esya_miktar < birikme_miktari :
 			find_parent("UI").tutulan_esya.esya_miktari_azalt(1)
-			OyuncuEnvanter.esya_miktar_ekleme(slot, 1, OyuncuEnvanter.envanter)
+			OyuncuEnvanter.esya_miktar_ekleme(slot, 1, envanter)
 		if find_parent("UI").tutulan_esya.esya_miktar == 0 :
 			find_parent("UI").tutulan_esya.queue_free()
 			find_parent("UI").tutulan_esya = null
@@ -94,23 +98,23 @@ func sag_tik_tutulan_esya_varsa_slottaki_esya_da_ayniysa(slot: SlotSinifi):
 func sag_tik_tutulan_esya_varsa(slot: SlotSinifi):
 	if find_parent("UI").tutulan_esya.esya_miktar > 0:
 		find_parent("UI").tutulan_esya.esya_miktari_azalt(1)
-		OyuncuEnvanter.bos_slot_belli_miktar_esya_ekle(find_parent("UI").tutulan_esya, slot, 1, OyuncuEnvanter.envanter)
+		OyuncuEnvanter.bos_slot_belli_miktar_esya_ekle(find_parent("UI").tutulan_esya, slot, 1, envanter)
 		if find_parent("UI").tutulan_esya.esya_miktar == 0 :
 			find_parent("UI").tutulan_esya.queue_free()
 			find_parent("UI").tutulan_esya = null
 		envanter_slotlarini_guncelle()
 
 func sol_tik_bos_slot(slot: SlotSinifi):
-	OyuncuEnvanter.bos_slota_esya_ekle(find_parent("UI").tutulan_esya, slot, OyuncuEnvanter.envanter)
+	OyuncuEnvanter.bos_slota_esya_ekle(find_parent("UI").tutulan_esya, slot, envanter)
 	slot.SlotaKoyma(find_parent("UI").tutulan_esya)
 	find_parent("UI").tutulan_esya = null
 
-func sol_tik_farkli_esya(event: InputEvent , slot: SlotSinifi):
-	OyuncuEnvanter.esya_sil(slot, OyuncuEnvanter.envanter)
-	OyuncuEnvanter.bos_slota_esya_ekle(find_parent("UI").tutulan_esya, slot, OyuncuEnvanter.envanter)
+func sol_tik_farkli_esya(slot: SlotSinifi):
+	OyuncuEnvanter.esya_sil(slot, envanter)
+	OyuncuEnvanter.bos_slota_esya_ekle(find_parent("UI").tutulan_esya, slot, envanter)
 	var degis_esya = slot.esya
+	degis_esya.global_position = slot.rect_position
 	slot.SlottanSecme()
-	degis_esya.global_position = event.global_position
 	slot.SlotaKoyma(find_parent("UI").tutulan_esya)
 	find_parent("UI").tutulan_esya = degis_esya
 
@@ -118,17 +122,17 @@ func sol_tik_ayni_esya(slot: SlotSinifi):
 	var birikme_miktari = int(JsonVeri.esya_veri[slot.esya.esya_isim]["BirikmeMiktarı"])
 	var degisecek_miktar = birikme_miktari - slot.esya.esya_miktar
 	if degisecek_miktar >= find_parent("UI").tutulan_esya.esya_miktar:
-		OyuncuEnvanter.esya_miktar_ekleme(slot, find_parent("UI").tutulan_esya.esya_miktar,OyuncuEnvanter.envanter)
+		OyuncuEnvanter.esya_miktar_ekleme(slot, find_parent("UI").tutulan_esya.esya_miktar, envanter)
 		slot.esya.esya_miktari_ekle(find_parent("UI").tutulan_esya.esya_miktar)
 		find_parent("UI").tutulan_esya.queue_free()
 		find_parent("UI").tutulan_esya = null
 	else :
-		OyuncuEnvanter.esya_miktar_ekleme(slot, degisecek_miktar, OyuncuEnvanter.envanter)
+		OyuncuEnvanter.esya_miktar_ekleme(slot, degisecek_miktar, envanter)
 		slot.esya.esya_miktari_ekle(degisecek_miktar)
 		find_parent("UI").tutulan_esya.esya_miktari_azalt(degisecek_miktar)
 
 func sol_tik_basilmiyorsa(slot: SlotSinifi):
-	OyuncuEnvanter.esya_sil(slot, OyuncuEnvanter.envanter)
+	OyuncuEnvanter.esya_sil(slot, envanter)
 	find_parent("UI").tutulan_esya = slot.esya
 	slot.SlottanSecme()
 	find_parent("UI").tutulan_esya.global_position = get_global_mouse_position()
@@ -162,11 +166,11 @@ func _input(event):
 			if find_parent("UI").FareSlot != null and find_parent("UI").FareSlot.esya :
 				if find_parent("UI").FareSlot.get_parent().name == "EnvanterSlotlari":
 					OyuncuEnvanter.yere_esya_atma(find_parent("UI").FareSlot, find_parent("Oyuncu").AtilanEsyaDogma.global_position, 
-					find_parent("Oyuncu").esya_atma_yon, OyuncuEnvanter.envanter, true)
+					find_parent("Oyuncu").esya_atma_yon, envanter, true)
 					envanter_slotlarini_guncelle()
 		elif event.is_action_pressed("EsyaAtma") :
 			if find_parent("UI").FareSlot != null and find_parent("UI").FareSlot.esya :
 				if find_parent("UI").FareSlot.get_parent().name == "EnvanterSlotlari":
 					OyuncuEnvanter.yere_esya_atma(find_parent("UI").FareSlot, find_parent("Oyuncu").AtilanEsyaDogma.global_position, 
-					find_parent("Oyuncu").esya_atma_yon, OyuncuEnvanter.envanter)
+					find_parent("Oyuncu").esya_atma_yon, envanter)
 					envanter_slotlarini_guncelle()

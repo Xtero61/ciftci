@@ -3,7 +3,7 @@ extends TileSet
 
 #hepsinii birleştirir
 func _is_tile_bound(_id, neighbour_id) :
-	if neighbour_id != 4 and neighbour_id != 2 :
+	if neighbour_id == 0 or neighbour_id == 1 :
 		return neighbour_id in get_tiles_ids()
 
 #birleştirmek istediğini secebilirsin

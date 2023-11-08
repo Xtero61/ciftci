@@ -34,7 +34,7 @@ var vektor : Vector2 = Vector2.ZERO
 var esya_atma_yon : Vector2
 
 func _ready():
-	OyuncuEnvanter.hizliErisim_esya_ele_verme()
+#	OyuncuEnvanter.hizliErisim_esya_ele_verme(find_parent("UI").)
 	if El_Esya_Yer.get_child_count() == 3 : 
 		Sag_el.visible = false
 		Sol_el.visible = false
@@ -223,8 +223,8 @@ func YerdenEsyaAlmaZamanlayiciSifirla():
 func EsyaAlma():
 	if EsyaAlmaAlan.AlandakiEsyalar.size() > 0 :
 		var alinan_esya = EsyaAlmaAlan.AlandakiEsyalar[0]
-		if OyuncuEnvanter.bu_esya_icin_kac_tane_yer_var(alinan_esya.yer_esya_isim, OyuncuEnvanter.envanter) >= alinan_esya.yer_esya_miktar :
-			OyuncuEnvanter.esya_ekleme(alinan_esya.yer_esya_isim, alinan_esya.yer_esya_miktar, OyuncuEnvanter.envanter)
+		if OyuncuEnvanter.bu_esya_icin_kac_tane_yer_var(alinan_esya.yer_esya_isim, Envanter.envanter) >= alinan_esya.yer_esya_miktar :
+			OyuncuEnvanter.esya_ekleme(alinan_esya.yer_esya_isim, alinan_esya.yer_esya_miktar, Envanter.envanter)
 			alinan_esya.alinan_esya(self)
 			EsyaAlmaAlan.AlandakiEsyalar.erase(alinan_esya)
 			Envanter.envanter_slotlarini_guncelle()

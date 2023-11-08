@@ -48,7 +48,6 @@ func SlottanSecme():
 	remove_child(esya)
 	var envanterNode = get_node(UI)
 	envanterNode.add_child(esya)
-	esya.visible = false
 	esya = null
 	style_yenile()
 

@@ -8,23 +8,6 @@ const OYUNCU_EL_YOLU : String = "/root/Dunya/Yapi/Oyuncu/DoluEl/Cevir/AnimasyonO
 const SlotSinifi = preload("res://Envanter/Slot.gd")
 const EsyaSinifi = preload("res://Esyalar/Esya.gd")
 
-var envanter = {
-	0: ["Odun", 64],
-	1: ["Taş", 20],
-}
-
-var hizlierisim = {
-	0: ["Taş Kılıç", 1],
-	1: ["Taş Kazma", 1],
-	2: ["Taş Balta", 1],
-	3: ["Taş Kürek", 1],
-	4: ["Taş Çapa", 1],
-	5: ["Sulama Kabı", 1],
-	6: ["Taş Çekiç", 1],
-	7: ["Olta", 1],
-	8: ["Odun", 1],
-}
-
 var aktif_slot = 0
 var DunyaEsyaS = load("res://Esyalar/DunyaEsya.tscn")
 
@@ -106,22 +89,22 @@ func atilan_esya_olusturma(esya_isim, esya_miktar, position, yon):
 	DunyaEsya.yon = yon
 	get_node(Genel.YAPI_TILEMAP).add_child(DunyaEsya)
 
-func aktif_esya_yukari_cevirme():
+func aktif_esya_yukari_cevirme(hizlierisim):
 	aktif_slot = (aktif_slot + 1) % HIZLI_ERISIM_SLOT
-	hizliErisim_guncelle()
+	hizliErisim_guncelle(hizlierisim)
 
-func aktif_esya_asagi_cevirme():
+func aktif_esya_asagi_cevirme(hizlierisim):
 	if aktif_slot == 0:
 		aktif_slot = HIZLI_ERISIM_SLOT - 1
 	else :
 		aktif_slot -= 1
-		hizliErisim_guncelle()
+		hizliErisim_guncelle(hizlierisim)
 
-func hizliErisim_guncelle():
+func hizliErisim_guncelle(hizlierisim):
 	emit_signal("aktif_esya_guncellendi")
-	hizliErisim_esya_ele_verme()
+	hizliErisim_esya_ele_verme(hizlierisim)
 
-func hizliErisim_esya_ele_verme():
+func hizliErisim_esya_ele_verme(hizlierisim):
 	if hizlierisim.has(aktif_slot):
 		oyuncu_el_esya_sil()
 		if JsonVeri.esya_veri[hizlierisim[aktif_slot][0]]["EsyaTürü"] != "Kaynak" :

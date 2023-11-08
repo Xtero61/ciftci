@@ -12,7 +12,7 @@ func _ready():
 	kapi_etrafi_kontrol()
 
 func kapi_etrafi_kontrol():
-	Genel._KapiUstu("Koyma",global_position)
+	Genel._KapiUstuKoy(global_position)
 
 func _on_Kapi_body_entered(body):
 	if body.name == "Oyuncu":
@@ -27,7 +27,7 @@ func _on_KapiKirilma_area_entered(area):
 		VurulmaSayi += 1
 		vurulmaPlayer.play("Vurulma")
 		if VurulmaSayi == KirilmaSayi :
-			Genel._YapiYapma("KapiSil",Genel.bos,global_position)
+			Genel._YapiYapmaKapiSil(global_position)
 			TimerYokOlma.start()
 
 func _on_KapiYonuCevirSol_area_entered(area):
@@ -39,5 +39,5 @@ func _on_KapiYonuCevirSag_area_entered(area):
 		kapiAnimasyon.scale.x = 1
 
 func _on_TimerYokOlma_timeout():
-	Genel._KapiUstu("Silme",global_position)
+	Genel._KapiUstuSil(global_position)
 	queue_free()

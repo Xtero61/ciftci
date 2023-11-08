@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 onready var resim = $Sprite
+onready var resim2 = $Sprite2
 
 var yer_esya_isim
 var yer_esya_miktar : int = 1
@@ -11,6 +12,11 @@ var yon : Vector2 = Vector2.ZERO
 
 func _ready():
 	resim.texture = load(JsonVeri.esya_veri[yer_esya_isim]["ResimYolu"])
+	resim2.texture = load(JsonVeri.esya_veri[yer_esya_isim]["ResimYolu"])
+
+	if yer_esya_miktar > 2 :
+		resim2.visible = true
+
 	if yon == Vector2.ZERO :
 		set_linear_velocity(Vector2(rand_range(200, -200),rand_range(200, -200)))
 	else :

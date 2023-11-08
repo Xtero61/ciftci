@@ -15,7 +15,7 @@ func _ready():
 	else :
 		esya_isim = "Taş Balta"
 
-	$TextureRect.texture = load(JsonVeri.esya_veri[esya_isim]["ResimYolu"])
+	resim.texture = load(JsonVeri.esya_veri[esya_isim]["ResimYolu"])
 	var yigin_boyu = int(JsonVeri.esya_veri[esya_isim]["BirikmeMiktarı"])
 	esya_miktar = randi() % yigin_boyu + 1
 
@@ -23,10 +23,10 @@ func _ready():
 
 func esya_miktar_yazisi() :
 	if esya_miktar == 1:
-		$Label.visible = false
+		esya_g_sayi.visible = false
 	else:
-		$Label.visible = true
-		$Label.text = String(esya_miktar)
+		esya_g_sayi.visible = true
+		esya_g_sayi.text = String(esya_miktar)
 
 func esya_ayarla(esya_is, esya_mik):
 	esya_isim = esya_is
