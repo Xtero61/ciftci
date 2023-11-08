@@ -45,10 +45,10 @@ func Islev_Oynat(Yapilcak_Yer):
 		Kurekleme(Yapilcak_Yer)
 
 	elif ismim == "SulamaKabi" :
-		if sulama_hak > 0 and Genel._TarlaYapmaKontrol(Yapilcak_Yer) :
+		if sulama_hak > 0 and TilemapGenel._TarlaYapmaKontrol(Yapilcak_Yer) :
 			Sulama(Yapilcak_Yer)
 			sulama_hak -= 1
-		elif Genel._TarlaYapmaSuDoldur(Yapilcak_Yer) :
+		elif TilemapGenel._TarlaYapmaSuDoldur(Yapilcak_Yer) :
 			sulama_hak = 20
 		if sulama_hak == 0 :
 			Simge.frame = 0
@@ -60,33 +60,33 @@ func Islev_Oynat(Yapilcak_Yer):
 
 	elif ismim == "Cekic" :
 		if cekicMenuSecili == 1 :
-			YapiYap(Genel.yapi_duvar,Yapilcak_Yer)
+			YapiYap(TilemapGenel.yapi_duvar,Yapilcak_Yer)
 		elif cekicMenuSecili == 2 :
-			YapiYap(Genel.yapi_duvar_camli,Yapilcak_Yer)
+			YapiYap(TilemapGenel.yapi_duvar_camli,Yapilcak_Yer)
 		elif cekicMenuSecili == 3 :
-			YapiYap(Genel.yapi_kapi,Yapilcak_Yer)
+			YapiYap(TilemapGenel.yapi_kapi,Yapilcak_Yer)
 		elif cekicMenuSecili == 4 :
 			YapiYapCati(Yapilcak_Yer)
 		else :
 			Yik(Yapilcak_Yer)
 
 func Capalama(Yapilcak_Yer):
-	Genel._TarlaYapmaKoy(Yapilcak_Yer)
+	TilemapGenel._TarlaYapmaKoy(Yapilcak_Yer)
 
 func Kurekleme(Yapilcak_Yer):
-	Genel._TarlaYapmaSil(Yapilcak_Yer)
+	TilemapGenel._TarlaYapmaSil(Yapilcak_Yer)
 
 func Sulama(Yapilcak_Yer):
-	Genel._TarlaYapmaSula(Yapilcak_Yer)
+	TilemapGenel._TarlaYapmaSula(Yapilcak_Yer)
 
 func YapiYap(Yapi,Yapilacak_yer):
-	Genel._YapiYapmaKoy(Yapi,Yapilacak_yer)
+	TilemapGenel._YapiYapmaKoy(Yapi,Yapilacak_yer)
 
 func YapiYapCati(Yapilacak_yer):
-	Genel._YapiYapmaCati(Yapilacak_yer)
+	TilemapGenel._YapiYapmaCati(Yapilacak_yer)
 
 func Yik(Yapilcak_Yer):
-	Genel._YapiYapmaSil(Yapilcak_Yer)
+	TilemapGenel._YapiYapmaSil(Yapilcak_Yer)
 
 func _on_TimerEfek_timeout():
 

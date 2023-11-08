@@ -106,7 +106,7 @@ func _physics_process(delta):
 		vektor = vektor.move_toward(Vector2.ZERO , 500 * delta)
 
 	else :
-		Genel._CatiAltindaMi(global_position)
+		TilemapGenel._CatiAltindaMi(global_position)
 		YurumeEfek.emitting = true
 		animationPlayer.play("Yurume")
 		vektor = vektor.move_toward(Yon.normalized() * Hiz , 500 * delta)

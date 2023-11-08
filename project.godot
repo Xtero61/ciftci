@@ -30,7 +30,7 @@ default_bus_layout=""
 
 [autoload]
 
-Genel="*res://Genel.gd"
+TilemapGenel="*res://TilemapGenel.gd"
 JsonVeri="*res://Veri/JSONVeri.gd"
 OyuncuEnvanter="*res://Envanter/OyuncuEnvanter.gd"
 

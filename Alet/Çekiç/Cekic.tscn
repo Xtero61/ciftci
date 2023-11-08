@@ -4,11 +4,11 @@
 [ext_resource path="res://Alet/Alet.gd" type="Script" id=2]
 [ext_resource path="res://Alet/Çekiç/ÇekiçEfek.png" type="Texture" id=3]
 [ext_resource path="res://Alet/Çekiç/Yapı Menu/Menu.png" type="Texture" id=4]
-[ext_resource path="res://Blok/Duvar/Duvaricon.png" type="Texture" id=5]
-[ext_resource path="res://Blok/Camlı Duvar/CamlıDuvaricon.png" type="Texture" id=6]
-[ext_resource path="res://Blok/Çatı/Çatıicon.png" type="Texture" id=7]
-[ext_resource path="res://Blok/Kapı/Kapı.png" type="Texture" id=8]
-[ext_resource path="res://Blok/Tahta_Zemin_icon.png" type="Texture" id=9]
+[ext_resource path="res://Yeryüzü Yapı/Duvar/Duvaricon.png" type="Texture" id=5]
+[ext_resource path="res://Yeryüzü Yapı/Camlı Duvar/CamlıDuvaricon.png" type="Texture" id=6]
+[ext_resource path="res://Yeryüzü Yapı/Çatı/Çatıicon.png" type="Texture" id=7]
+[ext_resource path="res://Yeryüzü Yapı/Kapı/Kapı.png" type="Texture" id=8]
+[ext_resource path="res://Yeryüzü Yapı/Tahta_Zemin_icon.png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3, 4.5 )

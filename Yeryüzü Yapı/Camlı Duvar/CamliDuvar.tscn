@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Yeryüzü Yapı/Camlı Duvar/CamlıDuvar.png" type="Texture" id=1]
+[ext_resource path="res://Blok/Blok.gd" type="Script" id=2]
+
+[node name="CamliDuvar" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="CamlıDuvar" type="Sprite" parent="."]
+position = Vector2( 13, 5 )
+rotation = 1.5708
+texture = ExtResource( 1 )
+hframes = 11
+vframes = 5
+frame = 33
