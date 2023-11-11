@@ -1,4 +1,4 @@
-[gd_scene load_steps=117 format=2]
+[gd_scene load_steps=116 format=2]
 
 [ext_resource path="res://Yeryuzu/Yeryuzu.tres" type="TileSet" id=1]
 [ext_resource path="res://Oyuncu/Oyuncu.tscn" type="PackedScene" id=2]
@@ -17,7 +17,6 @@
 [ext_resource path="res://Yeryuzu/Agaç/Agac.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Yeryuzu/Taş/Tas.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Yeryüzü Yapı/Tahta_Zemin.png" type="Texture" id=17]
-[ext_resource path="res://Yeryüzü Yapı/Sandık/Sandik.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Yeryüzü Yapı/Sandık/SandikIcon.png" type="Texture" id=19]
 
 [sub_resource type="TileSet" id=1]
@@ -1112,7 +1111,7 @@ cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
 cell_tile_origin = 2
 cell_y_sort = true
 format = 1
-tile_data = PoolIntArray( 393218, 0, 4, 393219, 0, 196610, 393220, 1, 196610, 393221, 0, 196610, 393222, 0, 196610, 393223, 1, 196610, 393224, 0, 196610, 393225, 0, 196610, 393226, 1, 196610, 393227, 0, 196610, 393228, 0, 7, 458754, 0, 65536, 458764, 0, 65536, 524290, 0, 65536, 524300, 0, 65536, 589826, 0, 65536, 589836, 0, 65536, 655362, 0, 65536, 655372, 0, 65536, 720898, 0, 65536, 720908, 0, 65536, 720912, 5, 0, 720913, 5, 0, 786434, 0, 196612, 786435, 1, 196610, 786436, 0, 7, 786442, 0, 4, 786443, 1, 196610, 786444, 0, 196615, 851972, 0, 196612, 851973, 1, 196610, 851974, 0, 196611, 851976, 0, 196609, 851977, 1, 196610, 851978, 0, 196615, 917511, 4, 0 )
+tile_data = PoolIntArray( 393218, 0, 4, 393219, 0, 196610, 393220, 1, 196610, 393221, 0, 196610, 393222, 0, 196610, 393223, 1, 196610, 393224, 0, 196610, 393225, 0, 196610, 393226, 1, 196610, 393227, 0, 196610, 393228, 0, 7, 458754, 0, 65536, 458764, 0, 65536, 524290, 0, 65536, 524300, 0, 65536, 589826, 0, 65536, 589836, 0, 65536, 655362, 0, 65536, 655372, 0, 65536, 720898, 0, 65536, 720908, 0, 65536, 786434, 0, 196612, 786435, 1, 196610, 786436, 0, 7, 786442, 0, 4, 786443, 1, 196610, 786444, 0, 196615, 851972, 0, 196612, 851973, 1, 196610, 851974, 0, 196611, 851976, 0, 196609, 851977, 1, 196610, 851978, 0, 196615, 917511, 4, 0 )
 
 [node name="Oyuncu" parent="Yapi" instance=ExtResource( 2 )]
 position = Vector2( 328, 189 )
@@ -1166,15 +1165,6 @@ YikilmaSayi = 1
 
 [node name="Kapi" parent="Yapi" instance=ExtResource( 13 )]
 position = Vector2( 120, 216 )
-
-[node name="Sandik" parent="Yapi" instance=ExtResource( 18 )]
-position = Vector2( 280, 184 )
-sandik = {
-0: [ "Taş Kılıç", 1 ]
-}
-
-[node name="Sandik3" parent="Yapi" instance=ExtResource( 18 )]
-position = Vector2( 264, 184 )
 
 [node name="Cati" type="TileMap" parent="."]
 z_index = 1

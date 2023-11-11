@@ -15,6 +15,7 @@ func _input(event):
 	if event.is_action_pressed("Envanter"):
 		find_parent("Oyuncu").YerdenEsyaAlmaZamanlayiciSifirla()
 		OyuncuEnvanter.hizliErisim_guncelle(hizli_erisim_sozluk)
+		find_parent("Oyuncu").gorunurlukKapa()
 		if tutulan_esya != null :
 			tutulan_esya.visible = !tutulan_esya.visible
 		Envanter.visible = !Envanter.visible

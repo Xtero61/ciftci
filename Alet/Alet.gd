@@ -60,13 +60,17 @@ func Islev_Oynat(Yapilcak_Yer):
 
 	elif ismim == "Cekic" :
 		if cekicMenuSecili == 1 :
-			YapiYap(TilemapGenel.yapi_duvar,Yapilcak_Yer)
+			YapiYap(TilemapGenel.yapi_duvar, Yapilcak_Yer)
 		elif cekicMenuSecili == 2 :
-			YapiYap(TilemapGenel.yapi_duvar_camli,Yapilcak_Yer)
+			YapiYap(TilemapGenel.yapi_duvar_camli, Yapilcak_Yer)
 		elif cekicMenuSecili == 3 :
-			YapiYap(TilemapGenel.yapi_kapi,Yapilcak_Yer)
+			YapiYap(TilemapGenel.yapi_kapi, Yapilcak_Yer)
 		elif cekicMenuSecili == 4 :
 			YapiYapCati(Yapilcak_Yer)
+		elif cekicMenuSecili == 5 :
+			ZeminYap(TilemapGenel.zemin, Yapilcak_Yer)
+		elif cekicMenuSecili == 6 :
+			YapiYap(TilemapGenel.yapi_sandik, Yapilcak_Yer)
 		else :
 			Yik(Yapilcak_Yer)
 
@@ -79,8 +83,11 @@ func Kurekleme(Yapilcak_Yer):
 func Sulama(Yapilcak_Yer):
 	TilemapGenel._TarlaYapmaSula(Yapilcak_Yer)
 
-func YapiYap(Yapi,Yapilacak_yer):
+func YapiYap(Yapi, Yapilacak_yer):
 	TilemapGenel._YapiYapmaKoy(Yapi,Yapilacak_yer)
+
+func ZeminYap(Yapi, Yapilacak_Yer):
+	TilemapGenel._ZeminYapKoy(Yapi, Yapilacak_Yer)
 
 func YapiYapCati(Yapilacak_yer):
 	TilemapGenel._YapiYapmaCati(Yapilacak_yer)
@@ -112,6 +119,7 @@ func menu_kapa() :
 func _on_MenuSlot0_input_event(_viewport, _event, _shape_idx):
 	if Input.is_mouse_button_pressed(1):
 		if $YapiMenu/ana/Menu.frame != 0 :
+			find_parent("Oyuncu").gorunurlukKapa()
 			$YapiMenu/ana/Menu.frame = 0
 			menu_kapa()
 
@@ -119,28 +127,60 @@ func _on_MenuSlot1_input_event(_viewport, _event, _shape_idx):
 	if Input.is_mouse_button_pressed(1):
 		if $YapiMenu/ana/Menu.frame != 1 :
 			$YapiMenu/ana/Menu.frame = 1
+			find_parent("Oyuncu").gorunurlukKapa()
+			find_parent("Oyuncu").cekicDuvar.visible = true
 			menu_kapa()
 
 func _on_MenuSlot2_input_event(_viewport, _event, _shape_idx):
 	if Input.is_mouse_button_pressed(1):
 		if $YapiMenu/ana/Menu.frame != 2 :
 			$YapiMenu/ana/Menu.frame = 2
+			find_parent("Oyuncu").gorunurlukKapa()
+			find_parent("Oyuncu").cekicCamDuvar.visible = true
 			menu_kapa()
 
 func _on_MenuSlot3_input_event(_viewport, _event, _shape_idx):
 	if Input.is_mouse_button_pressed(1):
 		if $YapiMenu/ana/Menu.frame != 3 :
 			$YapiMenu/ana/Menu.frame = 3
+			find_parent("Oyuncu").gorunurlukKapa()
+			find_parent("Oyuncu").cekicKapi.visible = true
 			menu_kapa()
 
 func _on_MenuSlot4_input_event(_viewport, _event, _shape_idx):
 	if Input.is_mouse_button_pressed(1):
 		if $YapiMenu/ana/Menu.frame != 4 :
 			$YapiMenu/ana/Menu.frame = 4
+			find_parent("Oyuncu").gorunurlukKapa()
+			find_parent("Oyuncu").cekicCati.visible = true
 			menu_kapa()
 
 func _on_MenuSlot5_input_event(_viewport, _event, _shape_idx):
 	if Input.is_mouse_button_pressed(1):
-			if $YapiMenu/ana/Menu.frame != 5 :
-				$YapiMenu/ana/Menu.frame = 5
-				menu_kapa()
+		if $YapiMenu/ana/Menu.frame != 5 :
+			$YapiMenu/ana/Menu.frame = 5
+			find_parent("Oyuncu").gorunurlukKapa()
+			find_parent("Oyuncu").cekicZemin.visible = true
+			menu_kapa()
+
+func _on_MenuSlot6_input_event(_viewport, _event, _shape_idx):
+	if Input.is_mouse_button_pressed(1):
+		if $YapiMenu/ana/Menu.frame != 6 :
+			$YapiMenu/ana/Menu.frame = 6
+			find_parent("Oyuncu").gorunurlukKapa()
+			find_parent("Oyuncu").cekicSandik.visible = true
+			menu_kapa()
+
+func _on_MenuSlot7_input_event(_viewport, _event, _shape_idx):
+	if Input.is_mouse_button_pressed(1):
+		if $YapiMenu/ana/Menu.frame != 7 :
+			$YapiMenu/ana/Menu.frame = 7
+			find_parent("Oyuncu").gorunurlukKapa()
+			menu_kapa()
+
+func _on_MenuSlot8_input_event(_viewport, _event, _shape_idx):
+	if Input.is_mouse_button_pressed(1):
+		if $YapiMenu/ana/Menu.frame != 8 :
+			$YapiMenu/ana/Menu.frame = 8
+			find_parent("Oyuncu").gorunurlukKapa()
+			menu_kapa()

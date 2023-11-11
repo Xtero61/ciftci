@@ -5,6 +5,7 @@ const TARLA_TILEMAP : String = "/root/Dunya/Tarla"
 const YAPI_TILEMAP : String = "/root/Dunya/Yapi"
 const CATI_TILEMAP : String = "/root/Dunya/Cati"
 const CATILAR : String = "/root/Dunya/Catilar"
+const ZEMIN_TILEMAP : String = "/root/Dunya/Zemin"
 
 #Yeryüzü döşeme sayıları
 const yeryuzu_kara : int = 3
@@ -32,8 +33,10 @@ const yapi_cati : int = 0
 const yapi_sandik : int = 5
 const bos : int = -1
 
+const zemin : int = 0
+
 var SulamaEfekSahne = load("res://SulamaEfek.tscn")
-var Kapisahne = load("res://Blok/Kapı/DunyaKapi.tscn")
+var Kapisahne = load("res://Yeryüzü Yapı/Kapı/DunyaKapi.tscn")
 var Sandiksahne = load("res://Yeryüzü Yapı/Sandık/Sandik.tscn")
 
 var CatiListesi = []
@@ -157,9 +160,13 @@ func _YapiYapmaSil(Fare_yer):
 	var tile = get_node(YAPI_TILEMAP).world_to_map(Fare_yer)
 
 	if !_CatiSil(Fare_yer):
-		if get_node(YAPI_TILEMAP).get_cell(tile.x,tile.y) != yapi_kapi :
-			get_node(YAPI_TILEMAP).set_cell(tile.x,tile.y,bos)
-			get_node(YAPI_TILEMAP).update_bitmask_region(tile,tile)
+		if get_node(YAPI_TILEMAP).get_cell(tile.x,tile.y) != bos :
+			if get_node(YAPI_TILEMAP).get_cell(tile.x,tile.y) != yapi_kapi and get_node(YAPI_TILEMAP).get_cell(tile.x,tile.y) != yapi_sandik :
+				get_node(YAPI_TILEMAP).set_cell(tile.x,tile.y,bos)
+				get_node(YAPI_TILEMAP).update_bitmask_region(tile,tile)
+		else :
+			get_node(ZEMIN_TILEMAP).set_cell(tile.x,tile.y,bos)
+			get_node(ZEMIN_TILEMAP).update_bitmask_region(tile,tile)
 
 	_YapiYapmaKapiEtrafiKontrol()
 
@@ -178,7 +185,7 @@ func _YapiYapmaKapiEtrafiKontrol():
 	get_tree().call_group("Kapi","kapi_etrafi_kontrol")
 
 func _KapiUstuKoy(Kapi_yer):
-	var tile = get_node(TARLA_TILEMAP).world_to_map(Kapi_yer)
+	var tile = get_node(YAPI_TILEMAP).world_to_map(Kapi_yer)
 
 	if ((get_node(YAPI_TILEMAP).get_cell(tile.x-1,tile.y) == yapi_duvar or get_node(YAPI_TILEMAP).get_cell(tile.x-1,tile.y) == yapi_duvar_camli)
 	 or (get_node(YAPI_TILEMAP).get_cell(tile.x+1,tile.y) == yapi_duvar or get_node(YAPI_TILEMAP).get_cell(tile.x+1,tile.y) == yapi_duvar_camli)):
@@ -189,8 +196,16 @@ func _KapiUstuKoy(Kapi_yer):
 	   or (get_node(YAPI_TILEMAP).get_cell(tile.x+1,tile.y) != yapi_duvar or get_node(YAPI_TILEMAP).get_cell(tile.x+1,tile.y) != yapi_duvar_camli)):
 		_KapiUstuSil(Kapi_yer)
 
+func _ZeminYapKoy(YapilanYapi, Fare_yer):
+	var tile = get_node(TARLA_TILEMAP).world_to_map(Fare_yer)
+	
+	if _YapiYapmaZeminKontrol(tile) :
+		if get_node(YAPI_TILEMAP).get_cell(tile.x,tile.y) == bos :
+			get_node(ZEMIN_TILEMAP).set_cell(tile.x, tile.y, YapilanYapi)
+			get_node(ZEMIN_TILEMAP).update_bitmask_region(tile,tile)
+
 func _KapiUstuSil(Kapi_yer):
-	var tile = get_node(TARLA_TILEMAP).world_to_map(Kapi_yer)
+	var tile = get_node(YAPI_TILEMAP).world_to_map(Kapi_yer)
 
 	get_node(YAPI_TILEMAP).set_cell(tile.x,tile.y+1,bos)
 	get_node(YAPI_TILEMAP).update_bitmask_region(tile,tile)

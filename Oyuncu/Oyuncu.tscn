@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Oyuncu/Oyuncu.gd" type="Script" id=1]
 [ext_resource path="res://Oyuncu/İmleç.png" type="Texture" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Oyuncu/EsyaAlmaAlani.gd" type="Script" id=15]
 [ext_resource path="res://Envanter/HızlıErişim/HizliErisim.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Envanter/Sandık İçi/Sandik_slotlari.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Yeryüzü Yapı/Sandık/SandikIcon.png" type="Texture" id=18]
 
 [sub_resource type="Gradient" id=13]
 offsets = PoolRealArray( 0, 0.984127, 1 )
@@ -370,7 +371,6 @@ local_coords = false
 process_material = SubResource( 17 )
 
 [node name="CekicKoyulcakYapi" type="Position2D" parent="."]
-visible = false
 z_index = 5
 
 [node name="CamliDuvaricon" type="Sprite" parent="CekicKoyulcakYapi"]
@@ -405,6 +405,13 @@ visible = false
 modulate = Color( 1, 1, 1, 0.470588 )
 self_modulate = Color( 0, 1, 0, 1 )
 texture = ExtResource( 12 )
+
+[node name="SandikIcon" type="Sprite" parent="CekicKoyulcakYapi"]
+visible = false
+modulate = Color( 1, 1, 1, 0.470588 )
+self_modulate = Color( 0, 1, 0, 1 )
+texture = ExtResource( 18 )
+offset = Vector2( 0, -4 )
 
 [node name="imlec" type="Sprite" parent="."]
 z_index = 5

@@ -1,9 +1,6 @@
 extends Node2D
 
-export var sandik : Dictionary = {
-	0: ["Taş Kılıç", 1],
-	1: ["Taş Kazma", 1],
-}
+var sandik : Dictionary = {}
 
 onready var sandik_rengi = $SandikAnimasyon/SandikAnimasyonrenkli
 

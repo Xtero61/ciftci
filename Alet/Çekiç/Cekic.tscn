@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Alet/Çekiç/TaşÇekiç.png" type="Texture" id=1]
 [ext_resource path="res://Alet/Alet.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Yeryüzü Yapı/Çatı/Çatıicon.png" type="Texture" id=7]
 [ext_resource path="res://Yeryüzü Yapı/Kapı/Kapı.png" type="Texture" id=8]
 [ext_resource path="res://Yeryüzü Yapı/Tahta_Zemin_icon.png" type="Texture" id=9]
+[ext_resource path="res://Yeryüzü Yapı/Sandık/SandikIcon.png" type="Texture" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3, 4.5 )
@@ -167,7 +168,31 @@ polygon = PoolVector2Array( -5.70001, -105.7, -8.70001, -105.7, -8.70001, -103.7
 position = Vector2( 58.7, 58.7 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YapiMenu/ana/MenuSlot5"]
-polygon = PoolVector2Array( -25.7, -55.7, 18.3, -55.7, 18.3, -43.7, 16.3, -43.7, 16.3, -33.7, 13.3, -33.7, 13.3, -26.7, 11.3, -26.7, 11.3, -21.7, -6.70001, -21.7, -6.70001, -18.7, -11.7, -18.7, -11.7, -16.7, -13.7, -16.7, -13.7, -13.7, -15.7, -13.7, -15.7, -16.7, -18.7, -16.7, -18.7, -18.7, -20.7, -18.7, -20.7, -21.7, -23.7, -21.7, -23.7, -23.7, -25.7, -23.7, -25.7, -26.7, -28.7, -26.7, -28.7, -28.7, -30.7, -28.7, -30.7, -30.7, -33.7, -30.7, -33.7, -32.7, -35.7, -32.7, -35.7, -35.7, -33.7, -35.7, -33.7, -40.7, -30.7, -40.7, -30.7, -43.7, -28.7, -43.7, -28.7, -48.7, -25.7, -48.7 )
+polygon = PoolVector2Array( -25.7, -55.7, 18.3, -55.7, 18.3, -43.7, 16.3, -43.7, 16.3, -33.7, 13.3, -33.7, 13.3, -26.7, 11.3, -26.7, 11.3, -21.7, -6.70001, -21.7, -6.70001, -18.7, -11.7, -18.7, -11.7, -16.7, -13.7, -16.7, -13.7, -13.7, -15.7, -13.7, -15.7, -16.7, -18.7, -16.7, -18.7, -18.7, -20.7, -18.7, -20.7, -21.7, -23.7, -21.7, -23.7, -23.7, -25.7, -23.7, -25.7, -26.7, -28.7, -26.7, -28.7, -28.7, -30.7, -28.7, -30.7, -31.7, -33.7, -31.7, -33.7, -33.7, -35.7, -33.7, -35.7, -35.7, -33.7, -35.7, -33.7, -40.7, -30.7, -40.7, -30.7, -43.7, -28.7, -43.7, -28.7, -48.7, -25.7, -48.7 )
+
+[node name="MenuSlot6" type="Area2D" parent="YapiMenu/ana"]
+position = Vector2( 58.7, 58.7 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YapiMenu/ana/MenuSlot6"]
+position = Vector2( -117.7, -117.7 )
+scale = Vector2( -1, -1 )
+polygon = PoolVector2Array( -59, -92, -59, -136, -74, -136, -74, -134, -84, -134, -84, -131, -91, -131, -91, -129, -96, -129, -96, -126, -98, -126, -98, -124, -96, -124, -96, -111, -99, -111, -99, -106, -101, -106, -101, -104, -99, -104, -99, -102, -96, -102, -96, -99, -93, -99, -93, -97, -91, -97, -91, -94, -89, -94, -89, -92, -86, -92, -86, -89, -84, -89, -84, -87, -81, -87, -81, -84, -77, -84, -77, -87, -74, -87, -74, -89, -69, -89, -69, -92 )
+
+[node name="MenuSlot7" type="Area2D" parent="YapiMenu/ana"]
+position = Vector2( 58.7, 58.7 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YapiMenu/ana/MenuSlot7"]
+position = Vector2( -117.7, -116.7 )
+scale = Vector2( -1, -1 )
+polygon = PoolVector2Array( -56, -91, -56, -135, -44, -135, -44, -133, -34, -133, -34, -130, -27, -130, -27, -128, -22, -128, -22, -125, -17, -125, -17, -123, -14, -123, -14, -120, -12, -120, -12, -118, -7, -118, -7, -115, -4, -115, -4, -111, -7, -111, -7, -108, -9, -108, -9, -106, -12, -106, -12, -103, -14, -103, -14, -101, -17, -101, -17, -98, -19, -98, -19, -96, -22, -96, -22, -93, -24, -93, -24, -91, -27, -91, -27, -88, -29, -88, -29, -86, -32, -86, -32, -83, -34, -83, -34, -81, -36, -81, -36, -83, -41, -83, -41, -86, -44, -86, -44, -88, -49, -88, -49, -91 )
+
+[node name="MenuSlot8" type="Area2D" parent="YapiMenu/ana"]
+position = Vector2( 58.7, 58.7 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YapiMenu/ana/MenuSlot8"]
+position = Vector2( -117.7, -117.7 )
+scale = Vector2( -1, -1 )
+polygon = PoolVector2Array( -6, -106, -9, -106, -9, -104, -11, -104, -11, -101, -14, -101, -14, -99, -16, -99, -16, -96, -19, -96, -19, -94, -21, -94, -21, -91, -24, -91, -24, -89, -26, -89, -26, -86, -29, -86, -29, -84, -31, -84, -31, -81, -34, -81, -34, -77, -31, -77, -31, -74, -29, -74, -29, -69, -26, -69, -26, -59, 18, -59, 18, -74, 16, -74, 16, -84, 13, -84, 13, -91, 11, -91, 11, -96, 8, -96, 8, -101, 6, -101, 6, -104, 3, -104, 3, -106, 1, -106, 1, -111, -3, -111, -3, -109, -6, -109 )
 
 [node name="Duvaricon" type="Sprite" parent="YapiMenu/ana"]
 position = Vector2( -53, -21 )
@@ -188,14 +213,18 @@ position = Vector2( -19, -52 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 6 )
 
+[node name="TahtaZeminIcon" type="Sprite" parent="YapiMenu/ana"]
+position = Vector2( 52, 22 )
+texture = ExtResource( 9 )
+
+[node name="SandikIcon" type="Sprite" parent="YapiMenu/ana"]
+position = Vector2( 19, 50 )
+texture = ExtResource( 10 )
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YapiMenu/ana"]
 "anims/Açılma" = SubResource( 2 )
 anims/Kapanma = SubResource( 4 )
 anims/RESET = SubResource( 3 )
-
-[node name="TahtaZeminIcon" type="Sprite" parent="YapiMenu/ana"]
-position = Vector2( 52, 22 )
-texture = ExtResource( 9 )
 
 [connection signal="timeout" from="TimerEfek" to="." method="_on_TimerEfek_timeout"]
 [connection signal="input_event" from="YapiMenu/ana/MenuSlot0" to="." method="_on_MenuSlot0_input_event"]
@@ -204,3 +233,6 @@ texture = ExtResource( 9 )
 [connection signal="input_event" from="YapiMenu/ana/MenuSlot3" to="." method="_on_MenuSlot3_input_event"]
 [connection signal="input_event" from="YapiMenu/ana/MenuSlot4" to="." method="_on_MenuSlot4_input_event"]
 [connection signal="input_event" from="YapiMenu/ana/MenuSlot5" to="." method="_on_MenuSlot5_input_event"]
+[connection signal="input_event" from="YapiMenu/ana/MenuSlot6" to="." method="_on_MenuSlot6_input_event"]
+[connection signal="input_event" from="YapiMenu/ana/MenuSlot7" to="." method="_on_MenuSlot7_input_event"]
+[connection signal="input_event" from="YapiMenu/ana/MenuSlot8" to="." method="_on_MenuSlot8_input_event"]

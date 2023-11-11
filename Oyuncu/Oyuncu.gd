@@ -22,6 +22,7 @@ onready var cekicDuvar = $CekicKoyulcakYapi/Duvaricon
 onready var cekicCati = $CekicKoyulcakYapi/Catiicon
 onready var cekicKapi = $CekicKoyulcakYapi/Kapi
 onready var cekicZemin = $CekicKoyulcakYapi/TahtaZeminIcon
+onready var cekicSandik = $CekicKoyulcakYapi/SandikIcon
 onready var EsyaAlmaAlan = $EsyaAlmaAlani
 onready var Envanter = $UI/Envanter
 onready var Sandik = $UI/Sandik_slotlari
@@ -51,6 +52,7 @@ func gorunurlukKapa():
 	cekicCati.visible = false
 	cekicKapi.visible = false
 	cekicZemin.visible = false
+	cekicSandik.visible = false
 
 func _process(delta):
 	YerdenEsyaAlma(Input, delta)
@@ -60,29 +62,11 @@ func _process(delta):
 
 	if El_Esya_Yer.get_child_count() == 3 :
 		if El_Esya_Yer.get_child(2).name == "Cekic":
-			if El_Esya_Yer.get_child(2).cekicMenuSecili == 1 :
-				gorunurlukKapa()
-				cekicDuvar.visible = true
-			elif El_Esya_Yer.get_child(2).cekicMenuSecili == 2:
-				gorunurlukKapa()
-				cekicCamDuvar.visible = true
-			elif El_Esya_Yer.get_child(2).cekicMenuSecili == 3:
-				gorunurlukKapa()
-				cekicKapi.visible = true
-			elif El_Esya_Yer.get_child(2).cekicMenuSecili == 4:
-				gorunurlukKapa()
-				cekicCati.visible = true
-			elif El_Esya_Yer.get_child(2).cekicMenuSecili == 5 :
-				gorunurlukKapa()
-				cekicZemin.visible = true
-			else :
-				gorunurlukKapa()
-			CekicKoyulcakYapi.visible = true
 			CekicKoyulcakYapi.global_position = imlec.global_position
 		else :
-			CekicKoyulcakYapi.visible = false
+			gorunurlukKapa()
 	else :
-		CekicKoyulcakYapi.visible = false
+		gorunurlukKapa()
 
 func _physics_process(delta):
 
