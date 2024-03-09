@@ -51,6 +51,7 @@ var esya_veri :  Dictionary = {
 		"EsyaTürü": "Sulama Kabı",
 		"BirikmeMiktarı": 1,
 		"ResimYolu" : "res://Alet/Sulama Kabı/SulamaKabı.png",
+		"ResimYolu2" : "res://Alet/Sulama Kabı/SulamaKabıSulu.png",
 		"EsyaSahne": "res://Alet/Sulama Kabı/SulamaKabi.tscn",
 	},
 	"Olta": {

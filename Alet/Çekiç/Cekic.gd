@@ -5,14 +5,11 @@ onready var TimerEfek = $TimerEfek
 onready var Simge = $Simge
 onready var Efek = $Simge/Efek
 
-var sulama_hak = 0 
-var olta_atma = true
-var cekicMenu = false
 var cekicMenuSecili = 0
+var cekicMenu = false
 
 func _process(_delta):
-
-	if ismim == "Cekic":
+	if ! find_parent("Oyuncu").Envanter.visible :
 		if Input.is_action_just_pressed("YapıMenu"):
 			if cekicMenu :
 				$YapiMenu/ana/AnimationPlayer.play("Kapanma")
@@ -21,67 +18,30 @@ func _process(_delta):
 				$YapiMenu/ana/AnimationPlayer.play("Açılma")
 			cekicMenu = !cekicMenu
 
-	if ismim == "Olta":
-		var ip = $OltaUcuYer/ip
-		ip.points[0] = $OltaUcuYer/OltaUcu/OltaUcu.global_position
-		ip.points[1] = $LineBasPos.global_position
-
-func Islev_Oynat(Yapilcak_Yer):
-
-	if olta_atma == true :
-		Efek.visible = true
-	
+func Islev_Oynat(Yapilacak_Yer):
+	Efek.visible = true
 	TimerEfek.start()
-	if ismim != "SulamaKabi" and ismim != "Capa":
-		if ! ismim == "Cekic":
-			$VurmaAlan.disabled = false
-		elif cekicMenuSecili == 0 :
-			$VurmaAlan.disabled = false
+	if cekicMenuSecili == 0 : 
+		$VurmaAlan.disabled = false
 
-	if ismim == "Capa":
-		Capalama(Yapilcak_Yer)
+	if cekicMenuSecili == 1 :
+		YapiYap(TilemapGenel.yapi_duvar, Yapilacak_Yer)
+	elif cekicMenuSecili == 2 :
+		YapiYap(TilemapGenel.yapi_duvar_camli, Yapilacak_Yer)
+	elif cekicMenuSecili == 3 :
+		YapiYap(TilemapGenel.yapi_kapi, Yapilacak_Yer)
+	elif cekicMenuSecili == 4 :
+		YapiYapCati(Yapilacak_Yer)
+	elif cekicMenuSecili == 5 :
+		ZeminYap(TilemapGenel.zemin, Yapilacak_Yer)
+	elif cekicMenuSecili == 6 :
+		YapiYap(TilemapGenel.yapi_sandik, Yapilacak_Yer)
+	else :
+		Yik(Yapilacak_Yer)
 
-	elif ismim == "Kurek":
-		Kurekleme(Yapilcak_Yer)
-
-	elif ismim == "SulamaKabi" :
-		if sulama_hak > 0 and TilemapGenel._TarlaYapmaKontrol(Yapilcak_Yer) :
-			Sulama(Yapilcak_Yer)
-			sulama_hak -= 1
-		elif TilemapGenel._TarlaYapmaSuDoldur(Yapilcak_Yer) :
-			sulama_hak = 20
-		if sulama_hak == 0 :
-			Simge.frame = 0
-		else :
-			Simge.frame = 1
-
-	elif ismim == "Olta":
-		pass
-
-	elif ismim == "Cekic" :
-		if cekicMenuSecili == 1 :
-			YapiYap(TilemapGenel.yapi_duvar, Yapilcak_Yer)
-		elif cekicMenuSecili == 2 :
-			YapiYap(TilemapGenel.yapi_duvar_camli, Yapilcak_Yer)
-		elif cekicMenuSecili == 3 :
-			YapiYap(TilemapGenel.yapi_kapi, Yapilcak_Yer)
-		elif cekicMenuSecili == 4 :
-			YapiYapCati(Yapilcak_Yer)
-		elif cekicMenuSecili == 5 :
-			ZeminYap(TilemapGenel.zemin, Yapilcak_Yer)
-		elif cekicMenuSecili == 6 :
-			YapiYap(TilemapGenel.yapi_sandik, Yapilcak_Yer)
-		else :
-			Yik(Yapilcak_Yer)
-
-func Capalama(Yapilcak_Yer):
-	TilemapGenel._TarlaYapmaKoy(Yapilcak_Yer)
-
-func Kurekleme(Yapilcak_Yer):
-	TilemapGenel._TarlaYapmaSil(Yapilcak_Yer)
-
-func Sulama(Yapilcak_Yer):
-	TilemapGenel._TarlaYapmaSula(Yapilcak_Yer)
+func _on_TimerEfek_timeout():
+	Efek.visible = false
+	$VurmaAlan.disabled = true
 
 func YapiYap(Yapi, Yapilacak_yer):
 	TilemapGenel._YapiYapmaKoy(Yapi,Yapilacak_yer)
@@ -92,23 +52,8 @@ func ZeminYap(Yapi, Yapilacak_Yer):
 func YapiYapCati(Yapilacak_yer):
 	TilemapGenel._YapiYapmaCati(Yapilacak_yer)
 
-func Yik(Yapilcak_Yer):
-	TilemapGenel._YapiYapmaSil(Yapilcak_Yer)
-
-func _on_TimerEfek_timeout():
-
-	Efek.visible = false
-
-	if ismim != "SulamaKabi" and ismim != "Capa":
-		$VurmaAlan.disabled = true
-	if ismim == "Olta":
-		if olta_atma == true :
-			$OltaUcuYer/OltaUcu.position = $OltaUcuPos.global_position
-			$OltaUcuYer.visible = true
-			olta_atma = false
-		else :
-			$OltaUcuYer.visible = false
-			olta_atma = true
+func Yik(Yapilacak_Yer):
+	TilemapGenel._YapiYapmaSil(Yapilacak_Yer)
 
 func menu_kapa() :
 	$YapiMenu/ana/AnimationPlayer.play("Kapanma")

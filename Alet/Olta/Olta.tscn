@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Alet/Olta/OltaSimge.png" type="Texture" id=1]
-[ext_resource path="res://Alet/Alet.gd" type="Script" id=2]
+[ext_resource path="res://Alet/Olta/Olta.gd" type="Script" id=2]
 [ext_resource path="res://Alet/Kılıç/KılıcEfek.png" type="Texture" id=3]
 [ext_resource path="res://Alet/Olta/OltaUcu.png" type="Texture" id=4]
 

@@ -25,6 +25,7 @@ onready var cekicZemin = $CekicKoyulcakYapi/TahtaZeminIcon
 onready var cekicSandik = $CekicKoyulcakYapi/SandikIcon
 onready var EsyaAlmaAlan = $EsyaAlmaAlani
 onready var Envanter = $UI/Envanter
+onready var HizliErisim = $UI/HizliErisim
 onready var Sandik = $UI/Sandik_slotlari
 onready var UI = $UI
 onready var AtilanEsyaDogma = $DoluEl/AtilanEsyaDogma
@@ -140,10 +141,12 @@ func _input(event):
 		#eldeki eşyayla vurma
 			if !Envanter.visible :
 				if event.is_action_pressed("Vurma") and ! VanimationPlayer.is_playing():
-
-					if EldekiEsya.name != "Olta":
+					
+					if EldekiEsya.name == "Cekic" :
 						if ! EldekiEsya.cekicMenu :
 							TimerVurma.start()
+					elif EldekiEsya.name != "Olta" :
+						TimerVurma.start()
 					else :
 						if EldekiEsya.olta_atma :
 							TimerOlta.wait_time = 0.3
@@ -191,7 +194,7 @@ func YerdenEsyaAlma(event, delta):
 			basili_tutuluyor = false
 			zamanlayici = 0
 			adim_araligi = 0.12
-	    
+
 		if basili_tutuluyor:
 			zamanlayici -= delta
 			if zamanlayici <= 0:

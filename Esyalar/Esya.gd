@@ -3,6 +3,9 @@ extends Node2D
 var esya_isim = null
 var esya_miktar = null
 
+var sulama_hak = 0
+var sulamakabresim = 0
+
 onready var resim = $TextureRect
 onready var esya_g_sayi = $Label
 
@@ -32,8 +35,11 @@ func esya_ayarla(esya_is, esya_mik):
 	esya_isim = esya_is
 	esya_miktar = esya_mik
 
-	resim.texture = load(JsonVeri.esya_veri[esya_isim]["ResimYolu"])
-	
+	if sulamakabresim == 0 :
+		resim.texture = load(JsonVeri.esya_veri[esya_isim]["ResimYolu"])
+	else :
+		resim.texture = load(JsonVeri.esya_veri[esya_isim]["ResimYolu2"])
+
 	var yigin_boyu = int(JsonVeri.esya_veri[esya_isim]["BirikmeMiktarı"])
 	if yigin_boyu == 1:
 		esya_g_sayi.visible = false
